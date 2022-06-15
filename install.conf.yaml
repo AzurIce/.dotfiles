@@ -1,0 +1,21 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.config/nvim: nvim
+    ~/.config/alacritty: alacritty
+    ~/.config/picom: picom
+    #~/.config/sway: sway
+    ~/.config/xmonad: xmonad
+    ~/.xmobarrc: xmobar/.xmobarrc
+    ~/.gitconfig: .gitconfig
+    ~/.local/share/fcitx5: fcitx5
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+

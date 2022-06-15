@@ -1,0 +1,35 @@
+Config { overrideRedirect = False
+       , font     = "xft:HarmonyOS Sans SC:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:SauceCodePro Nerd Font:pixelsize=26:antialias=true:hinting"
+                           , "xft:SauceCodePro Nerd Font:pixelsize=14:antialias=true:hinting"
+                           ]
+       , bgColor  = "#222222"
+       , fgColor  = "#f8f8f2"
+       , alpha    = 200
+       , position = TopH 26
+       , commands = [ Run DynNetwork ["-t", "<fn=2>祝</fn>  <rx>kb  <fn=2></fn>  <tx>kb"] 10
+                    , Run Battery [ "-t", "<acstatus>  <watts>W  <leftvbar> <left>% (<timeleft>)"
+                                  , "-H", "80", "-p", "3"
+                                  , "--"
+                                  , "-O", "<fn=2>ﮣ</fn>", "-o", "<fn=2>ﮤ</fn>"
+                                  , "-l", "red", "-m", "white", "-h", "green"
+                                  ] 50
+                    , Run Cpu
+                        [ "-t", "<fn=2></fn>  <total>%"
+                        , "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "green"
+                        ] 10
+                    , Run Memory ["-t", "<fn=2></fn>  <usedratio>%"] 10
+                    , Run Swap ["-t", "<usedratio>%"] 10
+                    , Run Date "<fn=2></fn>  %a %Y-%m-%d <fc=#8be9fd>%H:%M:%S</fc>" "date" 10
+                    , Run Alsa "default" "Master" [ "-t", "<status>  <volume>"
+                                                  , "--"
+                                                  , "-O", "<fn=2>墳</fn>", "-o", "<fn=2>婢</fn>"]
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "<fn=1></fn>   %XMonadLog% }{ %alsa:default:Master% | %dynnetwork% | %cpu% | %memory% x %swap% | %battery% | %date% "
+       }

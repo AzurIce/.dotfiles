@@ -1,0 +1,7 @@
+[user]
+	email = 973562770@qq.com
+	name = AzurIce
+[http]
+	proxy = socks5://127.0.0.1:6666
+[https]
+	proxy = socks5://127.0.0.1:6666

@@ -1,0 +1,25 @@
+# Rime user dictionary
+#@/db_name	luna_pinyin
+#@/db_type	userdb
+#@/rime_version	1.7.3
+#@/tick	13
+#@/user_id	293b3ab8-0893-4014-8e5e-a6df728d69da
+bu yong 	不用	c=0 d=0.1 t=10
+bu yong de 	不用的	c=1 d=1 t=11
+de 	的	c=1 d=1.07531 t=10
+hao la 	好啦	c=0 d=0.1 t=0
+jin xing 	進行	c=0 d=0.1 t=1
+jin xing yi xie 	進行一些	c=1 d=1 t=2
+li yu 	利於	c=1 d=1 t=3
+qu diao 	去掉	c=1 d=1 t=10
+ran hou jiu 	然後就	c=0 d=0.1 t=0
+ran hou jiu hao la 	然後就好啦	c=1 d=1 t=1
+shao jia 	稍加	c=0 d=0.1 t=12
+shao jia xiu gai 	稍加修改	c=1 d=1 t=13
+she zhi 	設置	c=2 d=1.98511 t=9
+shi yong de 	實用的	c=1 d=1 t=4
+xiu gai 	修改	c=0 d=0.1 t=12
+yi xie 	一些	c=0 d=0.1 t=1
+yuan shi de 	原始的	c=1 d=1 t=8
+zai 	再	c=1 d=1 t=12
+zhe shi 	這是	c=1 d=1 t=7
