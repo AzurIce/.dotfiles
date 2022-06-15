@@ -6,3 +6,6 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
+[submodule "qtile"]
+	path = qtile
+	url = git@github.com:AzurIce/qtile.git
