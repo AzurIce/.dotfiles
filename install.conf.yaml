@@ -10,6 +10,7 @@
     ~/.config/nvim: nvim
     ~/.config/alacritty: alacritty
     ~/.config/picom: picom
+    ~/.config/waybar: waybar
     #~/.config/sway: sway
     ~/.config/xmonad: xmonad
     ~/.xmobarrc: xmobar/.xmobarrc
