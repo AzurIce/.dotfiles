@@ -9,8 +9,10 @@
 - link:
     ~/.config/nvim: nvim
     ~/.config/alacritty: alacritty
-    ~/.config/picom: picom
+    #~/.config/picom: picom
     ~/.config/waybar: waybar
+    ~/.config/wofi: wofi
+    ~/.config/wayfire.ini: wayfire.ini
     #~/.config/sway: sway
     ~/.config/xmonad: xmonad
     ~/.xmobarrc: xmobar/.xmobarrc
