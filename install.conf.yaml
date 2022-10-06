@@ -11,11 +11,11 @@
     ~/.config/alacritty: alacritty
     #~/.config/picom: picom
     ~/.config/waybar: waybar
-    ~/.config/wofi: wofi
-    ~/.config/wayfire.ini: wayfire.ini
-    #~/.config/sway: sway
-    ~/.config/xmonad: xmonad
-    ~/.xmobarrc: xmobar/.xmobarrc
+    #~/.config/wofi: wofi
+    #~/.config/wayfire.ini: wayfire.ini
+    ~/.config/sway: sway
+    #~/.config/xmonad: xmonad
+    #~/.xmobarrc: xmobar/.xmobarrc
     ~/.gitconfig: .gitconfig
     ~/.local/share/fcitx5: fcitx5
 
