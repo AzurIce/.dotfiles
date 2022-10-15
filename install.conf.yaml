@@ -18,6 +18,7 @@
     #~/.xmobarrc: xmobar/.xmobarrc
     ~/.gitconfig: .gitconfig
     ~/.local/share/fcitx5: fcitx5
+    /etc/nixos: nixos-config
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

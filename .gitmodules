@@ -12,3 +12,6 @@
 [submodule "waybar"]
 	path = waybar
 	url = git@github.com:AzurIce/waybar.git
+[submodule "nixos-config"]
+    path = nixos-config
+	url = git@github.com:AzurIce/nixos-config.git
