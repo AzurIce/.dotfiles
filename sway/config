@@ -42,10 +42,12 @@ gaps outer 0
 #-----------#
 # AutoStart #
 #-----------#
-exec_always fcitx5
-exec_always cfw
-exec_always todesk
-exec_always ~/.config/sway/launch_waybar.sh
+# exec_always fcitx5
+# exec_always cfw
+# exec_always todesk
+# exec --no-startup-id waybar -d
+# exec --no-startup-id fcitx5 -d --replace
+# exec_always ~/.config/sway/launch_waybar.sh
 exec_always ~/.config/sway/launch_syncthingtray.sh
 
 for_window [title=".*"] border pixel 3
