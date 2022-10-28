@@ -9,3 +9,4 @@ xmonad/xmonad-contrib/
 xmonad/stack.yaml
 
 *.userdb/
+nixos-config/result
