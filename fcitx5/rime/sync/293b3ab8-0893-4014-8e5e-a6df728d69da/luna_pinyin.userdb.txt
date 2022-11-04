@@ -2,24 +2,511 @@
 #@/db_name	luna_pinyin
 #@/db_type	userdb
 #@/rime_version	1.7.3
-#@/tick	13
+#@/tick	960
 #@/user_id	293b3ab8-0893-4014-8e5e-a6df728d69da
-bu yong 	不用	c=0 d=0.1 t=10
-bu yong de 	不用的	c=1 d=1 t=11
-de 	的	c=1 d=1.07531 t=10
-hao la 	好啦	c=0 d=0.1 t=0
-jin xing 	進行	c=0 d=0.1 t=1
-jin xing yi xie 	進行一些	c=1 d=1 t=2
-li yu 	利於	c=1 d=1 t=3
-qu diao 	去掉	c=1 d=1 t=10
-ran hou jiu 	然後就	c=0 d=0.1 t=0
-ran hou jiu hao la 	然後就好啦	c=1 d=1 t=1
-shao jia 	稍加	c=0 d=0.1 t=12
-shao jia xiu gai 	稍加修改	c=1 d=1 t=13
-she zhi 	設置	c=2 d=1.98511 t=9
-shi yong de 	實用的	c=1 d=1 t=4
-xiu gai 	修改	c=0 d=0.1 t=12
-yi xie 	一些	c=0 d=0.1 t=1
-yuan shi de 	原始的	c=1 d=1 t=8
-zai 	再	c=1 d=1 t=12
-zhe shi 	這是	c=1 d=1 t=7
+ai ren 	愛人	c=0 d=0.1 t=211
+ai ren chu li nu xing 	愛人處理奴性	c=1 d=1 t=212
+an zhuang 	安裝	c=19 d=6.07952 t=761
+an zhuang yi lai 	安裝依賴	c=2 d=1.93239 t=188
+ba 	吧	c=1 d=1 t=278
+ban ben 	版本	c=1 d=1 t=160
+bao 	包	c=1 d=1 t=249
+bi li 	比例	c=0 d=0.1 t=20
+bian liang 	變量	c=0 d=0.196561 t=779
+bian xie 	編寫	c=1 d=1.08958 t=315
+bian yi 	便宜	c=1 d=1 t=170
+bian yi 	編譯	c=3 d=2.85087 t=206
+bian yi gong ju 	編譯工具	c=2 d=1.99501 t=184
+biao ti 	標題	c=0 d=0.1 t=286
+biao ti lan 	標題欄	c=1 d=1 t=772
+bing 	並	c=4 d=2.63892 t=258
+bing fei 	並非	c=1 d=1 t=828
+bing zhi xing 	並執行	c=1 d=1 t=181
+bing zhi yu 	並置於	c=1 d=1 t=259
+bu 	不	c=3 d=1.78926 t=741
+bu ji 	不計	c=1 d=1 t=865
+bu ju 	佈局	c=1 d=1.09371 t=69
+bu neng 	不能	c=1 d=1 t=707
+bu ren 	不認	c=1 d=1 t=711
+bu yong 	不用	c=0 d=0.0985112 t=960
+bu yong de 	不用的	c=1 d=0.99005 t=960
+can kao 	參考	c=2 d=1.02625 t=766
+cang ku 	倉庫	c=2 d=1.76721 t=229
+cao zuo 	操作	c=0 d=0.1 t=55
+chang jian de 	常見的	c=1 d=1 t=917
+cheng wei 	成爲	c=0 d=0.1 t=128
+chong ming ming 	重命名	c=1 d=1 t=241
+chong qi 	重啓	c=1 d=1 t=748
+chu 	處	c=1 d=1 t=742
+chu li 	處理	c=0 d=0.1 t=211
+chu li qi 	處理器	c=0 d=0.1 t=712
+chu li qi de 	處理器的	c=1 d=1 t=713
+chuang jian 	創建	c=4 d=3.52707 t=196
+chuang jian xin de 	創建新的	c=1 d=1 t=194
+chuang kou 	窗口	c=7 d=3.41097 t=302
+chuang kou biao ti 	窗口標題	c=1 d=1 t=287
+chuang kou da xiao 	窗口大小	c=1 d=1.056 t=100
+chuang kou fu dong 	窗口浮動	c=1 d=1 t=98
+chuang kou shu liang 	窗口數量	c=1 d=1 t=77
+ci chu 	此處	c=0 d=0.1 t=795
+ci chu de 	此處的	c=1 d=1 t=796
+ci pan 	磁盤	c=1 d=1 t=213
+cong 	從	c=4 d=1.35237 t=736
+cun zai 	存在	c=0 d=0.1 t=780
+da kai 	打開	c=0 d=0.1 t=147
+da xiao 	大小	c=0 d=0.1 t=90
+dai li 	代理	c=1 d=1 t=279
+dan shi 	但是	c=5 d=3.5644 t=913
+dan shui 	淡水	c=1 d=1 t=912
+dang 	當	c=1 d=1 t=873
+dang qian 	當前	c=1 d=0.541316 t=281
+dang qian wen jian lei xing 	當前文件類型	c=1 d=1 t=282
+dang shi 	當時	c=1 d=1 t=701
+dao 	到	c=3 d=1.07507 t=764
+dao le 	到了	c=1 d=1 t=165
+de 	地	c=1 d=1 t=926
+de 	的	c=31 d=7.8135 t=960
+de dao de 	得到的	c=1 d=1 t=868
+de shi 	的事	c=0 d=0.1 t=888
+de shi qing 	的事情	c=0 d=0.1 t=907
+deng 	等	c=0 d=0.1 t=924
+deng chu 	登出	c=1 d=1 t=267
+deng ke neng 	等可能	c=1 d=1 t=925
+di zhi 	地址	c=1 d=1 t=231
+dian 	點	c=1 d=1.07465 t=884
+dian de 	點的	c=0 d=0.1 t=870
+dian ji 	點擊	c=1 d=1 t=92
+dou 	都	c=1 d=1.10069 t=740
+dou shi 	都是	c=0 d=0.1 t=118
+dou shi shi yong 	都是使用	c=1 d=1 t=119
+dui 	對	c=0 d=0.1 t=784
+dui ren yi shi shu 	對任意實數	c=1 d=1 t=785
+dui ying 	對應	c=1 d=1 t=799
+dui ying de 	對應的	c=2 d=1.94176 t=945
+dui yu 	對於	c=3 d=1.92087 t=843
+er 	二	c=6 d=1.43562 t=957
+er 	而	c=2 d=1.54064 t=162
+er shi 	而是	c=1 d=1 t=833
+er xiang fen bu 	二項分佈	c=1 d=1 t=958
+er yan 	而言	c=1 d=1 t=827
+fa ying 	發硬	c=1 d=1 t=900
+fan guang ban 	反光板	c=0 d=0.1 t=20
+fan guang ban hai jun kun ming bi li 	反光板海軍昆明比例	c=1 d=1 t=21
+fan ying 	反映	c=0 d=0.194176 t=900
+fan ying de shi 	反映的事	c=1 d=1 t=889
+fan ying luo zai 	反映落在	c=1 d=1 t=901
+fang an 	方案	c=0 d=0.1 t=15
+fei fu 	非負	c=1 d=1 t=782
+fen bu 	分佈	c=0 d=0.401676 t=957
+fen bu han shu 	分佈函數	c=2 d=1.12347 t=934
+fen bu han shu wei 	分佈函數爲	c=2 d=1.94176 t=947
+fen li 	分離	c=1 d=1 t=292
+fu dong 	浮動	c=0 d=0.1 t=97
+fu jia 	附加	c=1 d=1 t=234
+fu jin 	附近	c=3 d=2.68908 t=892
+fu zhi 	複製	c=2 d=1.92764 t=762
+fu zhi dao 	複製到	c=2 d=1.0739 t=731
+gai lv 	概率	c=11 d=6.88767 t=953
+gai lv fen bu 	概率分佈	c=1 d=1 t=920
+gai lv mi du 	概率密度	c=3 d=2.13649 t=954
+gai lv mi du han shu 	概率密度函數	c=2 d=1.9802 t=941
+gai zhu 	蓋住	c=1 d=1 t=150
+gao 	搞	c=1 d=1 t=704
+gao jie 	高階	c=0 d=0.1 t=865
+gao jie wu qiong xiao 	高階無窮小	c=1 d=1 t=866
+gao liang 	高亮	c=1 d=1.09753 t=285
+gao liang wen jian lei bie 	高亮文件類別	c=1 d=1 t=281
+ge 	個	c=0 d=0.104036 t=856
+gen ju 	根據	c=1 d=1.00617 t=867
+geng gai 	更改	c=1 d=1.04747 t=220
+gong ju 	工具	c=2 d=1.32308 t=308
+gong zuo 	工作	c=0 d=0.1 t=112
+gong zuo qu 	工作區	c=1 d=1 t=113
+gou jian 	構建	c=0 d=0.1 t=53
+gou jian wan cheng hou 	構建完成後	c=1 d=1 t=54
+guan bi 	關閉	c=0 d=0.1 t=59
+guan bi dang qian 	關閉當前	c=1 d=1 t=60
+guan wang 	官網	c=2 d=1.44486 t=187
+guan xi 	關係	c=1 d=1 t=810
+guang 	光	c=0 d=0.1 t=312
+guang 	逛	c=1 d=1 t=696
+guang biao 	光標	c=0 d=0.1 t=217
+hai jun 	海軍	c=0 d=0.1 t=20
+hai shi 	還是	c=1 d=0.91352 t=714
+hai shi jue ding 	還是決定	c=1 d=1 t=688
+hai shi sha 	還是啥	c=1 d=1 t=715
+hai you hen duo 	還有很多	c=1 d=1 t=274
+hai zai 	還在	c=1 d=1 t=159
+han shu 	函數	c=4 d=2.08522 t=956
+hao 	好	c=1 d=1 t=792
+hao la 	好啦	c=0 d=0.0937067 t=960
+he 	和	c=4 d=3.09242 t=272
+he shi de 	合適的	c=1 d=1 t=35
+hei ping 	黑屏	c=1 d=1 t=217
+hou zhe 	後者	c=1 d=1 t=43
+hou zhui 	後綴	c=0 d=0.1 t=282
+huan jing 	環境	c=0 d=0.1 t=312
+huan jing guang 	環境光	c=1 d=1 t=313
+hui 	會	c=1 d=1.00444 t=751
+hui bei 	會被	c=1 d=1 t=147
+hui cheng wei 	會成爲	c=1 d=1 t=129
+hui you 	會有	c=0 d=0.1 t=224
+hui you yi ge 	會有一個	c=1 d=1 t=225
+huo qu 	獲取	c=2 d=1.08629 t=746
+huo zhe 	或者	c=3 d=2.12439 t=734
+huo zhe shuo 	或者說	c=1 d=1 t=905
+ji 	即	c=2 d=1.52994 t=924
+ji ben 	基本	c=0 d=0.1 t=717
+ji ben pei zhi 	基本配置	c=1 d=1 t=718
+ji chu 	基礎	c=0 d=0.1 t=55
+ji chu cao zuo 	基礎操作	c=1 d=1 t=56
+ji ke 	即可	c=3 d=1.55964 t=875
+ji qi 	及其	c=1 d=1 t=775
+ji xiao 	極小	c=1 d=1.09185 t=896
+ji xiao ju li nei 	極小距離內	c=1 d=1 t=880
+ji yi 	記憶	c=0 d=0.1 t=949
+ji yu 	基於	c=1 d=1 t=300
+ji zhong 	幾種	c=1 d=1 t=916
+ji zuo 	記作	c=3 d=2.78073 t=957
+jian 	見	c=1 d=1 t=275
+jian cheng 	建成	c=1 d=1 t=794
+jian dan 	簡單	c=0 d=0.1 t=810
+jian dan lai kan 	簡單來看	c=1 d=1 t=811
+jian rong 	兼容	c=1 d=1 t=722
+jiang 	將	c=3 d=1.87895 t=326
+jiang dang qian 	將當前	c=1 d=1 t=110
+jiang qi 	將其	c=1 d=1 t=730
+jiao ben 	腳本	c=2 d=1.99005 t=769
+jiao dian 	焦點	c=2 d=1.91393 t=81
+jiao huan 	交換	c=1 d=1 t=87
+jie jue fang an 	解決方案	c=1 d=1 t=33
+jie tu 	截圖	c=1 d=1 t=270
+jin nian 	今年	c=0 d=0.1 t=178
+jin nian ru 	今年如	c=1 d=1 t=179
+jin ri 	今日	c=1 d=1 t=692
+jin ru 	進入	c=1 d=1 t=180
+jin si 	近似	c=1 d=1 t=960
+jin tian 	今天	c=1 d=1 t=690
+jin xing 	進行	c=2 d=0.0941765 t=960
+jin xing yi xie 	進行一些	c=1 d=0.946485 t=960
+jiu shi 	就是	c=4 d=3.10327 t=883
+ju li 	距離	c=0 d=0.1 t=879
+jue ding 	決定	c=0 d=0.1 t=687
+jun yun 	均勻	c=0 d=0.1 t=920
+jun yun fen bu 	均勻分佈	c=1 d=1 t=921
+kan dao 	看到	c=1 d=1.07153 t=698
+kan ta 	看他	c=1 d=1 t=702
+ke 	可	c=1 d=1 t=881
+ke long 	克隆	c=2 d=1.77105 t=227
+ke neng 	可能	c=0 d=0.1 t=924
+ke yi 	可以	c=2 d=0.322175 t=752
+ke yi geng gai 	可以更改	c=1 d=1 t=72
+ke yi shi yong 	可以使用	c=1 d=1 t=250
+ke yi xian 	可以先	c=1 d=1 t=753
+ke yi zhi jie 	可以直接	c=1 d=1 t=729
+ke zhi xing 	可執行	c=0 d=0.1 t=208
+ke zhi xing wen jian 	可執行文件	c=1 d=1 t=209
+kuai jie jian 	快捷鍵	c=1 d=1 t=269
+kun ming 	昆明	c=0 d=0.1 t=20
+lai 	來	c=1 d=1 t=235
+lai kan 	來看	c=0 d=0.1 t=810
+lai shi 	來時	c=0 d=0.1 t=95
+lai shi chuang kou 	來時窗口	c=1 d=1 t=96
+lai shuo 	來說	c=1 d=1 t=845
+lan 	欄	c=0 d=0.1 t=44
+lan ya 	藍牙	c=1 d=1 t=24
+le 	了	c=0 d=0.1 t=43
+lei bie 	類別	c=0 d=0.1 t=280
+li san xing 	離散性	c=1 d=1.09802 t=803
+li san xing sui ji bian liang 	離散性隨機變量	c=1 d=1 t=800
+li yu 	利於	c=1 d=0.951229 t=960
+lian xu 	連續	c=0 d=0.190484 t=843
+lian xu xing 	連續型	c=2 d=1.99501 t=825
+lian xu xing 	連續性	c=2 d=2.0431 t=823
+lian xu xing sui ji bian liang 	連續型隨機變量	c=1 d=1 t=844
+lian xu xing sui ji bian liang 	連續性隨機變量	c=2 d=1.92312 t=789
+liang du 	亮度	c=0 d=0.276588 t=313
+liang du tiao jie 	亮度調節	c=1 d=1 t=273
+liang ge 	兩個	c=1 d=1 t=286
+ling wei 	靈位	c=1 d=1 t=732
+luo zai 	落在	c=4 d=3.65176 t=900
+luo zai na ge dian 	落在那個點	c=1 d=1 t=878
+man zu 	滿足	c=1 d=1 t=949
+mao pao 	冒泡	c=0 d=0.1 t=88
+mao pao pai xu 	冒泡排序	c=1 d=1 t=89
+mi du 	密度	c=3 d=2.61519 t=861
+mian ban 	面板	c=0 d=0.1 t=74
+ming cheng 	名稱	c=1 d=1 t=238
+mo ni qi 	模擬器	c=0 d=0.1 t=264
+mo ren 	默認	c=1 d=0.546229 t=275
+mo ren de 	默認的	c=2 d=1.55156 t=257
+mo ren pei zhi wen jian zhong de 	默認配置文件中的	c=1 d=1 t=276
+mo ren shi 	默認是	c=2 d=1.90937 t=78
+mo ren shi yong 	默認使用	c=1 d=1 t=261
+mo shi 	模式	c=0 d=0.1 t=56
+mu lu 	目錄	c=3 d=2.63335 t=178
+mu lu xia 	目錄下	c=1 d=1 t=211
+mu lu zhong 	目錄中	c=1 d=1 t=123
+na ge 	那個	c=0 d=0.196561 t=884
+na ge dian 	那個點	c=2 d=1.97435 t=901
+na ge dian de 	那個點的	c=1 d=1 t=902
+nei 	內	c=0 d=0.1 t=879
+nei rong 	內容	c=0 d=0.1 t=311
+ni de 	你的	c=1 d=1 t=327
+ni ke yi 	你可以	c=1 d=1 t=735
+ni you 	你有	c=1 d=1 t=726
+niang 	娘	c=0 d=0.1 t=825
+nu xing 	奴性	c=0 d=0.1 t=211
+ou jia 	偶家	c=1 d=1 t=22
+pai xu 	排序	c=0 d=0.1 t=88
+pei se 	配色	c=1 d=1 t=17
+pei zhi 	配置	c=2 d=0.247812 t=717
+pei zhi wen jian 	配置文件	c=7 d=3.0555 t=745
+pin kun 	貧困	c=1 d=1 t=23
+ping jun zhi 	平均值	c=1 d=1 t=870
+ping mu 	屏幕	c=0 d=0.196079 t=311
+ping mu liang du 	屏幕亮度	c=1 d=1 t=304
+ping mu nei rong yi ji 	屏幕內容以及	c=1 d=1 t=312
+qi 	其	c=5 d=4.75065 t=952
+qi dong 	啓動	c=5 d=1.10675 t=769
+qi dong ge 	啓動個	c=1 d=1 t=215
+qi dong qi 	啓動器	c=1 d=1 t=264
+qi dong ruan jian 	啓動軟件	c=1 d=1 t=770
+qi dong yi ge xin de 	啓動一個新的	c=1 d=1 t=58
+qi shi 	其實	c=3 d=2.82338 t=876
+qi shi shi zhe yang de 	其實是這樣的	c=1 d=1 t=864
+qi ta 	其他	c=1 d=1 t=922
+qi zhong 	其中	c=0 d=0.1 t=127
+qi zhong de 	其中的	c=1 d=1 t=128
+qian mian 	前面	c=0 d=0.1 t=147
+qian mian da kai de 	前面打開的	c=1 d=1 t=148
+qie huan 	切換	c=3 d=2.85131 t=107
+qie huan bu ju mo shi 	切換佈局模式	c=1 d=1 t=57
+qie huan dao 	切換到	c=1 d=1 t=689
+qu 	區	c=3 d=1.94603 t=846
+qu 	取	c=3 d=2.28602 t=927
+qu diao 	去掉	c=2 d=0.985112 t=960
+qu dong 	驅動	c=1 d=1 t=29
+qu jian 	區間	c=2 d=1.84366 t=929
+quan xian 	權限	c=1 d=1 t=320
+que 	卻	c=1 d=1 t=928
+ran 	然	c=1 d=1 t=821
+ran hou 	然後	c=3 d=2.04103 t=764
+ran hou jiu 	然後就	c=0 d=0.0937067 t=960
+ran hou jiu hao la 	然後就好啦	c=1 d=0.941765 t=960
+ran hou zhi xing 	然後執行	c=1 d=1 t=765
+ren yi 	任意	c=0 d=0.1 t=784
+ru 	如	c=0 d=0.1 t=178
+ru ci 	如此	c=0 d=0.1 t=838
+ru guo 	如果	c=1 d=1 t=725
+ru xia 	如下	c=1 d=1 t=140
+ruan jian 	軟件	c=0 d=0.107887 t=769
+ruo 	若	c=0 d=0.1 t=780
+ruo cun zai 	若存在	c=1 d=1 t=781
+san 	三	c=1 d=1 t=145
+san ge 	三個	c=0 d=0.1 t=754
+sha 	啥	c=0 d=0.1 t=714
+shang 	上	c=0 d=0.1 t=854
+shang de 	上的	c=1 d=1 t=886
+shang xia 	上下	c=0 d=0.1 t=87
+shang xia yi dong shun xu 	上下移動順序	c=1 d=1 t=88
+shao jia 	稍加	c=0 d=0.0995012 t=960
+shao jia xiu gai 	稍加修改	c=1 d=1 t=960
+she 	設	c=1 d=1 t=777
+she zhi 	設置	c=3 d=1.9458 t=960
+shen fen 	身份	c=1 d=1 t=323
+shi 	使	c=2 d=1.37158 t=295
+shi 	實	c=0 d=0.1 t=782
+shi 	是	c=5 d=2.14979 t=897
+shi de 	使得	c=1 d=1 t=784
+shi han shu 	實函數	c=1 d=1 t=783
+shi jian 	時間	c=1 d=1 t=739
+shi li 	示例	c=1 d=1 t=744
+shi liu jin zhi 	十六進制	c=1 d=1 t=288
+shi qi 	視其	c=1 d=1 t=882
+shi shu 	實數	c=0 d=0.1 t=784
+shi yi kuan 	是一款	c=1 d=1 t=296
+shi yong 	使用	c=7 d=3.96873 t=318
+shi yong de 	實用的	c=1 d=0.955997 t=960
+shi yong liang 	使用量	c=1 d=1 t=214
+shi zhe yang de 	是這樣的	c=1 d=1.09501 t=863
+shou dong 	手動	c=1 d=1.07985 t=171
+shou dong chuang jian 	手動創建	c=1 d=1 t=127
+shou xian 	首先	c=1 d=1 t=255
+shu 	數	c=1 d=1 t=943
+shu liang 	數量	c=0 d=0.1 t=76
+shu ru 	輸入	c=1 d=1.03887 t=204
+shu ru fang an 	輸入方案	c=1 d=1 t=16
+shu xie 	書寫	c=0 d=0.1 t=120
+shu xie de 	書寫的	c=1 d=1 t=121
+shu xu guan 	鼠鬚管	c=1 d=1 t=18
+shuang 	雙	c=1 d=1.09501 t=27
+shuang xian ka 	雙顯卡	c=3 d=2.97025 t=32
+shui xing 	睡醒	c=1 d=1 t=695
+shun xu 	順序	c=0 d=0.1 t=87
+si hu 	似乎	c=1 d=1.05769 t=812
+si hu zai 	似乎在	c=1 d=1 t=703
+sui ji 	隨機	c=0 d=0.196561 t=779
+sui ji bian liang 	隨機變量	c=1 d=1.0833 t=843
+sui ji bian liang de 	隨機變量的	c=2 d=1.93707 t=817
+sui ji bian liang niang 	隨機變量娘	c=1 d=1 t=826
+sui ran 	雖然	c=2 d=1.99501 t=910
+suo ping 	鎖屏	c=1 d=1 t=266
+suo yi 	所以	c=2 d=0.643138 t=858
+suo yi qi shi 	所以其實	c=1 d=1 t=859
+suo you de 	所有的	c=1 d=1 t=222
+suo zai 	所在	c=0 d=0.1 t=81
+suo zai chuang kou 	所在窗口	c=1 d=1 t=82
+ta 	它	c=3 d=2.52353 t=948
+ta men 	他們	c=1 d=1 t=738
+tan qi 	嘆氣	c=1 d=1 t=716
+te ding 	特定	c=0 d=0.1 t=847
+te ding zhi 	特定值	c=1 d=1 t=848
+ti gong 	提供	c=0 d=0.1 t=43
+ti gong le yi ge 	提供了一個	c=1 d=1 t=44
+tian jia 	添加	c=2 d=1.99501 t=240
+tian jia dao 	添加到	c=1 d=1 t=329
+tiao jie 	調節	c=1 d=1.22291 t=313
+tiao jie liang du 	調節亮度	c=1 d=1 t=314
+tiao zheng 	調整	c=1 d=1 t=14
+tou 	頭	c=0 d=0.1 t=289
+tou zhi zhen 	頭指針	c=1 d=1 t=290
+tui chu 	退出	c=1 d=1 t=104
+tuo dong 	拖動	c=1 d=1 t=94
+tuo pan 	托盤	c=0 d=0.1 t=44
+tuo pan lan 	托盤欄	c=1 d=1 t=45
+wai guan 	外觀	c=1 d=1 t=19
+wan cheng hou 	完成後	c=0 d=0.1 t=53
+wei 	爲	c=8 d=4.86556 t=955
+wei he 	爲何	c=2 d=1.99005 t=840
+wei shen me 	爲什麼	c=1 d=1 t=709
+wei yu 	位於	c=1 d=1 t=122
+wei zhi 	位置	c=1 d=1 t=100
+wen jian 	文件	c=1 d=0.212779 t=762
+wen jian lei xing 	文件類型	c=0 d=0.1 t=281
+wen ti 	問題	c=1 d=1 t=714
+wen wen 	問問	c=1 d=1 t=737
+wo men 	我們	c=0 d=0.1 t=125
+wu 	無	c=0 d=0.103561 t=949
+wu hou zhui 	無後綴	c=1 d=1 t=283
+wu ji yi xing 	無記憶性	c=1 d=1 t=950
+wu qiong 	無窮	c=0 d=0.1 t=856
+wu qiong ge 	無窮個	c=1 d=1 t=857
+wu qiong xiao 	無窮小	c=0 d=0.1 t=865
+xia 	下	c=2 d=1.956 t=201
+xia mian 	下面	c=0 d=0.1 t=754
+xia mian san ge 	下面三個	c=1 d=1 t=755
+xia wu 	下午	c=2 d=1.99501 t=694
+xian 	先	c=0 d=0.1 t=752
+xian duan 	線段	c=0 d=0.1 t=854
+xian duan shang 	線段上	c=1 d=1 t=855
+xian ka 	顯卡	c=1 d=1.1 t=27
+xian ka qu dong 	顯卡驅動	c=2 d=1.97531 t=36
+xian shi 	顯示	c=3 d=1.14607 t=752
+xiang 	項	c=0 d=0.1 t=957
+xiang bi 	相比	c=1 d=1 t=141
+xiang mu 	項目	c=1 d=1 t=195
+xiao shi 	小時	c=0 d=0.1 t=873
+xin de 	新的	c=0 d=0.1 t=193
+xin jian 	新建	c=1 d=1 t=202
+xing 	型	c=2 d=1.61767 t=918
+xing 	性	c=0 d=0.1 t=949
+xiu gai 	修改	c=3 d=0.0995012 t=960
+xiu gai chuang kou da xiao 	修改窗口大小	c=1 d=1 t=101
+xu yao 	需要	c=2 d=2.02758 t=321
+xu yao de 	需要的	c=1 d=1 t=51
+xu yao wo men jin xing 	需要我們進行	c=1 d=1 t=126
+xuan fu 	懸浮	c=1 d=1 t=103
+xuan ze 	選擇	c=2 d=1.97045 t=167
+xue xi 	學習	c=0 d=0.1 t=699
+yan se 	顏色	c=1 d=1 t=289
+yao 	要	c=0 d=0.1 t=838
+yao ru ci 	要如此	c=2 d=1.99005 t=841
+ye ke yi 	也可以	c=1 d=1 t=232
+ye shi 	也是	c=1 d=1 t=199
+yi 	一	c=7 d=1.84343 t=779
+yi 	以	c=1 d=1 t=322
+yi ban 	一般	c=2 d=1.99501 t=224
+yi chu 	移除	c=1 d=1 t=242
+yi dong 	移動	c=1 d=1.04254 t=98
+yi dong dao 	移動到	c=1 d=1 t=112
+yi dong qi 	移動其	c=1 d=1 t=99
+yi fen 	一份	c=1 d=1 t=137
+yi ge 	一個	c=2 d=1.06549 t=869
+yi ge xin de 	一個新的	c=0 d=0.1 t=57
+yi ji 	以及	c=3 d=1.69175 t=311
+yi jian 	一件	c=1 d=1 t=907
+yi jian 	意見	c=0 d=0.1 t=905
+yi jing 	已經	c=1 d=1 t=164
+yi lai 	依賴	c=1 d=0.648812 t=173
+yi tiao 	一條	c=1 d=1 t=854
+yi xia 	以下	c=0 d=0.1 t=261
+yi xia nei rong 	以下內容	c=1 d=1 t=205
+yi xia ruan jian 	以下軟件	c=1 d=1 t=262
+yi xie 	一些	c=0 d=0.0941765 t=960
+yin liang 	音量	c=0 d=0.1 t=270
+yin liang tiao jie 	音量調節	c=1 d=1 t=271
+yin wei 	因爲	c=3 d=2.51593 t=903
+ying yong cheng xu 	應用程序	c=1 d=1 t=263
+yong hu 	用戶	c=1 d=1 t=328
+yong yu 	用於	c=1 d=1 t=298
+you 	有	c=3 d=1.41774 t=913
+you yi si 	有意思	c=0 d=0.1 t=907
+you yi si de shi qing 	有意思的事情	c=1 d=1 t=908
+you yu 	由於	c=1 d=1 t=157
+yu 	與	c=4 d=1.14781 t=807
+yu yan 	語言	c=1 d=0.521052 t=293
+yu yan bian xie 	語言編寫	c=1 d=1 t=294
+yuan cheng 	遠程	c=1 d=1 t=230
+yuan ma 	源碼	c=1 d=1 t=169
+yuan shi de 	原始的	c=1 d=0.97531 t=960
+yuan yin shi 	原因是	c=0 d=0.1 t=690
+zai 	再	c=4 d=0.995012 t=960
+zai 	在	c=4 d=1.30787 t=702
+zai na ge 	在那個	c=0 d=0.1 t=870
+zai na ge dian de 	在那個點的	c=1 d=1 t=871
+ze cheng 	則稱	c=1 d=1 t=787
+zhan 	站	c=1 d=1 t=697
+zhe ge 	這個	c=2 d=1.05448 t=706
+zhe me 	這麼	c=0 d=0.1 t=905
+zhe me yi jian 	這麼意見	c=1 d=1 t=906
+zhe shi 	這是	c=1 d=0.970446 t=960
+zhe teng 	折騰	c=1 d=1 t=705
+zheng tai fen bu 	正態分佈	c=2 d=1.96079 t=959
+zhi 	值	c=1 d=1.06538 t=932
+zhi bo 	直播	c=0 d=0.1 t=699
+zhi bo xue xi 	直播學習	c=1 d=1 t=700
+zhi jie 	直接	c=1 d=0.399691 t=749
+zhi jie an zhuang 	直接安裝	c=1 d=1 t=750
+zhi jie yuan yin shi 	直接原因是	c=1 d=1 t=691
+zhi neng 	只能	c=1 d=1.00513 t=904
+zhi neng gen ju 	只能根據	c=1 d=1 t=311
+zhi shu 	指數	c=0 d=0.1 t=938
+zhi shu fen bu 	指數分佈	c=1 d=1 t=939
+zhi xiang 	指向	c=1 d=1 t=226
+zhi xing 	執行	c=1 d=0.162949 t=764
+zhi you 	只有	c=0 d=0.1 t=217
+zhi you guang biao 	只有光標	c=1 d=1 t=218
+zhi yu 	置於	c=0 d=0.1 t=258
+zhi zhen 	指針	c=0 d=0.1 t=289
+zhong 	中	c=3 d=1.06956 t=930
+zhong de 	中的	c=0 d=0.1 t=275
+zhong duan 	終端	c=0 d=0.1 t=264
+zhong duan mo ni qi 	終端模擬器	c=1 d=1 t=265
+zhong zhou yun 	中州韻	c=1 d=1 t=20
+zhu 	主	c=0 d=0.154335 t=196
+zhu mian ban 	主面板	c=2 d=1.956 t=84
+zhu shi 	註釋	c=1 d=1 t=277
+zhu wen jian 	主文件	c=1 d=1 t=197
+zi 	自	c=1 d=1 t=291
+zi dong 	自動	c=1 d=0.345367 t=330
+zi dong qi dong 	自動啓動	c=1 d=1 t=331
+zi qi 	自啓	c=1 d=1 t=768
+zi ran 	自然	c=0 d=0.1 t=913
+zi ran you 	自然有	c=1 d=1 t=914
+zi ti 	字體	c=2 d=1.15132 t=762
+zi ti wen jian 	字體文件	c=1 d=1 t=763
+zu 	組	c=1 d=1 t=330
+zu gou 	足夠	c=0 d=0.1 t=873
+zu gou xiao shi 	足夠小時	c=1 d=1 t=874
+zui xin 	最新	c=1 d=1 t=163

@@ -11,3 +11,5 @@ xmonad/stack.yaml
 *.userdb/
 nixos-config/result
 nixos-config/flake.lock
+
+fcitx5/rime/
