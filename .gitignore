@@ -12,4 +12,4 @@ xmonad/stack.yaml
 nixos-config/result
 nixos-config/flake.lock
 
-fcitx5/rime/
+fcitx5/rime
