@@ -13,5 +13,8 @@
 	path = waybar
 	url = git@github.com:AzurIce/waybar.git
 [submodule "nixos-config"]
-    path = nixos-config
+	path = nixos-config
 	url = git@github.com:AzurIce/nixos-config.git
+[submodule "hypr"]
+	path = hypr
+	url = git@github.com:AzurIce/hypr.git

@@ -1,7 +1,7 @@
 [user]
-	email = 973562770@qq.com
-	name = AzurIce
+    email = 973562770@qq.com
+    name = AzurIce
 [http]
-	proxy = http://127.0.0.1:7890
+    proxy = 127.0.0.1:7890
 [https]
-	proxy = https://127.0.0.1:7890
+    proxy = http://127.0.0.1:7890

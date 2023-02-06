@@ -7,18 +7,18 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/nvim: nvim
-    ~/.config/alacritty: alacritty
+    ~/.config/nvim: ./nixos-config/modules/programs/nvim/nvim
+    #~/.config/alacritty: alacritty
     #~/.config/picom: picom
-    ~/.config/waybar: waybar
+    #~/.config/waybar: waybar
     #~/.config/wofi: wofi
     #~/.config/wayfire.ini: wayfire.ini
-    ~/.config/sway: sway
-    ~/.config/hypr: hypr
+    #~/.config/sway: sway
+    ~/.config/hypr: ./nixos-config/modules/desktop/hyprland/hypr
     #~/.config/xmonad: xmonad
     #~/.xmobarrc: xmobar/.xmobarrc
     ~/.gitconfig: .gitconfig
-    ~/.local/share/fcitx5: fcitx5
+    #~/.local/share/fcitx5: fcitx5
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
