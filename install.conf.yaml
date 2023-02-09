@@ -7,14 +7,14 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.config/nvim: ./nixos-config/modules/programs/nvim/nvim
+    ~/.config/nvim: nixos-config/modules/programs/nvim/nvim
     #~/.config/alacritty: alacritty
     #~/.config/picom: picom
     #~/.config/waybar: waybar
     #~/.config/wofi: wofi
     #~/.config/wayfire.ini: wayfire.ini
     #~/.config/sway: sway
-    ~/.config/hypr: ./nixos-config/modules/desktop/hyprland/hypr
+    ~/.config/hypr: nixos-config/modules/desktop/hyprland/hypr
     #~/.config/xmonad: xmonad
     #~/.xmobarrc: xmobar/.xmobarrc
     ~/.gitconfig: .gitconfig

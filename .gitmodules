@@ -1,20 +1,8 @@
 [submodule "nvim"]
 	path = nvim
-	url = git@github.com:AzurIce/nvim.git
+	url = http://github.com/AzurIce/nvim.git
 	branch = lua
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "qtile"]
-	path = qtile
-	url = git@github.com:AzurIce/qtile.git
-[submodule "waybar"]
-	path = waybar
-	url = git@github.com:AzurIce/waybar.git
-[submodule "nixos-config"]
-	path = nixos-config
-	url = git@github.com:AzurIce/nixos-config.git
-[submodule "hypr"]
-	path = hypr
-	url = git@github.com:AzurIce/hypr.git
