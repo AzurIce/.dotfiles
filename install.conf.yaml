@@ -18,6 +18,7 @@
     ~/.config/hypr: hypr
     ~/.config/waybar: waybar
     ~/.config/nvim: nvim
+    ~/.config/syncthing: syncthing
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
