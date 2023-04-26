@@ -8,6 +8,8 @@ xmonad/xmonad/
 xmonad/xmonad-contrib/
 xmonad/stack.yaml
 
+syncthing/
+
 *.userdb/
 nixos-config/result
 nixos-config/flake.lock
