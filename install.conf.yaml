@@ -16,7 +16,7 @@
     #~/.xmobarrc: xmobar/.xmobarrc
     #~/.gitconfig: .gitconfig
     ~/.config/hypr: hypr
-    ~/.config/waybar: waybar
+    #~/.config/waybar: waybar
     ~/.config/eww: eww
     ~/.config/nvim: nvim
     ~/.config/syncthing: syncthing
