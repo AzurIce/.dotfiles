@@ -1,81 +1,5 @@
 ;; {include "./copy.yuck"}
 
-(defpoll time :interval "1s"
-              :initial "initial-value"  ; optional, defaults to poll at startup
-              :run-while time-visible   ; optional, defaults to 'true'
-  `date +%H:%M:%S`)
-
-;; Workspaces
-(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
-(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
-(defwidget workspaces []
-    ;; Scroll eventbox
-    (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
-        (box :spacing 5
-            (label :text "${workspaces}${current_workspace}" :visible false)
-            (for workspace in workspaces
-                (button :onclick "hyprctl dispatch workspace ${workspace.id}"
-                    :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "" : "empty"}"
-                    "${workspace.id}"
-                )
-            )
-        )
-    )
-)
-
-;; Battery
-(defpoll battery :interval "5s" "./scripts/battery --bat")
-(defpoll battery_status :interval "15s" "./scripts/battery --bat-st")
-(defwidget battery []
-	(box :class "battery"
-		:orientation "h"
-		:tooltip "Battery: ${battery}%"
-        (label :text "${battery}% ${battery_status != "Discharging" ? "󰚥" : battery >= 90 ? "" : battery >= 70 ? "" : battery >= 50 ? "" : battery >= 20 ? "" : ""}")
-	)
-)
-
-;; Topbar
-(defwidget leftpart []
-    (box :class "left" :orientation "h" :halign "start" :space-evenly false :spacing 20
-        (workspaces)
-        (label :text "${window}")
-    )
-)
-
-(defwidget rightpart []
-    (box :class "sidestuff" :orientation "h" :halign "end"
-        (battery)
-        ; (color-chooser)
-    )
-)
-
-(defwidget centerpart []
-    (box :class "sidestuff" :orientation "h" :halign "center"
-        (label :text "${time}")
-    )
-)
-(deflisten window :initial "..." "sh ./scripts/get-window-title")
-
-
-
-(defwindow topbar
-    :monitor 0
-    :geometry (geometry :x "0%"
-                       :y "0px"
-                       :width "100%"
-                       :height "40px"
-                       :anchor "top center")
-    :stacking "fg"
-    :exclusive true
-    (centerbox :style "margin: 5px 10px;"
-        (leftpart)
-        (centerpart)
-        (rightpart)
-    )
-)
-
-
-
 ;; Variables
 (defpoll clock_time :interval "5m" "date +\%I")
 (defpoll clock_minute :interval "5s" "date +\%M")
@@ -83,6 +7,8 @@
 (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness_percent :interval "5s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+(defpoll battery :interval "15s" "./scripts/battery --bat")
+(defpoll battery_status :interval "1m" "./scripts/battery --bat-st")
 (defpoll memory :interval "15s" "scripts/memory")
 (defpoll memory_used_mb :interval "2m" "scripts/mem-ad used")
 (defpoll memory_total_mb :interval "2m" "scripts/mem-ad total")
@@ -92,7 +18,7 @@
 (defvar music_reveal false)
 (defvar wifi_rev false)
 (defvar time_rev false)
-; (deflisten workspace "scripts/workspace")
+(deflisten workspace "scripts/workspace")
 
 (defvar eww "$HOME/.local/bin/eww/eww -c $HOME/.config/eww/bar")
 
@@ -111,19 +37,6 @@
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
 
-;; windows
-
-(defwindow bar
-    :monitor 0
-    :exclusive true
-          :geometry (geometry :x "0%"
-                       :y "9px"
-                       :width "98%"
-                       :height "30px"
-                       :anchor "top center")
-          :stacking "fg"
-  (bar_1))
-
 ;; widgets
 
 (defwidget wifi [] 
@@ -140,8 +53,8 @@
 			  )))))
 
 
-; (defwidget workspaces []
-;   (literal :content workspace))
+(defwidget workspaces []
+  (literal :content workspace))
 
 
 (defwidget bat []
@@ -281,6 +194,17 @@
   (center)
   (left)
     ))
+
+(defwindow bar
+    :monitor 0
+    :exclusive true
+          :geometry (geometry :x "0%"
+                       :y "9px"
+                       :width "98%"
+                       :height "30px"
+                       :anchor "top center")
+          :stacking "fg"
+  (bar_1))
   
 (defwidget system []
   (box :class "sys_win" :orientation "v" :space-evenly "false" :hexpand "false" :vexpand "false" :spacing 0
