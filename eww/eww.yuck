@@ -65,7 +65,7 @@
                        :width "100%"
                        :height "40px"
                        :anchor "top center")
-    :stacking "fg"
+    :stacking "bg"
     :exclusive true
     (centerbox :style "margin: 5px 10px;"
         (leftpart)
