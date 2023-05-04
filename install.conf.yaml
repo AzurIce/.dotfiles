@@ -19,7 +19,8 @@
     #~/.config/waybar: waybar
     ~/.config/eww: eww
     ~/.config/nvim: nvim
-    ~/.config/syncthing: syncthing
+    #~/.config/syncthing: syncthing
+    ~/.config/Typora/themes: typora-theme
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
