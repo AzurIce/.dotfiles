@@ -18,17 +18,18 @@
     )
 )
 
-(defpoll volume :interval "1s" :initial "1" `amixer sget Master | grep 'Left' | awk -F'[][]' '{print $2}'| tr -d '%' | tail -1`)
+(defpoll volume :interval "1s" :initial "1" `amixer sget Master | grep 'Left' | tr -d '[]%' | awk '{print $5}' | tail -1`)
+(defpoll volume_mute :interval "1s" :initial "1" `amixer sget Master | grep 'Left' | tr -d '[]%' | awk '{print $6}' | tail -1`)
 (defwidget sound []
     (box :class "sound" :orientation "h"
-        (label :text "${volume}% ")
+        (label :text "${volume}% ${volume_mute == "off" ? "" : volume >= 80 ? "" : volume >= 20 ? "" : ""}")
     )
 )
 
-(defpoll light :interval "1s" :initial "0" `light | tr -d '.00`)
+(defpoll light :interval "1s" :initial "0" `light`)
 (defwidget light []
     (box :class "light" :orientation "h"
-        (label :text "${light}% ")
+        (label :text "${round(light, 0)}% ")
     )
 )
 
@@ -61,93 +62,93 @@
     )
 )
 
-(defvar fullname "fullname")
-(defvar hostname "hostname")
-(defvar network_name "networkxxxxxx")
-(defvar network_name_truncated "networktruncated")
-(defvar bluetooth_status "Off")
-(defvar bluetooth_supported "true")
-(defvar airplane_mode_status "airplane_mode_status")
-(defvar redshift_status "#1c2325")
-(defvar dnd_status "#1c2325")
-
-(defwidget cc_button [?title ?icon ?is_active ?has_arrow_if_active ?onclick ?disabled ?tooltip]
-	(box :orientation "v" :space-evenly "false" :class "cc-button" :tooltip {tooltip ?: "Disabled"}
-		(box :orientation "h" :class "cc-button-btn" :style {disabled == true ? "background-color: #101415;" : (is_active == true ? "background-color: #1C2325;" : "background-color: #151a1c;")}
-			(box
-				:orientation "h"
-				:style {disabled == true ? "" : (is_active == true ? "background-color: #96D6B0; margin: 0em .75em 0em .25em; border-radius: 6px;" : "")})
-			(button
-				:class "cc-button-icon"
-				:style {disabled == true ? "color: #6e7071;" : ""}
-				:onclick {onclick ?: "echo 'debugger'"} 
-				{icon ?: ""})
-			(box
-				:class "sep-column"
-				:style "min-height: calc(16px + 8px);")
-			(button
-				:visible {has_arrow_if_active == false ? false : (is_active == true ?: false)}
-				:class "cc-button-clicker" :onclick {onclick ?: "echo 'debugger'"} 
-				:style {disabled == true ? "color: #6e7071;" : ""} "")
-		)
-		(label :class "cc-button-title" :text {title ?: ""} :style {disabled == true ? "color: #6e7071;" : ""})
-	)
-)
-
-(defwidget cc []
-    (box :class "control-center" :orientation "v" :space-evenly "false"
-		(box :class "third-row" :orientation "h" :space-evenly "true"
-			(box :class "user-info" :orientation "h" :halign "start" :space-evenly "false"
-				(box :class "user-info-avatar")
-				(box :orientation "v" :space-evenly "false" :style "margin-top: .25em;"
-					(label :class "user-info-label" :halign "start" :text "${fullname}")
-					(label :class "user-info-hostname" :halign "start" :text "@${hostname}")
-				)
-			)
-			(box :class "system-btn" :halign "end" :orientation "h" :space-evenly "false"
-				(button :class "exit-btn" :onclick "sh $HOME/.local/bin/lck &" "")
-				(button :class "lock-btn" :onclick "bspc quit &" "")
-			)
-		)
-        (box :class "first-row" :orientation "v" :space-evenly "false"
-            (box :orientation "h"
-                (cc_button :title {strlength(network_name) >= 13 ? network_name_truncated : network_name} :icon "󰤨"
-                    :is_active {network_name != "Wi-Fi"} :onclick "iwgtk &"
-                    :tooltip "Connected to ${network_name}"
-                )
-                (cc_button :title {bluetooth_status != "Off" ? hostname : "Bluetooth"} :icon "󰂯"
-                    :is_active {bluetooth_status != "Off"} :onclick "blueman-manager &"
-                    :tooltip "Status: ${bluetooth_status}" :disabled {bluetooth_supported == "false"}
-                )
-                (cc_button :title "Airplane Mode" :icon "󰀝"
-                    :is_active {airplane_mode_status == ""} :onclick "sh ./scripts/dashActions.sh am"
-                    :tooltip "Status: ${airplane_mode_status == '' ? 'On' : 'Off'}" :disabled {bluetooth_supported == "false"}
-                )
-            )
-            (box :orientation "h" :style "margin-top: -1.5em;"
-                (cc_button :title "Night Light" :icon ""
-                    :is_active {redshift_status == "#1c2325"} :onclick "sh ./scripts/getRedshift.sh toggle"
-                    :tooltip "Status: ${redshift_status == '#1c2325' ? 'On' : 'Off'}"
-                )
-                (cc_button :title "Do Not Disturb" :icon ""
-                    :is_active {dnd_status == "#1c2325"} :onclick "sh ./scripts/dashActions.sh dnd"
-                    :tooltip "Status: ${dnd_status == '#1c2325' ? 'On' : 'Off'}"
-                )
-                (cc_button :disabled "true")
-            )
-        )
-    )
-)
-(defwindow cc
-    :monitor 0
-    :geometry (geometry :x "1%"
-						:y "0"
-						:width "27%"
-						:height "40%"
-						:anchor "top right")
-    :stacking "fg"
-    (cc)
-)
+;(defvar fullname "fullname")
+;(defvar hostname "hostname")
+;(defvar network_name "networkxxxxxx")
+;(defvar network_name_truncated "networktruncated")
+;(defvar bluetooth_status "Off")
+;(defvar bluetooth_supported "true")
+;(defvar airplane_mode_status "airplane_mode_status")
+;(defvar redshift_status "#1c2325")
+;(defvar dnd_status "#1c2325")
+;
+;(defwidget cc_button [?title ?icon ?is_active ?has_arrow_if_active ?onclick ?disabled ?tooltip]
+;	(box :orientation "v" :space-evenly "false" :class "cc-button" :tooltip {tooltip ?: "Disabled"}
+;		(box :orientation "h" :class "cc-button-btn" :style {disabled == true ? "background-color: #101415;" : (is_active == true ? "background-color: #1C2325;" : "background-color: #151a1c;")}
+;			(box
+;				:orientation "h"
+;				:style {disabled == true ? "" : (is_active == true ? "background-color: #96D6B0; margin: 0em .75em 0em .25em; border-radius: 6px;" : "")})
+;			(button
+;				:class "cc-button-icon"
+;				:style {disabled == true ? "color: #6e7071;" : ""}
+;				:onclick {onclick ?: "echo 'debugger'"} 
+;				{icon ?: ""})
+;			(box
+;				:class "sep-column"
+;				:style "min-height: calc(16px + 8px);")
+;			(button
+;				:visible {has_arrow_if_active == false ? false : (is_active == true ?: false)}
+;				:class "cc-button-clicker" :onclick {onclick ?: "echo 'debugger'"} 
+;				:style {disabled == true ? "color: #6e7071;" : ""} "")
+;		)
+;		(label :class "cc-button-title" :text {title ?: ""} :style {disabled == true ? "color: #6e7071;" : ""})
+;	)
+;)
+;
+;(defwidget cc []
+;    (box :class "control-center" :orientation "v" :space-evenly "false"
+;		(box :class "third-row" :orientation "h" :space-evenly "true"
+;			(box :class "user-info" :orientation "h" :halign "start" :space-evenly "false"
+;				(box :class "user-info-avatar")
+;				(box :orientation "v" :space-evenly "false" :style "margin-top: .25em;"
+;					(label :class "user-info-label" :halign "start" :text "${fullname}")
+;					(label :class "user-info-hostname" :halign "start" :text "@${hostname}")
+;				)
+;			)
+;			(box :class "system-btn" :halign "end" :orientation "h" :space-evenly "false"
+;				(button :class "exit-btn" :onclick "sh $HOME/.local/bin/lck &" "")
+;				(button :class "lock-btn" :onclick "bspc quit &" "")
+;			)
+;		)
+;        (box :class "first-row" :orientation "v" :space-evenly "false"
+;            (box :orientation "h"
+;                (cc_button :title {strlength(network_name) >= 13 ? network_name_truncated : network_name} :icon "󰤨"
+;                    :is_active {network_name != "Wi-Fi"} :onclick "iwgtk &"
+;                    :tooltip "Connected to ${network_name}"
+;                )
+;                (cc_button :title {bluetooth_status != "Off" ? hostname : "Bluetooth"} :icon "󰂯"
+;                    :is_active {bluetooth_status != "Off"} :onclick "blueman-manager &"
+;                    :tooltip "Status: ${bluetooth_status}" :disabled {bluetooth_supported == "false"}
+;                )
+;                (cc_button :title "Airplane Mode" :icon "󰀝"
+;                    :is_active {airplane_mode_status == ""} :onclick "sh ./scripts/dashActions.sh am"
+;                    :tooltip "Status: ${airplane_mode_status == '' ? 'On' : 'Off'}" :disabled {bluetooth_supported == "false"}
+;                )
+;            )
+;            (box :orientation "h" :style "margin-top: -1.5em;"
+;                (cc_button :title "Night Light" :icon ""
+;                    :is_active {redshift_status == "#1c2325"} :onclick "sh ./scripts/getRedshift.sh toggle"
+;                    :tooltip "Status: ${redshift_status == '#1c2325' ? 'On' : 'Off'}"
+;                )
+;                (cc_button :title "Do Not Disturb" :icon ""
+;                    :is_active {dnd_status == "#1c2325"} :onclick "sh ./scripts/dashActions.sh dnd"
+;                    :tooltip "Status: ${dnd_status == '#1c2325' ? 'On' : 'Off'}"
+;                )
+;                (cc_button :disabled "true")
+;            )
+;        )
+;    )
+;)
+;(defwindow cc
+;    :monitor 0
+;    :geometry (geometry :x "1%"
+;						:y "0"
+;						:width "27%"
+;						:height "40%"
+;						:anchor "top right")
+;    :stacking "fg"
+;    (cc)
+;)
 
 ; (defwidget control-center []
 ; (box :class "control-center" :orientation "v" :space-evenly "false"
