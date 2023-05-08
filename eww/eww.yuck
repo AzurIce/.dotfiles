@@ -22,7 +22,7 @@
 (defpoll volume_mute :interval "1s" :initial "1" `amixer sget Master | grep 'Left' | tr -d '[]%' | awk '{print $6}' | tail -1`)
 (defwidget sound []
     (box :class "sound" :orientation "h"
-        (label :text "${volume}% ${volume_mute == "off" ? "" : volume >= 80 ? "" : volume >= 20 ? "" : ""}")
+        (label :text "${volume}% ${volume_mute == "off" ? "󰝟" : volume >= 80 ? "" : volume >= 20 ? "" : ""}")
     )
 )
 
