@@ -6,6 +6,9 @@
 
 - clean: ['~', '~/.config']
 
+- shell:
+  - [ cp ./fonts ~/.local/share/ -r && fc-cache, copying fonts...]
+
 - link:
     #~/.config/alacritty: alacritty
     #~/.config/picom: picom
@@ -21,6 +24,7 @@
     ~/.config/nvim: nvim
     #~/.config/syncthing: syncthing
     ~/.config/Typora/themes: typora-theme
+    ~/.local/share/fcitx5/rime/default.custom.yaml: rime/default.custom.yaml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
