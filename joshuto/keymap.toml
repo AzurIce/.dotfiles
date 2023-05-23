@@ -49,6 +49,8 @@ keymap = [
 	# vim-like keybindings
 	{ keys = [ "j" ],		command = "cursor_move_down" },
 	{ keys = [ "k" ],		command = "cursor_move_up" },
+	{ keys = [ "J" ],		command = "cursor_move_down 10" },
+	{ keys = [ "K" ],		command = "cursor_move_up 10" },
 	{ keys = [ "h" ],		command = "cd .." },
 	{ keys = [ "l" ],		command = "open" },
 	{ keys = [ "g", "g" ],		command = "cursor_move_home" },
@@ -96,13 +98,14 @@ keymap = [
 	{ keys = [ ";" ],		command = ":" },
 
 	{ keys = [ "'" ],		command = ":shell " },
+    { keys = [ "S" ],       command = "shell fish" },
 	{ keys = [ "m", "k" ],		command = ":mkdir " },
 	{ keys = [ "c", "w" ],		command = ":rename " },
 
 	{ keys = [ "/" ],		command = ":search " },
 	{ keys = [ "|" ],		command = ":search_inc " },
 	{ keys = [ "\\" ],		command = ":search_glob " },
-	{ keys = [ "S" ],		command = "search_fzf" },
+	# { keys = [ "S" ],		command = "search_fzf" },
 	{ keys = [ "C" ],		command = "subdir_fzf" },
 
 	{ keys = [ "n" ],		command = "search_next" },
