@@ -1,6 +1,6 @@
 [submodule "nvim"]
 	path = nvim
-	url = http://github.com/AzurIce/nvim.git
+	url = git@github.com:AzurIce/nvim.git
 	branch = lua
 [submodule "dotbot"]
 	path = dotbot
