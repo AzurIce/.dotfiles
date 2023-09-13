@@ -7,10 +7,11 @@
 - clean: ['~', '~/.config']
 
 - shell:
-  - [ cp ./fonts ~/.local/share/ -rf && fc-cache, copying fonts...]
+  #- [ cp ./fonts ~/.local/share/ -rf && fc-cache, copying fonts...]
+  - [ cp -rf ./fonts/* ~/Library/Fonts/, copying fonts...]
 
 - link:
-    #~/.config/alacritty: alacritty
+    ~/.config/alacritty: alacritty
     #~/.config/picom: picom
     #~/.config/wofi: wofi
     #~/.config/wayfire.ini: wayfire.ini
@@ -19,13 +20,17 @@
     #~/.xmobarrc: xmobar/.xmobarrc
     #~/.gitconfig: .gitconfig
     ~/.config/joshuto: joshuto
-    ~/.config/hypr: hypr
+      #~/.config/hypr: hypr
     #~/.config/waybar: waybar
-    ~/.config/eww: eww
+    #~/.config/eww: eww
     ~/.config/nvim: nvim
+    ~/.yabairc: .yabairc
+    ~/.zshrc: .zshrc
+    ~/.skhdrc: .skhdrc
     #~/.config/syncthing: syncthing
-    ~/.config/Typora/themes: typora-theme
-    ~/.local/share/fcitx5/rime/default.custom.yaml: rime/default.custom.yaml
+    #~/.config/Typora/themes: typora-theme
+    ~/Library/Application Support/abnerworks.Typora/themes: typora-theme
+    #~/.local/share/fcitx5/rime/default.custom.yaml: rime/default.custom.yaml
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
