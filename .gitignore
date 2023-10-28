@@ -15,3 +15,7 @@ nixos-config/result
 nixos-config/flake.lock
 
 fcitx5/rime
+
+.DS_Store
+assets/
+automatic_backups/

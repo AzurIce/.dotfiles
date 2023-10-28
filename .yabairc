@@ -59,6 +59,8 @@ yabai -m rule --add app="^ToDesk$" manage=off
 yabai -m rule --add app="^GitHub Desktop$" manage=off
 yabai -m rule --add app="^Todo清单$" manage=off
 yabai -m rule --add app="^NeatDownloadManager$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^Karabiner-EventViewer$" manage=off
 
 yabai -m rule --add app="^明日方舟$" manage=off
 yabai -m rule --add app="^原神$" manage=off

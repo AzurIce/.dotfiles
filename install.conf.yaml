@@ -11,6 +11,7 @@
   - [ cp -rf ./fonts/* ~/Library/Fonts/, copying fonts...]
 
 - link:
+    ~/.config/karabiner: karabiner
     ~/.config/alacritty: alacritty
     #~/.config/picom: picom
     #~/.config/wofi: wofi
