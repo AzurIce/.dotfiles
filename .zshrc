@@ -70,9 +70,19 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ag aliases colored-man-pages colorize copypath)
+plugins=(git ag aliases colored-man-pages colorize copypath zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
+
+eval "$(zoxide init zsh)"
+
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export DYLD_FALLBACK_LIBRARY_PATH="$(xcode-select --print-path)/usr/lib/"
 
 # User configuration
 
@@ -99,3 +109,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"

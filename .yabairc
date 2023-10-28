@@ -18,7 +18,7 @@ yabai -m config                                 \
     window_origin_display        default        \
     window_placement             second_child   \
     window_zoom_persist          off            \
-    window_topmost               on             \
+    window_topmost               off             \
     window_shadow                on             \
     window_animation_duration    0.0            \
     window_animation_frame_rate  120            \
@@ -54,6 +54,14 @@ yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^BetterTouchTool$" manage=off
 yabai -m rule --add app="^网易云音乐$" manage=off
 yabai -m rule --add app="^微信$" manage=off
+yabai -m rule --add app="^腾讯会议$" manage=off
 yabai -m rule --add app="^ToDesk$" manage=off
+yabai -m rule --add app="^GitHub Desktop$" manage=off
+yabai -m rule --add app="^Todo清单$" manage=off
+yabai -m rule --add app="^NeatDownloadManager$" manage=off
+
+yabai -m rule --add app="^明日方舟$" manage=off
+yabai -m rule --add app="^原神$" manage=off
+yabai -m rule --add app="^崩坏:星穹铁道$" manage=off
 
 echo "yabai configuration loaded.."
