@@ -83,6 +83,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export DYLD_FALLBACK_LIBRARY_PATH="$(xcode-select --print-path)/usr/lib/"
+export PATH="/Users/azurice/.bun/bin:$PATH"
 
 # User configuration
 
