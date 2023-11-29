@@ -1,0 +1,66 @@
+theme = "edge_light"
+
+[editor]
+line-number = "relative"
+cursorline = true
+bufferline = "always"
+color-modes = true
+
+[editor.statusline]
+left = [
+  "mode",
+  "spinner",
+  "version-control",
+  "workspace-diagnostics",
+  "file-name",
+  "read-only-indicator",
+  "file-modification-indicator"
+]
+center = []
+right = [
+  "diagnostics",
+  "selections",
+  "register",
+  "total-line-numbers",
+  "position",
+  "file-encoding",
+  "file-line-ending",
+  "file-type"
+]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+"'" = "'"
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.whitespace]
+[editor.whitespace.render]
+  space = "all"
+  tab = "all"
+
+[editor.indent-guides]
+  render = true
+
+[editor.soft-wrap]
+  enable = true
+
+[keys.normal."space"]
+  s = ":w"
+  [keys.normal."space".c]
+    r = ":config-reload"
