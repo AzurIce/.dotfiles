@@ -1,0 +1,8 @@
+{
+  "providers": {
+    "anthropic": {
+      "baseUrl": "https://code.newcli.com/claude/turbo",
+      "apiKey": "!echo $ANTHROPIC_API_KEY"
+    }
+  }
+}
