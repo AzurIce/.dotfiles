@@ -3,6 +3,14 @@
     "anthropic": {
       "baseUrl": "https://code.newcli.com/claude/turbo",
       "apiKey": "!echo $ANTHROPIC_API_KEY"
+    },
+    "google": {
+      "baseUrl": "https://code.newcli.com/gemini",
+      "apiKey": "!echo $ANTHROPIC_API_KEY"
+    },
+    "openai": {
+      "baseUrl": "https://code.newcli.com/codex/v1",
+      "apiKey": "!echo $ANTHROPIC_API_KEY"
     }
   }
 }
