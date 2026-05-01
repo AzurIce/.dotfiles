@@ -1,0 +1,6 @@
+font-family = JetBrainsMono Nerd Font
+font-size = 16
+background-opacity = 0.8
+theme = catppuccin-mocha
+quit-after-last-window-closed = true
+shell-integration-features = ssh-terminfo
