@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["@different-ai/opencode-browser"],
+  "provider": {
+    "anthropic": {
+      "options": {
+        "baseURL": "https://code.newcli.com/claude/ultra",
+      },
+    },
+    "google": {
+      "options": {
+        "baseURL": "https://code.newcli.com/gemini",
+      },
+    },
+    "openai": {
+      "options": {
+        "baseURL": "https://code.newcli.com/codex/v1",
+      },
+    },
+  },
+}

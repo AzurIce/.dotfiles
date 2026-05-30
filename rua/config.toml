@@ -1,0 +1,16 @@
+# rua configuration file
+
+[deepseek]
+# API key supports three formats:
+# 1. Literal (not recommended): api_key = "sk-xxxx"
+# 2. Env var name: api_key = "DEEPSEEK_API_KEY"
+# 3. Shell command (pi-style ! prefix):
+#    api_key = "!echo $DEEPSEEK_API_KEY"
+#    api_key = "!security find-generic-password -s deepseek-api-key -w"
+api_key = "!echo $DEEPSEEK_API_KEY"
+
+base_url = "https://api.deepseek.com"
+model = "deepseek-v4-pro"
+
+[ui]
+streaming = true
