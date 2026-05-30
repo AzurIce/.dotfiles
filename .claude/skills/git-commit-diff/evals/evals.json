@@ -1,0 +1,29 @@
+{
+  "skill_name": "git-commit-diff",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "single-file-bug-fix",
+      "prompt": "帮我 commit 一下改动",
+      "expected_output": "检测到单个文件的小改动（修复 timestamp 解析 bug），生成单行的 fix 类型 commit message 并提交",
+      "files": [],
+      "setup": "工作区有 1 个文件的少量修改（修复一个函数中的时间解析逻辑）"
+    },
+    {
+      "id": 2,
+      "eval_name": "multi-file-feature",
+      "prompt": "commit all changes",
+      "expected_output": "检测到 3+ 文件涉及新增功能（如添加 API endpoint + 测试 + 文档），生成多行 feat 类型 commit message，包含变更列表",
+      "files": [],
+      "setup": "工作区有 4-5 个文件的修改，涉及新增功能、测试和文档更新"
+    },
+    {
+      "id": 3,
+      "eval_name": "mixed-changes",
+      "prompt": "看看有什么改动需要提交",
+      "expected_output": "展示变更摘要，询问是否提交，生成合适的 commit message（包含多种变更类型）",
+      "files": [],
+      "setup": "工作区既有 bug 修复又有配置变更，变更分布在不同目录"
+    }
+  ]
+}

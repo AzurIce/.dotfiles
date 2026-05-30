@@ -1,0 +1,13 @@
+auth.json
+*.sqlite*
+.tmp
+sessions
+log
+history.jsonl
+installation_id
+version.json
+tmp
+shell_snapshots
+memories
+skills/.system
+.personality_migration

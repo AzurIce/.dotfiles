@@ -16,3 +16,4 @@ paste-cache
 history.jsonl
 stats-cache.json
 plugins
+.last-cleanup
