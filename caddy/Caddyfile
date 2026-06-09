@@ -1,0 +1,22 @@
+localhost
+
+respond "Hello, world!"
+
+# Caddyfile
+# 配置文档: https://caddyserver.com/docs/caddyfile
+
+# 示例: 本地开发反代
+# project.localhost {
+#     reverse_proxy localhost:3000
+# }
+
+# 示例: 静态文件服务
+# :8080 {
+#     root * /path/to/site
+#     file_server
+# }
+
+# 示例: 带自动 HTTPS 的域名
+# example.com {
+#     reverse_proxy localhost:8080
+# }
