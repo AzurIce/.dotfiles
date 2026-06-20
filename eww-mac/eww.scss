@@ -1,0 +1,90 @@
+/** EWW.SCSS
+Created by saimoom **/
+
+$background-color: rgba(30, 30, 46, 0.7);
+$background-color2: rgba(50, 50, 66, 0.7);
+
+.topbar {
+    font-size: 110%;
+    font-weight: bold;
+    background-color: $background-color;
+    border-radius: 10px;
+}
+
+* {
+    all: unset;
+    font-family: "JetBrainsMonoNerdFont";
+}
+
+// .cc {
+//     background-color: #111111;
+//     border-radius: 10px;
+//     // box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+// }
+
+// Sound
+.sound {
+    color: rgb(245, 224, 220);
+}
+
+// Light
+.light {
+    color: rgb(248, 189, 150);
+}
+
+// Cpu
+.cpu {
+    color: rgb(245, 194, 231);
+}
+
+// Ram
+.ram {
+    color: rgb(181, 232, 224);
+}
+
+.wifi {
+  color: #ABE9B3;
+}
+
+// Battery
+.battery {
+    color: rgb(250, 227, 176);
+    // color: rgb(200, 200, 240);
+    // background-color: white;
+	scale trough {
+		// background-color: #50906a;
+		border-radius: 10px;
+		min-height: 2.4em;
+		min-width: 6em;
+	}
+
+	trough highlight {
+		background-image: linear-gradient(to right, #33ff33);
+		border-radius: 10px;
+		// border-radius: 10px 0px 0px 10px;
+	}
+}
+
+// Workspaces
+.workspace-entry {
+    font-size: 100%;
+    font-weight: normal;
+    background-color: $background-color2;
+    padding: 0 6px;
+    // opacity: 0.7;
+    border-radius: 16px;
+}
+
+.workspace-entry:hover {
+    box-shadow:0px 0px 0px 1px inset;
+    // border: 1px solid;
+}
+
+.workspace-entry.empty {
+    opacity: 0.5;
+}
+
+.workspace-entry.current {
+    background-color: rgba(70, 70, 126, 0.7);
+}
+
