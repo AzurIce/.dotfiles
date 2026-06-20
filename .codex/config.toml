@@ -2,8 +2,11 @@ model_provider = "fox"
 # 可配置gpt-5.4或gpt-5.4
 model = "gpt-5.5"
 # 可配置high medium low
-model_reasoning_effort = "high"
+model_reasoning_effort = "xhigh"
 disable_response_storage = true
+
+notify = ["/Users/azurice/flakes/.dotfiles/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+service_tier = "priority"
 
 # foxcode配置
 [model_providers.fox]
@@ -33,5 +36,82 @@ trust_level = "trusted"
 [projects."/Volumes/Files/_ffxiv"]
 trust_level = "trusted"
 
+[projects."/Users/azurice/Documents/Codex/2026-06-10/new-chat"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/_ffxiv/xiv-companion"]
+trust_level = "trusted"
+
+[projects."/Users/azurice/Documents/Codex/2026-06-15/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/azurice/Documents/Codex/2026-06-15/ffmpeg"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/__617pre"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/_ship"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
+
+[marketplaces.openai-bundled]
+last_updated = "2026-06-19T12:25:03Z"
+source_type = "local"
+source = "/Users/azurice/flakes/.dotfiles/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-06-20T04:44:25Z"
+source_type = "local"
+source = "/Users/azurice/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[desktop]
+conversationDetailMode = "STEPS_COMMANDS"
+ambient-suggestions-enabled = false
+show-context-window-usage = true
+localeOverride = "zh-CN"
+preventSleepWhileRunning = true
+keepRemoteControlAwakeWhilePluggedIn = true
+git-show-sidebar-pr-icons = true
+
+[desktop.open-in-target-preferences]
+global = "zed"
+
+[features]
+js_repl = false
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/azurice/.codex"
+CODEX_HOME = "/Users/azurice/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "feca4d852d7d18eab5e217b18c8c80099fe667c330e836640fd7a48f362de525"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.616.32156"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
