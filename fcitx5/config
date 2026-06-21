@@ -1,0 +1,7 @@
+[Behavior]
+ActiveByDefault=False
+
+[Hotkey]
+EnumerateSkipFirst=False
+EnumerateWithTriggerKeys=True
+ModifierOnlyKeyTimeout=250

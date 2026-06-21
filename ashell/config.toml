@@ -1,0 +1,59 @@
+language = "zh-CN"   # UI language
+region   = "it-IT"   # date format + unit system
+
+enable_esc_key = true
+position = "Top"
+
+[animations]
+enabled = true
+
+[modules]
+center = ["WindowTitle"]
+left = ["Workspaces"]
+right = ["SystemInfo", "MediaPlayer", ["Tray", "Tempo", "Settings"]]
+
+[osd]
+enabled = true
+show_brightness_percentage = true
+show_volume_percentage = true
+timeout = 1500
+
+[settings]
+shutdown_cmd = "shutdown now"
+suspend_cmd = "systemctl suspend"
+reboot_cmd = "systemctl reboot"
+logout_cmd = "loginctl kill-user $(whoami)"
+
+max_volume = 150
+audio_indicator_format = "IconAndPercentage"
+audio_sinks_more_cmd = "pwvucontrol"
+audio_sources_more_cmd = "pwvucontrol"
+bluetooth_more_cmd = "blueman-manager"
+bluetooth_indicator_format = "IconAndValue"
+brightness_indicator_format = "IconAndPercentage"
+indicators = ["Audio", "Microphone", "Network", "Bluetooth", "Brightness"]
+lock_cmd = "wlogout"
+wifi_more_cmd = "nm-connection-editor"
+remove_airplane_btn = true
+remove_idle_btn = true
+
+[system_info]
+indicators = ["Cpu", "Memory", "Temperature", "DownloadSpeed", "UploadSpeed"]
+interval = 5
+[system_info.temperature]
+sensor = "Cpu"
+
+[tempo]
+clock_format = "%Y-%m-%d %H:%M:%S"
+
+[workspaces]
+visibility_mode = "MonitorSpecificExclusive"
+
+### Appearance ###
+[appearance]
+scale_factor = 1.2
+opacity = 0.8
+
+[appearance.menu]
+opacity = 0.8
+# backdrop = 0.2
