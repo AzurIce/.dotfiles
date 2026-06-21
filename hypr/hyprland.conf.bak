@@ -71,11 +71,11 @@ decoration {
 #    dim_inactive = true
 #    dim_strength = 0.1
 
-    drop_shadow = true
-    shadow_range = 4
-    shadow_render_power = 3
-    shadow_ignore_window = true
-    col.shadow = rgba(1a1a1aee)
+    # drop_shadow = true
+    # shadow_range = 4
+    # shadow_render_power = 3
+    # shadow_ignore_window = true
+    # col.shadow = rgba(1a1a1aee)
 }
 
 animations {
@@ -109,7 +109,7 @@ $mainMod = SUPER
 
 dwindle {
     # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    # pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = false # you probably want this
 }
 bind = $mainMod, G, togglegroup
@@ -120,13 +120,13 @@ bind = $mainMod SHIFT, Tab, changegroupactive, b, # dwindle
 
 
 master {
-    new_is_master = true
+    # new_is_master = true
 }
 
 gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    workspace_swipe = truel
-    workspace_swipe_fingers = 4
+    # workspace_swipe = true
+    # workspace_swipe_fingers = 4
     workspace_swipe_distance = 250
     workspace_swipe_invert = true
     workspace_swipe_min_speed_to_force = 15
