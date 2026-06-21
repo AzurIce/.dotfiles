@@ -11,14 +11,14 @@ hl.monitor({
     output   = "desc:Philips Consumer Electronics Company PHL 345M1CR UK02107000363",
     mode     = "3440x1440@144",
     position = "0x0",
-    scale    = 1,
+    scale    = 1.07,
 })
 
 hl.monitor({
     output   = "desc:Dell Inc. DELL P2314H HMJ1V739CH9B",
     mode     = "1920x1080@60",
-    position = "760x-1080",
-    scale    = 1,
+    position = "auto-center-up",
+    scale    = 1.2,
 })
 
 
@@ -37,7 +37,7 @@ hl.env("no_proxy", "localhost,127.0.0.1")
 ------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("eww open topbar")
+    hl.exec_cmd("WGPU_BACKEND=gl ashell")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("clash-verge")
@@ -225,11 +225,12 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("amixer -q sset Master unmute && amixer -q sset Master 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("amixer -q sset Master unmute && amixer -q sset Master 5%-"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("amixer -q sset Master toggle"),                                 { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("light -A 5"),                                                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("light -U 5"),                                                  { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("ashell msg volume-up"),     { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("ashell msg volume-down"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("ashell msg volume-toggle-mute"),    { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("ashell msg volume-toggle-mute"),  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("light -A 5"),                              { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("light -U 5"),                             { locked = true, repeating = true })
 hl.bind("Print",                hl.dsp.exec_cmd("grimblast copy area"))
 
 
@@ -275,4 +276,5 @@ hl.window_rule({
     name  = "clash-verge-float",
     match = { class = "clash-verge" },
     float = true,
+    workspace = "10",
 })
