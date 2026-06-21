@@ -28,7 +28,7 @@ hl.monitor({
 
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("XDG_SESSION_TYPE", "wayland")
-hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+-- hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 hl.env("no_proxy", "localhost,127.0.0.1")
 
 
@@ -66,6 +66,13 @@ hl.config({
 
         sensitivity = 0,
         force_no_accel = true,
+    }
+})
+
+-- https://github.com/hyprwm/Hyprland/discussions/13464
+hl.config({
+    cursor = {
+        no_hardware_cursors = 0,
     }
 })
 
