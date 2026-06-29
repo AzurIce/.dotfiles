@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.73.0",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-sonnet-4-6",
+  "lastChangelogVersion": "0.80.2",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-pro",
   "theme": "dark"
 }
