@@ -1,6 +1,8 @@
 {
   "lastChangelogVersion": "0.80.2",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
-  "theme": "dark"
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.5",
+  "theme": "dark",
+  "defaultThinkingLevel": "xhigh",
+  "hideThinkingBlock": true
 }
