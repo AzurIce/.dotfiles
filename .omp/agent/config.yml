@@ -1,0 +1,26 @@
+shellPath: C:\Program Files\Git\bin\bash.exe
+symbolPreset: unicode
+theme: 
+  dark: titanium
+  light: light
+setupVersion: 1
+modelRoles: 
+  default: kimi-code/kimi-for-coding:high
+  smol: deepseek/deepseek-v4-pro:low
+  task: deepseek/deepseek-v4-pro:low
+  commit: deepseek/deepseek-v4-pro:low
+  tiny: deepseek/deepseek-v4-pro:low
+  slow: openai/gpt-5.5:xhigh
+  plan: openai/gpt-5.5:xhigh
+  vision: openai/gpt-5.5:xhigh
+cycleOrder: 
+  - smol
+  - default
+  - slow
+defaultThinkingLevel: high
+hideThinkingBlock: true
+enabledModels: 
+  - kimi-code/kimi-for-coding
+  - deepseek/deepseek-v4-pro
+  - anthropic/claude-opus-4-8
+  - openai/gpt-5.5
