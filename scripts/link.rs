@@ -34,6 +34,7 @@ const MAPPINGS: &[(&str, &str, bool)] = &[
     // (".claude", "~/.claude", true),
     // (".codex",  "~/.codex",  true),
     (".pi", "~/.pi", true),
+    (".omp", "~/.omp", true),
     // Neovim: Windows 上推荐改为 "~/AppData/Local/nvim"
     // ("nvim",    "~/.config/nvim", true),
 
