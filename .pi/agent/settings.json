@@ -1,8 +1,8 @@
 {
   "lastChangelogVersion": "0.80.2",
-  "defaultProvider": "openai",
-  "defaultModel": "gpt-5.5",
+  "defaultProvider": "kimi-coding",
+  "defaultModel": "kimi-for-coding",
   "theme": "dark",
-  "defaultThinkingLevel": "xhigh",
+  "defaultThinkingLevel": "high",
   "hideThinkingBlock": true
 }
