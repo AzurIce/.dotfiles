@@ -1,6 +1,0 @@
-interface:
-  display_name: "Record Design"
-  short_description: "Create and maintain traceable project design records"
-  default_prompt: "Use $record-design to capture this implementation design and keep it aligned with the repository."
-policy:
-  allow_implicit_invocation: false
