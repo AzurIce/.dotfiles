@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Docs"
+  short_description: "Write human-readable design explanations"
+  default_prompt: "Use $design-docs to update this design as a topic-driven explanation that preserves its reasoning and repository voice."
