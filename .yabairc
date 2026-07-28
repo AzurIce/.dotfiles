@@ -34,4 +34,5 @@ yabai -m rule --add app="^evt-.*$" manage=off
 yabai -m rule --add app="^winit window$" manage=off
 yabai -m rule --add app="^Epic Games.*$" manage=off
 yabai -m rule --add title="^虚幻项目浏览器$" manage=off
-yabai -m rule --add title="^app-*$" manage=off
+yabai -m rule --add title="^app-.*$" manage=off
+yabai -m rule --add title="^.*[rR]anim.*$" manage=off
