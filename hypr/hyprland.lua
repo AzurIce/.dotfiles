@@ -30,6 +30,11 @@ hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("XDG_SESSION_TYPE", "wayland")
 -- hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 hl.env("no_proxy", "localhost,127.0.0.1")
+hl.env("NIXOS_OZONE_WL", "1")
+hl.env("GTK_IM_MODULE", "fcitx")
+hl.env("QT_IM_MODULE", "fcitx")
+hl.env("XMODIFIERS", "@im=fcitx")
+hl.env("SDL_IM_MODULE", "fcitx")
 
 
 ------------------
@@ -37,11 +42,12 @@ hl.env("no_proxy", "localhost,127.0.0.1")
 ------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("wl-paste --watch clipvault store")
     hl.exec_cmd("WGPU_BACKEND=gl ashell")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("clash-verge")
-    hl.exec_cmd("syncthingtray --wait")
+    -- hl.exec_cmd("syncthingtray --wait")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
 
@@ -83,8 +89,8 @@ hl.config({
 
 hl.config({
     general = {
-        gaps_in  = 3,
-        gaps_out = 5,
+        gaps_in  = 8,
+        gaps_out = 32,
 
         border_size = 3,
 
@@ -191,6 +197,7 @@ hl.bind(mainMod .. " + M",      hl.dsp.exit())
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Space",          hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy"))
 hl.bind(mainMod .. " + F",      hl.dsp.window.fullscreen())
 
 -- Groups
