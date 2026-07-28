@@ -1,0 +1,9 @@
+# Rime generated files
+build/
+sync/
+*.userdb/
+*.userdb.txt
+*.userdb.kct
+user.yaml
+installation.yaml
+*.log
