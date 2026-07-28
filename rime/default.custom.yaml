@@ -1,0 +1,22 @@
+# Rime default settings
+# encoding: utf-8
+
+patch:
+  schema_list:
+    - schema: luna_pinyin
+    - schema: luna_pinyin_simp
+    - schema: luna_pinyin_fluency
+    - schema: bopomofo
+    - schema: bopomofo_tw
+    - schema: cangjie5
+    - schema: stroke
+    - schema: terra_pinyin
+
+  # 候選詞數量（預設 5 有點少）
+  menu/page_size: 9
+
+  switcher:
+    hotkeys:
+      - Control+grave
+      - Control+Shift+grave
+      - F4
