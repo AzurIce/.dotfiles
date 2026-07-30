@@ -257,7 +257,7 @@ agent_panel_sort = "spaces"
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
-# enabled = true
+enabled = false
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
 # done_path = "sounds/done.mp3"      # overrides only finished notifications
@@ -289,7 +289,7 @@ agent_panel_sort = "spaces"
 # allow_nested = false
 # Experimental local Kitty graphics rendering for attached clients.
 # Requires a Kitty graphics-compatible outer terminal.
-# kitty_graphics = false
+kitty_graphics = true
 # Save recent pane screen history across full server restarts.
 pane_history = true
 # While prefix mode is active, temporarily switch the host input source to
