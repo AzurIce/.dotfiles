@@ -60,6 +60,9 @@ trust_level = "trusted"
 [projects."/Volumes/HDD 3T/Capture One"]
 trust_level = "trusted"
 
+[projects."/home/azurice/flakes"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
@@ -89,6 +92,7 @@ dock-icon-preference = "codex-system"
 global = "zed"
 
 [features]
+hooks = true
 js_repl = false
 
 [plugins."documents@openai-primary-runtime"]
@@ -142,3 +146,8 @@ enabled = false
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "461c4ba94b821ec805da79c8e8138fe510b1b3358609fc93da47387a2cf3fbf3,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/azurice/.codex"
+
+[hooks.state]
+
+[hooks.state."/home/azurice/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:bb0f46756350b0b2d10b0b9670a9c3d83d2caa4de70b67e6de1af99f36df7c89"

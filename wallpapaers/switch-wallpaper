@@ -1,0 +1,112 @@
+#!/bin/sh
+
+# 直接在本脚本里配置壁纸列表，一行一个路径。
+# 用法: ./switch-wallpaper [next|prev|random|<index>]
+#
+# 默认行为是顺序切换（next）。
+# 需要 awww-daemon 正在运行。
+
+# ============================================================
+# 在这里配置壁纸列表
+# ============================================================
+WALLPAPERS=$(cat <<'EOF'
+Amiya.jpeg
+./W-薇尔莉特-17-电脑.jpg
+./D-楪祈-02-电脑.jpg
+./S-山田凉-09-电脑.jpg
+./S-山田凉-15-电脑.jpg
+./S-山田凉-15-电脑.jpg
+EOF
+)
+# ============================================================
+
+# 脚本所在目录，相对路径会基于这里解析
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+STATE_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/switch-wallpaper/index"
+
+mkdir -p "$(dirname "$STATE_FILE")"
+
+if ! command -v awww >/dev/null 2>&1; then
+	echo "错误: 未找到 awww 命令，请先安装 awww 并启动 awww-daemon。" >&2
+	exit 1
+fi
+
+N=$(printf '%s\n' "$WALLPAPERS" | wc -l | tr -d ' ')
+if [ "$N" -eq 0 ]; then
+	echo "错误: 脚本中的壁纸列表为空。" >&2
+	exit 1
+fi
+
+# 读取当前索引（顺序模式用）
+CUR=0
+if [ -f "$STATE_FILE" ]; then
+	if ! read -r CUR 2>/dev/null < "$STATE_FILE"; then
+		CUR=0
+	fi
+fi
+case "$CUR" in
+	'' | *[!0-9]*) CUR=0 ;;
+esac
+if [ "$CUR" -ge "$N" ]; then
+	CUR=0
+fi
+
+# 计算新索引
+case "${1:-next}" in
+	next)
+		NEW=$(( (CUR + 1) % N ))
+		;;
+	prev)
+		NEW=$(( CUR - 1 ))
+		if [ "$NEW" -lt 0 ]; then
+			NEW=$(( N - 1 ))
+		fi
+		;;
+	random)
+		# 用 /dev/urandom 取随机索引，尽量避免和当前重复
+		RAND_BYTES=$(od -An -N4 -tu4 /dev/urandom | tr -d ' ')
+		NEW=$(awk -v n="$N" -v r="$RAND_BYTES" -v cur="$CUR" \
+			'BEGIN { idx = r % n; if (idx == cur && n > 1) idx = (idx + 1) % n; print idx }')
+		;;
+	[0-9]*)
+		NEW=$1
+		if [ "$NEW" -lt 0 ] || [ "$NEW" -ge "$N" ]; then
+			echo "错误: 索引越界，有效范围是 0 ~ $((N - 1))。" >&2
+			exit 1
+		fi
+		;;
+	*)
+		echo "用法: $0 [next|prev|random|<index>]" >&2
+		echo "  next   : 顺序下一张（默认）" >&2
+		echo "  prev   : 顺序上一张" >&2
+		echo "  random : 随机切换" >&2
+		echo "  index  : 切换到列表中的第 index 张（从 0 开始）" >&2
+		exit 1
+		;;
+esac
+
+WALL=$(printf '%s\n' "$WALLPAPERS" | sed -n "$((NEW + 1))p")
+
+# 支持相对路径：非 / 开头的路径按脚本所在目录解析
+case "$WALL" in
+	/*) ;;
+	*) WALL="$SCRIPT_DIR/$WALL" ;;
+esac
+
+if [ ! -f "$WALL" ]; then
+	echo "错误: 找不到壁纸文件: $WALL" >&2
+	exit 1
+fi
+
+# 把可能包含 ../ 的路径规范化
+if command -v readlink >/dev/null 2>&1; then
+	WALL=$(readlink -f "$WALL")
+fi
+
+printf '%d\n' "$NEW" > "$STATE_FILE"
+
+export AWWW_TRANSITION_FPS="${AWWW_TRANSITION_FPS:-60}"
+export AWWW_TRANSITION_STEP="${AWWW_TRANSITION_STEP:-2}"
+
+awww img "$WALL"

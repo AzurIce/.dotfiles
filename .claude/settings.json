@@ -1,38 +1,50 @@
 {
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/azurice/.claude/hooks/rtk-rewrite.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "cc-statusline"
-  },
+  "effortLevel": "high",
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true,
+    "document-skills@anthropic-agent-skills": true,
     "frontend-design@claude-plugins-official": true,
     "product-tracking-skills@claude-plugins-official": true,
-    "document-skills@anthropic-agent-skills": true
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
       "source": {
-        "source": "github",
-        "repo": "anthropics/skills"
+        "repo": "anthropics/skills",
+        "source": "github"
       }
     }
   },
-  "skipWebFetchPreflight": true,
-  "effortLevel": "high",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "/Users/azurice/.claude/hooks/rtk-rewrite.sh",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/azurice/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus[1m]",
   "skipDangerousModePermissionPrompt": true,
-  "model": "opus[1m]"
+  "skipWebFetchPreflight": true,
+  "statusLine": {
+    "command": "cc-statusline",
+    "type": "command"
+  }
 }

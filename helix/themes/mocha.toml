@@ -1,0 +1,221 @@
+attribute = "#f9e2af"
+constant = "#fab387"
+"constant.character" = "#94e2d5"
+"constant.character.escape" = "#f5c2e7"
+constructor = "#74c7ec"
+"diff.delta" = "#89b4fa"
+"diff.minus" = "#f38ba8"
+"diff.plus" = "#a6e3a1"
+error = "#f38ba8"
+function = "#89b4fa"
+"function.macro" = "#cba6f7"
+hint = "#94e2d5"
+info = "#89dceb"
+keyword = "#cba6f7"
+label = "#74c7ec"
+"markup.heading.1" = "#b4befe"
+"markup.heading.2" = "#cba6f7"
+"markup.heading.3" = "#a6e3a1"
+"markup.heading.4" = "#f9e2af"
+"markup.heading.5" = "#f5c2e7"
+"markup.heading.6" = "#94e2d5"
+"markup.link.text" = "#89b4fa"
+"markup.list" = "#cba6f7"
+"markup.raw" = "#f2cdcd"
+operator = "#89dceb"
+punctuation = "#9399b2"
+"punctuation.special" = "#89dceb"
+special = "#89b4fa"
+string = "#a6e3a1"
+"string.regexp" = "#f5c2e7"
+"string.special" = "#89b4fa"
+"string.special.symbol" = "#f38ba8"
+tag = "#89b4fa"
+type = "#f9e2af"
+"type.enum.variant" = "#94e2d5"
+"ui.text" = "#cdd6f4"
+"ui.virtual" = "#6c7086"
+"ui.virtual.indent-guide" = "#313244"
+variable = "#cdd6f4"
+"variable.builtin" = "#f38ba8"
+"variable.other.member" = "#94e2d5"
+warning = "#f9e2af"
+
+[comment]
+fg = "#9399b2"
+modifiers = ["italic"]
+
+["diagnostic.error".underline]
+color = "#f38ba8"
+style = "curl"
+
+["diagnostic.hint".underline]
+color = "#94e2d5"
+style = "curl"
+
+["diagnostic.info".underline]
+color = "#89dceb"
+style = "curl"
+
+["diagnostic.warning".underline]
+color = "#f9e2af"
+style = "curl"
+
+["keyword.control.conditional"]
+fg = "#cba6f7"
+modifiers = ["italic"]
+
+["markup.bold"]
+modifiers = ["bold"]
+
+["markup.heading.marker"]
+fg = "#fab387"
+modifiers = ["bold"]
+
+["markup.italic"]
+modifiers = ["italic"]
+
+["markup.link.url"]
+fg = "#89b4fa"
+modifiers = ["italic", "underlined"]
+
+[namespace]
+fg = "#f9e2af"
+modifiers = ["italic"]
+
+["ui.background"]
+bg = "#1e1e2e"
+fg = "#cdd6f4"
+
+["ui.bufferline"]
+bg = "#181825"
+fg = "#a6adc8"
+
+["ui.bufferline.active"]
+bg = "#1e1e2e"
+fg = "#cba6f7"
+
+["ui.bufferline.active".underline]
+color = "mauve"
+style = "line"
+
+["ui.bufferline.background"]
+bg = "#11111b"
+
+["ui.cursor"]
+bg = "secondary_cursor"
+fg = "#1e1e2e"
+
+["ui.cursor.insert"]
+bg = "#7ea87f"
+fg = "#1e1e2e"
+
+["ui.cursor.match"]
+fg = "#fab387"
+modifiers = ["bold"]
+
+["ui.cursor.normal"]
+bg = "#878ec0"
+fg = "#1e1e2e"
+
+["ui.cursor.primary"]
+bg = "rosewater"
+fg = "#1e1e2e"
+
+["ui.cursor.primary.insert"]
+bg = "#a6e3a1"
+fg = "#1e1e2e"
+
+["ui.cursor.primary.normal"]
+bg = "#b4befe"
+fg = "#1e1e2e"
+
+["ui.cursor.primary.select"]
+bg = "#f2cdcd"
+fg = "#1e1e2e"
+
+["ui.cursor.select"]
+bg = "#b5a6a8"
+fg = "#1e1e2e"
+
+["ui.cursorline.primary"]
+bg = "#2a2b3c"
+
+["ui.help"]
+bg = "#313244"
+fg = "#9399b2"
+
+["ui.highlight"]
+bg = "#45475a"
+modifiers = ["bold"]
+
+["ui.linenr"]
+fg = "#45475a"
+
+["ui.linenr.selected"]
+fg = "#b4befe"
+
+["ui.menu"]
+bg = "#313244"
+fg = "#9399b2"
+
+["ui.menu.selected"]
+bg = "#45475a"
+fg = "#cdd6f4"
+modifiers = ["bold"]
+
+["ui.popup"]
+bg = "#313244"
+fg = "#cdd6f4"
+
+["ui.selection"]
+bg = "#45475a"
+
+["ui.statusline"]
+bg = "#181825"
+fg = "#bac2de"
+
+["ui.statusline.inactive"]
+bg = "#181825"
+fg = "#585b70"
+
+["ui.statusline.insert"]
+bg = "#a6e3a1"
+fg = "#1e1e2e"
+modifiers = ["bold"]
+
+["ui.statusline.normal"]
+bg = "#b4befe"
+fg = "#1e1e2e"
+modifiers = ["bold"]
+
+["ui.statusline.select"]
+bg = "#f2cdcd"
+fg = "#1e1e2e"
+modifiers = ["bold"]
+
+["ui.text.focus"]
+bg = "#313244"
+fg = "#cdd6f4"
+modifiers = ["bold"]
+
+["ui.text.inactive"]
+fg = "#7f849c"
+
+["ui.virtual.inlay-hint"]
+bg = "#181825"
+fg = "#45475a"
+
+["ui.virtual.jump-label"]
+fg = "#f5e0dc"
+modifiers = ["bold"]
+
+["ui.virtual.ruler"]
+bg = "#313244"
+
+["ui.window"]
+fg = "#11111b"
+
+["variable.parameter"]
+fg = "#eba0ac"
+modifiers = ["italic"]
