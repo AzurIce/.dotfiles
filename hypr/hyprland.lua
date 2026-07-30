@@ -225,8 +225,22 @@ hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "+1" }))
 hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.window.move({ workspace = "-1" }))
 hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.move({ workspace = "+1" }))
 
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+-- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+-- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+local function onlyOnScrolling(dsp)
+    return function()
+        local ws = hl.get_active_workspace()
+        if ws and ws.tiled_layout == "scrolling" then
+            hl.dispatch(dsp)
+        end
+    end
+end
+
+hl.bind(mainMod .. " + mouse_down", onlyOnScrolling(hl.dsp.layout("move +col")))
+hl.bind(mainMod .. " + mouse_up",   onlyOnScrolling(hl.dsp.layout("move -col")))
+hl.bind(mainMod .. " + SHIFT + mouse_down", onlyOnScrolling(hl.dsp.layout("colresize -0.25")))
+hl.bind(mainMod .. " + SHIFT + mouse_up",   onlyOnScrolling(hl.dsp.layout("colresize +0.25")))
 
 -- Mouse binds
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -261,6 +275,7 @@ hl.workspace_rule({
     workspace = "9",
     monitor   = dell,
     default   = true,
+    layout = "scrolling"
 })
 
 hl.workspace_rule({
