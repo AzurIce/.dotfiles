@@ -199,6 +199,9 @@ hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Space",          hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy"))
+-- hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | satty --filename - --fullscreen"))
+hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | wl-copy"))
+hl.bind("CTRL + SHIFT + A",     hl.dsp.exec_cmd("wl-paste | satty --filename -"))
 hl.bind(mainMod .. " + F",      hl.dsp.window.fullscreen())
 
 -- Groups

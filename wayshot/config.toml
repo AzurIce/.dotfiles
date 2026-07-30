@@ -1,0 +1,8 @@
+[base]
+cursor = true
+# We will feed output into satty
+clipboard = false
+file = false
+
+[file]
+path = "~/Pictures"

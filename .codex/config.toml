@@ -63,6 +63,9 @@ trust_level = "trusted"
 [projects."/home/azurice/flakes"]
 trust_level = "trusted"
 
+[projects."/home/azurice/Files/ranim"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
