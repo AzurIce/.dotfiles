@@ -83,6 +83,14 @@ hl.config({
     }
 })
 
+-- Render XWayland apps (e.g. Steam) at scale 1 instead of the fractional
+-- monitor scale, otherwise their text gets upscaled and looks blurry.
+hl.config({
+    xwayland = {
+        force_zero_scaling = true,
+    }
+})
+
 
 ------------------
 ---- GENERAL ----
