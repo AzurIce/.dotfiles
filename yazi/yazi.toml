@@ -1,0 +1,9 @@
+# 让压缩包可以通过 yazi 的打开菜单（回车/o）解压，调用 ouch
+[opener]
+extract = [
+  { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+]
+
+[[open.prepend_rules]]
+mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}"
+use  = "extract"

@@ -1,0 +1,5 @@
+# 解压：选中压缩包按 x，用 ouch 解压到当前目录
+# [[mgr.prepend_keymap]]
+# on   = "x"
+# run  = "shell 'ouch decompress --yes \"$@\"' --block"
+# desc = "Extract selected archive(s) with ouch"

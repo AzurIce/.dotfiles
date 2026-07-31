@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.81.1",
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
+  "defaultModel": "deepseek-v4-flash",
   "theme": "dark",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": true
