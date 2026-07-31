@@ -43,7 +43,7 @@ hl.env("SDL_IM_MODULE", "fcitx")
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --watch clipvault store")
-    hl.exec_cmd("WGPU_BACKEND=gl ashell")
+    hl.exec_cmd("noctalia")
     -- hl.exec_cmd("hyprpaper")
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("fcitx5")
@@ -258,10 +258,10 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("ashell msg volume-up"),     { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("ashell msg volume-down"),     { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("ashell msg volume-toggle-mute"),    { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("ashell msg volume-toggle-mute"),  { locked = true, repeating = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"),     { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"),     { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("noctalia msg volume-mute"),    { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("noctalia msg mic-mute"),  { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("light -A 5"),                              { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("light -U 5"),                             { locked = true, repeating = true })
 hl.bind("Print",                hl.dsp.exec_cmd("grimblast copy area"))
@@ -279,6 +279,7 @@ for i = 1, 8 do
         workspace = tostring(i),
         monitor   = philips,
         default   = (i == 1),
+        persistent = true, -- Noctalia 工作区指示器：空工作区也保持可见
     })
 end
 
@@ -286,6 +287,7 @@ hl.workspace_rule({
     workspace = "9",
     monitor   = dell,
     default   = true,
+    persistent = true,
     layout = "scrolling"
 })
 
@@ -293,6 +295,7 @@ hl.workspace_rule({
     workspace = "10",
     monitor   = philips,
     default   = false,
+    persistent = true,
 })
 
 
@@ -311,4 +314,29 @@ hl.window_rule({
     match = { class = "clash-verge" },
     float = true,
     workspace = "10",
+})
+
+
+----------------------
+---- NOCTALIA ----
+----------------------
+
+-- Noctalia 设置窗口浮窗显示
+hl.window_rule({
+    match = { class = "dev.noctalia.Noctalia" },
+    float = true,
+    size  = { 1080, 920 },
+})
+
+-- 给 Noctalia 的 bar/面板/通知/OSD 等 surface 开启模糊，
+-- 并关闭 Hyprland 自带的 layer 动画以免与 Noctalia 动画冲突
+hl.layer_rule({
+    name = "noctalia",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim      = true,
+    ignore_alpha = 0.5,
+    blur         = true,
+    blur_popups  = true,
 })

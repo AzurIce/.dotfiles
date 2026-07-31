@@ -1,0 +1,29 @@
+# Noctalia v5 配置 —— 只写与默认值不同的项，其余走内置默认
+# 完整默认参考: https://github.com/noctalia-dev/noctalia-shell/blob/main/example.toml
+
+[shell]
+font_family = "sans-serif"
+# 剪贴板历史保留 clipvault，Noctalia 自带的先关掉，避免两套历史
+clipboard_enabled = false
+
+# 壁纸继续用 awww 管理（switch-wallpaper/wp），关闭 Noctalia 的壁纸层避免冲突
+[wallpaper]
+enabled = false
+
+[theme]
+mode = "dark"
+source = "builtin"
+builtin = "Noctalia"
+
+# NVIDIA 上 ddcutil 扫 I2C 总线可能卡死启动（默认已 false，显式写出以防万一）
+[brightness]
+enable_ddcutil = false
+
+[bar.main]
+position = "top"
+thickness = 34
+margin_ends = 180
+margin_edge = 10
+start = [ "launcher", "workspaces" ]
+center = [ "clock" ]
+end = [ "media", "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
