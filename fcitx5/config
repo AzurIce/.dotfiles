@@ -2,6 +2,9 @@
 ActiveByDefault=False
 
 [Hotkey]
+# 取消 fcitx5 默认的 Shift_L 临时切换，让 Shift 直达 Rime
+# （由 Rime 的 ascii_composer/switch_key = commit_code 处理：上屏原始输入并切西文）
+AltTriggerKeys=
 EnumerateSkipFirst=False
 EnumerateWithTriggerKeys=True
 ModifierOnlyKeyTimeout=250
