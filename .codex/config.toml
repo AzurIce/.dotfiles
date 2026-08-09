@@ -2,7 +2,7 @@ model_provider = "fox"
 # 可配置gpt-5.4或gpt-5.4
 model = "gpt-5.6-sol"
 # 可配置high medium low
-model_reasoning_effort = "max"
+model_reasoning_effort = "xhigh"
 disable_response_storage = true
 
 notify = ["/Users/azurice/flakes/.dotfiles/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
@@ -70,6 +70,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/azurice"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/_ffxiv/xiv-market"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/zed-notist"]
 trust_level = "trusted"
 
 [tui.model_availability_nux]
