@@ -7,16 +7,246 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "language_models": {
+    "openai_compatible": {
+      "Kimi Code": {
+        "api_url": "https://api.kimi.com/coding/v1",
+        "available_models": [
+          {
+            "name": "k3",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 1048576,
+            "reasoning_effort": "high",
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true,
+              "chat_completions": true,
+              "interleaved_reasoning": true,
+              "max_tokens_parameter": false
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agent": {
+    "sandbox_permissions": {
+      "allow_fs_write_all": true,
+      "allow_all_hosts": true
+    },
+    "show_turn_stats": true,
+    "tool_permissions": {
+      "tools": {
+        "write_file": {
+          "default": "allow"
+        },
+        "skill": {
+          "default": "allow"
+        },
+        "delete_path": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^E:/_quant/lib/"
+            }
+          ]
+        },
+        "fetch": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^https?://en\\.wikipedia\\.org"
+            },
+            {
+              "pattern": "^https?://www\\.aqr\\.com"
+            },
+            {
+              "pattern": "^https?://rust-lang\\.github\\.io"
+            },
+            {
+              "pattern": "^https?://github\\.com"
+            }
+          ]
+        },
+        "create_directory": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^E:/_quant/book/"
+            },
+            {
+              "pattern": "^E:/_quant/book/src/"
+            }
+          ]
+        },
+        "terminal": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^uv\\s+sync(\\s|$)"
+            },
+            {
+              "pattern": "^uv\\s+run(\\s|$)"
+            },
+            {
+              "pattern": "^mdbook\\s+build(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\s+src/images/(\\s|$)"
+            },
+            {
+              "pattern": "^grep\\b"
+            },
+            {
+              "pattern": "^git\\b"
+            },
+            {
+              "pattern": "^head\\b"
+            },
+            {
+              "pattern": "^git\\s+add(\\s|$)"
+            },
+            {
+              "pattern": "^ls\\b"
+            },
+            {
+              "pattern": "^find\\s+\\.(\\s|$)"
+            },
+            {
+              "pattern": "^rm\\s+\\./nul(\\s|$)"
+            },
+            {
+              "pattern": "^tail\\b"
+            },
+            {
+              "pattern": "^defuddle\\s+parse(\\s|$)"
+            },
+            {
+              "pattern": "^mkdir\\b"
+            },
+            {
+              "pattern": "^git\\s+mv(\\s|$)"
+            },
+            {
+              "pattern": "^wc\\b"
+            },
+            {
+              "pattern": "^echo\\b"
+            },
+            {
+              "pattern": "^mdbook\\b"
+            },
+            {
+              "pattern": "^sort\\b"
+            },
+            {
+              "pattern": "^uniq\\b"
+            },
+            {
+              "pattern": "^python\\b"
+            }
+          ]
+        }
+      }
+    },
+    "default_model": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "enable_thinking": true,
+      "effort": "max"
+    },
+    "dock": "right",
+    "favorite_models": [
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-pro",
+        "enable_thinking": true,
+        "effort": "max"
+      },
+      {
+        "provider": "Kimi Code",
+        "model": "k3",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "enable_thinking": true,
+        "effort": "max"
+      }
+    ],
+    "model_parameters": []
+  },
+  "soft_wrap": "bounded",
+  "cli_default_open_behavior": "existing_window",
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "project_panel": {
+    "hide_hidden": false,
+    "hide_root": false,
+    "bold_folder_labels": false,
+    "dock": "left"
+  },
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": false
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": false,
+    "git_status": true
+  },
+  "status_bar": {
+    "show_active_file": true,
+    "line_endings_button": true
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "title_bar": {
+    "show_branch_status_icon": true,
+    "show_menus": true
+  },
+  "auto_signature_help": true,
+  "toolbar": {
+    "code_actions": true
+  },
+  "minimap": {
+    "show": "always"
+  },
+  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_features": {
+    "liga": true
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "agent_servers": {
+    "kimi": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     },
     "codex-acp": {
       "type": "registry"
     },
-    // "opencode": {
-    //   "type": "registry"
-    // }
     "opencode": {
       "default_config_options": {
         "model": "kimi-for-coding/k2p7"
@@ -29,40 +259,14 @@
       "type": "custom",
       "command": "opencode",
       "args": ["acp"],
-      "env": {},
-    },
-  },
-  "project_panel": {
-    "dock": "left"
-  },
-  "outline_panel": {
-    "dock": "left"
-  },
-  "collaboration_panel": {
-    "dock": "left"
-  },
-  "agent": {
-    "dock": "right",
-    "favorite_models": [],
-    "model_parameters": []
-  },
-  "git_panel": {
-    "dock": "left"
-  },
-  "session": {
-    "trust_all_worktrees": true
-  },
-  "vim_mode": true,
-  "icon_theme": {
-    "mode": "system",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+      "env": {}
+    }
   },
   "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark",
-  },
+    "dark": "One Dark"
+  }
 }
