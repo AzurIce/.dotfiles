@@ -1,6 +1,6 @@
 ---
 name: design-docs
-description: Create, refine, reconcile, replace, archive, and validate project design documents that explain a topic's chosen model, reasoning, consequences, and durable boundaries in a human-readable form. Use when the user explicitly asks to work with design docs, when an existing design must be brought up to date without losing its explanatory structure, and before user-requested commits or amends to validate affected designs and Design trailers. Preserve topic-driven narrative and repository-local writing style; do not normalize designs into a universal template or compress them into summaries.
+description: Create, refine, reconcile, replace, archive, and validate project design documents that explain a topic's chosen model, reasoning, consequences, and durable boundaries in a human-readable form. Use when the user explicitly asks to work with design docs, invokes /design-status, asks which designs remain unaligned, when an existing design must be brought up to date without losing its explanatory structure, and before user-requested commits or amends to validate affected designs and Design trailers. Preserve topic-driven narrative and repository-local writing style; do not normalize designs into a universal template or compress them into summaries.
 ---
 
 # Design Docs
@@ -111,7 +111,7 @@ Do not require frontmatter, status fields, dates, owners, or document-level proj
 
 ## Keep design and repository aligned
 
-Treat an active design as normative direction, not a claim that every described capability is already implemented. Incompleteness does not make a design false; implementation that contradicts its model or boundary does.
+Treat an active design as normative direction. Track separately whether the repository fully realizes that direction: an active design remains valid while incomplete, but its committed state must stay `*Dxxxx` until the resulting repository implements and conforms to the complete design.
 
 For work that materially touches an active design:
 
@@ -127,10 +127,10 @@ Do not reconcile unrelated designs. Do not create commits unless the user reques
 
 Before every user-requested commit or amend:
 
-1. Inspect the exact staged snapshot. If nothing is staged, stop rather than infer scope. If `docs/designs/` does not exist, no design trailer check applies.
+1. Inspect the exact staged snapshot. If nothing is staged, stop rather than infer scope, except when the user explicitly requests only a commit-message or trailer correction. For such a message-only amend, inspect the exact `HEAD` tree and `HEAD^..HEAD` diff, keep the index empty, and do not stage unrelated working-tree changes. If `docs/designs/` does not exist, no design trailer check applies.
 2. Identify affected designs: documents added, edited, or archived, plus active designs whose model or boundaries staged code materially touches.
-3. Check staged work against their governing claims. Distinguish incompleteness from contradiction.
-4. Resolve contradictions by changing implementation, updating/replacing the design, or explicitly opening/retaining a WIP mismatch.
+3. Check the complete resulting tree against every governing claim of each affected design. Missing required capability, partial migration, temporary workaround, and direct contradiction all prevent full alignment.
+4. Resolve non-alignment by completing the implementation, updating/replacing the intended design, retiring it, or explicitly opening/retaining a `*Dxxxx` state.
 5. Compute actual design transitions and add exactly one `Design:` trailer only when a state changes.
 6. Inspect the final commit message and staged snapshot again before committing.
 
@@ -148,11 +148,29 @@ Design: =D0008, -D0003
 
 Use comma-and-space-separated operations matching `[*=-]D[0-9]{4}`; include an operator on every ID and mention each ID at most once:
 
-- `*D0008`: implementation may temporarily contradict D0008 until a later `=D0008` or `-D0008`.
-- `=D0008`: D0008 is active and the resulting implementation does not contradict it. Use for a new active design and to close WIP.
+- `*D0008`: D0008 is active, but the repository after this commit is not fully aligned with it. Use this for missing capabilities, partial implementation or migration, temporary workarounds, and contradictions.
+- `=D0008`: D0008 is active, and the repository after this commit fully implements and conforms to the complete design. Use only after auditing the whole design, including for a newly added active design.
 - `-D0008`: D0008 no longer governs; archive it in the same commit.
 
 Order operations as `*`, then `=`, then `-`, ascending by ID within each group. Do not repeat an operation because a design was merely consulted.
+
+## Design status
+
+When the user invokes `/design-status` or asks which designs remain unaligned, run `scripts/design_status.py` against the current repository and report its result. Resolve the script relative to this `SKILL.md`; do not copy it into the target repository.
+
+```bash
+python <skill-dir>/scripts/design_status.py --repo <repository>
+```
+
+Interpret status from committed `Design:` trailers, using the latest operation for each ID:
+
+- `*Dxxxx` means the active design is not yet fully realized by the repository, whether because of missing work, partial implementation, migration, workaround, or contradiction.
+- A later `=Dxxxx` certifies that the resulting repository fully implements and conforms to the complete active design.
+- A later `-Dxxxx` closes the open state by retiring the design.
+
+List every active design that is not fully aligned, with the commit that opened its current state. Also report state inconsistencies, such as `=Dxxxx` without an active design file, `-Dxxxx` without an archived file, or active and archived files sharing an ID. Report uncommitted changes under `docs/designs` separately; they have no committed transition yet, so do not infer `*`, `=`, or `-` from their content. If every active design is fully aligned, say so explicitly.
+
+Use `--all` only when the user asks for every known design state, and `--check` when a machine-readable nonzero exit is useful for CI. The default status command is informational and exits successfully even when mismatches are open.
 
 ## Verify before handoff
 

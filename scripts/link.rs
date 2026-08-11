@@ -31,10 +31,12 @@ use std::path::{Path, PathBuf};
 
 const MAPPINGS: &[(&str, &str, bool)] = &[
     // ── 跨平台工具 ──
-    // (".claude", "~/.claude", true),
+    (".claude", "~/.claude", true),
+    (".agents", "~/.agents", true),
     // (".codex",  "~/.codex",  true),
     (".pi", "~/.pi", true),
     (".omp", "~/.omp", true),
+    ("rua", "~/.config/rua", true),
     // Neovim: Windows 上推荐改为 "~/AppData/Local/nvim"
     // ("nvim",    "~/.config/nvim", true),
 
@@ -212,9 +214,9 @@ fn main() {
 
         // 已经是正确的 symlink
         if is_correct_symlink(&src, &target) {
-            if dry_run {
-                println!(" ✓ 已链接");
-            }
+            // if dry_run {
+            println!(" ✓ 已链接");
+            // }
             ok += 1;
             continue;
         }
