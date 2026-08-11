@@ -20,7 +20,7 @@
       {
         "hooks": [
           {
-            "command": "/Users/azurice/.claude/hooks/rtk-rewrite.sh",
+            "command": "rtk hook claude",
             "type": "command"
           }
         ],
@@ -31,7 +31,7 @@
       {
         "hooks": [
           {
-            "command": "bash '/home/azurice/.claude/hooks/herdr-agent-state.sh' session",
+            "command": "bash -c \"h=$HOME/.claude/hooks/herdr-agent-state.sh; [ -f \"$h\" ] && \"$h\" session || true\"",
             "timeout": 10,
             "type": "command"
           }
