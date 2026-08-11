@@ -46,6 +46,9 @@ const MAPPINGS: &[(&str, &str, bool)] = &[
 
     // ── 编辑器 ──
     // ("opencode", "~/.config/opencode", true),
+    // Zed: Windows 使用 %APPDATA%\Zed，macOS 使用 ~/.config/zed
+    ("zed", "~/AppData/Roaming/Zed", true),
+    // ("zed", "~/.config/zed", true),
 
     // ── 其它工具 ──
     // ("rua/config.toml", "~/.config/rua/config.toml", false),
