@@ -34,6 +34,7 @@ const MAPPINGS: &[(&str, &str, bool)] = &[
     (".claude", "~/.claude", true),
     (".agents", "~/.agents", true),
     // (".codex",  "~/.codex",  true),
+    (".dsh", "~/.dsh", true),
     (".pi", "~/.pi", true),
     (".omp", "~/.omp", true),
     ("rua", "~/.config/rua", true),

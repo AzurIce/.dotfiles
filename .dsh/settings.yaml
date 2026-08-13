@@ -1,0 +1,45 @@
+ui-onboarding:
+  welcomeNoticeVersion: 2026-08-13.1
+agent-default-model:
+  provider: deepseek-official
+  model: deepseek-v4-flash
+  reasoningEffort: max
+permission:
+  defaultPreset: danger-full-access
+agent-presets:
+  default: code
+llm-pi-ai:
+  providers:
+    openai:
+      models:
+        - id: gpt-5.6-luna
+          name: GPT-5.6 Luna
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.6-sol
+          name: GPT-5.6 Sol
+          contextWindow: 272000
+          maxTokens: 128000
+        - id: gpt-5.6-terra
+          name: GPT-5.6 Terra
+          contextWindow: 272000
+          maxTokens: 128000
+      baseURL: https://dm-fox.rjj.cc/codex/v1
+    kimi-coding:
+      models:
+        - id: k3
+          name: Kimi K3
+          contextWindow: 1048576
+          maxTokens: 131072
+        - id: k3-256k
+          name: Kimi K3-256K
+          contextWindow: 262144
+          maxTokens: 131072
+        - id: kimi-for-coding
+          name: Kimi K2.7 Code
+          contextWindow: 262144
+          maxTokens: 32768
+        - id: kimi-for-coding-highspeed
+          name: Kimi For Coding HighSpeed
+          contextWindow: 262144
+          maxTokens: 32768
