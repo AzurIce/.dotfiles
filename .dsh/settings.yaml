@@ -1,9 +1,8 @@
 ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
 agent-default-model:
-  provider: deepseek-official
-  model: deepseek-v4-flash
-  reasoningEffort: max
+  provider: opencode-go
+  model: deepseek-v4-pro
 permission:
   defaultPreset: danger-full-access
 agent-presets:
@@ -43,5 +42,15 @@ llm-pi-ai:
           name: Kimi For Coding HighSpeed
           contextWindow: 262144
           maxTokens: 32768
+    opencode-go:
+      models:
+        - id: deepseek-v4-flash
+          name: DeepSeek V4 Flash
+          contextWindow: 1000000
+          maxTokens: 384000
+        - id: deepseek-v4-pro
+          name: DeepSeek V4 Pro
+          contextWindow: 1000000
+          maxTokens: 384000
 locale:
   preference: zh
