@@ -7,3 +7,4 @@ sync/
 user.yaml
 installation.yaml
 *.log
+*.userdb.old/

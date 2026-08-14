@@ -1,8 +1,21 @@
 [[language]]
 name = "rust"
 
+[language-server.nixd]
+command = "nixd"
+
+[language-server.nixd.config.nixd]
+formatting.command = [ "nixfmt" ]
+nixpkgs.expr = "import <nixpkgs> { }"
+
+[language-server.nixd.config.nixd.options]
+nixos.expr = "(builtins.getFlake (\"git+file://\" + builtins.toString ./.)).nixosConfigurations.aorus-nixos.options"
+nix-darwin.expr = "(builtins.getFlake (\"git+file://\" + builtins.toString ./.)).darwinConfigurations.azurmac-macos.options"
+home-manager.expr = "(builtins.getFlake (\"git+file://\" + builtins.toString ./.)).nixosConfigurations.aorus-nixos.options.home-manager.users.type.getSubOptions []"
+
 [[language]]
 name = "nix"
+language-servers = [ "nixd" ]
 
 [language.formatter]
 command = "nixfmt"
