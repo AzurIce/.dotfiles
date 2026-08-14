@@ -43,3 +43,5 @@ llm-pi-ai:
           name: Kimi For Coding HighSpeed
           contextWindow: 262144
           maxTokens: 32768
+locale:
+  preference: zh
