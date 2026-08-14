@@ -135,8 +135,8 @@ zoom = ["ctrl+alt+z"] # legacy alias: fullscreen
 # workspaces = "" # e.g. "ctrl+shift" makes ctrl+shift+1..9 switch workspaces directly
 # agents = ""     # e.g. "alt" makes alt+1..9 focus agent rows directly
 
-# [worktrees]
-# directory = "~/.herdr/worktrees"
+[worktrees]
+directory = "~/Files/worktrees"
 
 [ui]
 # Sidebar width (auto-scaled based on workspace names, this sets the default)
