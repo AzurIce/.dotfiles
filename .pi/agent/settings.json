@@ -1,8 +1,12 @@
 {
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.83.0",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
   "theme": "dark",
   "defaultThinkingLevel": "high",
-  "hideThinkingBlock": true
+  "hideThinkingBlock": false,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "showCacheMissNotices": false
 }

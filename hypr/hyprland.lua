@@ -316,6 +316,11 @@ hl.window_rule({
     workspace = "10",
 })
 
+hl.window_rule({
+    name  = "steam-app",
+    match = { class = "steam_app_" },
+    confine_pointer = true
+})
 
 ----------------------
 ---- NOCTALIA ----
