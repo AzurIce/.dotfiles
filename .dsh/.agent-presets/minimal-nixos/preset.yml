@@ -1,0 +1,2 @@
+name: 极简（NixOS）
+description: 极简模式的双工具编码 Agent；持久 bash 指向 /run/current-system/sw/bin/bash，适配无 /bin/bash 的 NixOS 系统。
