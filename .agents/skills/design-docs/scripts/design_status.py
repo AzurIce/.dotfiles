@@ -1,34 +1,30 @@
 #!/usr/bin/env python3
-"""Report the latest committed Design trailer state for a Git repository."""
+"""Report design state from the current tree and Notist module attributes."""
 
 from __future__ import annotations
 
 import argparse
-import re
+import json
+import shutil
 import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
 
 
-TRAILER_RE = re.compile(r"^Design:\s*(?P<operations>.+?)\s*$", re.MULTILINE)
-OPERATION_RE = re.compile(r"(?P<operation>[*=-])D(?P<design_id>\d{4})")
-RECORD_SEPARATOR = "\x1e"
-FIELD_SEPARATOR = "\x1f"
-
-
 @dataclass(frozen=True)
-class DesignState:
-    design_id: str
-    operation: str
-    commit: str
-    short_commit: str
-    subject: str
+class Design:
+    logical_path: str
+    source_path: Path
+    relative_path: str
+    implementation: str
+    location: str  # "active" or "archive"
 
 
-def git(repo: Path, *args: str) -> str:
+def run(args: list[str]) -> str:
     result = subprocess.run(
-        ["git", "-C", str(repo), *args],
+        args,
         check=False,
         capture_output=True,
         text=True,
@@ -36,119 +32,119 @@ def git(repo: Path, *args: str) -> str:
         errors="replace",
     )
     if result.returncode != 0:
-        message = result.stderr.strip() or result.stdout.strip() or "git command failed"
+        message = result.stderr.strip() or result.stdout.strip() or "command failed"
         raise RuntimeError(message)
     return result.stdout
 
 
+def git(repo: Path, *args: str) -> str:
+    return run(["git", "-C", str(repo), *args])
+
+
 def repository_root(repo: Path) -> Path:
-    root = git(repo, "rev-parse", "--show-toplevel").strip()
-    return Path(root)
+    return Path(git(repo, "rev-parse", "--show-toplevel").strip())
 
 
-def latest_states(repo: Path) -> tuple[dict[str, DesignState], list[str]]:
-    output = git(
-        repo,
-        "log",
-        f"--format=%H{FIELD_SEPARATOR}%h{FIELD_SEPARATOR}%s{FIELD_SEPARATOR}%B{RECORD_SEPARATOR}",
-    )
-    states: dict[str, DesignState] = {}
-    warnings: list[str] = []
+def vault_root(repo: Path) -> Path:
+    """Return the Vault root: docs/Notist.toml when present, else the repository root."""
+    candidate = repo / "docs" / "Notist.toml"
+    if candidate.is_file():
+        return candidate.parent
+    if (repo / "Notist.toml").is_file():
+        return repo
+    raise RuntimeError("no Notist.toml found at the repository root or docs/Notist.toml")
 
-    for record in output.split(RECORD_SEPARATOR):
-        record = record.strip("\r\n")
-        if not record:
-            continue
-        fields = record.split(FIELD_SEPARATOR, 3)
-        if len(fields) != 4:
-            warnings.append("could not parse one git log record")
-            continue
-        commit, short_commit, subject, message = fields
-        for trailer in TRAILER_RE.finditer(message):
-            operations = list(OPERATION_RE.finditer(trailer.group("operations")))
-            if not operations:
-                warnings.append(f"{short_commit} has an invalid Design trailer")
-                continue
-            for operation in operations:
-                design_id = operation.group("design_id")
-                if design_id in states:
+
+def property_values(attributes: list[dict]) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for attribute in attributes:
+        for key, raw in attribute.get("properties", []):
+            value = raw.strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+                value = value[1:-1]
+            values[key] = value
+    return values
+
+
+def resolve_notist(repo: Path, override: str | None) -> str:
+    if override:
+        return override
+    local = repo / "target" / "debug" / "notist"
+    if local.is_file() and local.exists():
+        return str(local)
+    executable = shutil.which("notist")
+    if executable is None:
+        raise RuntimeError("notist executable not found on PATH")
+    return executable
+
+
+def load_designs(vault: Path, repo: Path, executable: str) -> list[Design]:
+
+    with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as snapshot_file:
+        snapshot_path = Path(snapshot_file.name)
+
+    try:
+        run(
+            [
+                executable,
+                "export",
+                "snapshot",
+                str(vault),
+                "--output",
+                str(snapshot_path),
+                "--format",
+                "json",
+            ]
+        )
+        designs: list[Design] = []
+        with snapshot_path.open(encoding="utf-8") as stream:
+            for line in stream:
+                record = json.loads(line)
+                if record.get("kind") != "snapshot":
                     continue
-                states[design_id] = DesignState(
-                    design_id=design_id,
-                    operation=operation.group("operation"),
-                    commit=commit,
-                    short_commit=short_commit,
-                    subject=subject,
-                )
+                value = record.get("result", {}).get("value", {})
+                for module in value.get("modules", []):
+                    source_path = module.get("source_path")
+                    if not source_path:
+                        continue
+                    source = Path(source_path)
+                    try:
+                        relative = source.relative_to(repo)
+                    except ValueError:
+                        continue
+                    relative_text = relative.as_posix()
+                    if not relative_text.startswith("docs/designs/"):
+                        continue
+                    if relative_text in {
+                        "docs/designs/README.not",
+                        "docs/designs/overview.not",
+                        "docs/designs/archive/README.not",
+                    }:
+                        continue
+                    if relative_text.startswith("docs/designs/archive/"):
+                        location = "archive"
+                    elif any(
+                        relative_text.startswith(f"docs/designs/{directory}/")
+                        for directory in ("language", "world", "host")
+                    ) or relative_text == "docs/designs/overview.not":
+                        location = "active"
+                    else:
+                        continue
 
-    return states, warnings
-
-
-def design_path(repo: Path, design_id: str) -> str | None:
-    active = sorted((repo / "docs" / "designs").glob(f"D{design_id}-*"))
-    if active:
-        return active[0].relative_to(repo).as_posix()
-    archived = sorted((repo / "docs" / "designs" / "archive").glob(f"D{design_id}-*"))
-    if archived:
-        return archived[0].relative_to(repo).as_posix()
-    return None
-
-
-def design_files(repo: Path) -> tuple[dict[str, list[Path]], dict[str, list[Path]]]:
-    designs = repo / "docs" / "designs"
-    active: dict[str, list[Path]] = {}
-    archived: dict[str, list[Path]] = {}
-    name_re = re.compile(r"^D(?P<design_id>\d{4})-")
-
-    if designs.is_dir():
-        for path in designs.iterdir():
-            match = name_re.match(path.name)
-            if path.is_file() and match:
-                active.setdefault(match.group("design_id"), []).append(path)
-        archive = designs / "archive"
-        if archive.is_dir():
-            for path in archive.iterdir():
-                match = name_re.match(path.name)
-                if path.is_file() and match:
-                    archived.setdefault(match.group("design_id"), []).append(path)
-
-    return active, archived
-
-
-def state_inconsistencies(
-    repo: Path, states: dict[str, DesignState]
-) -> list[str]:
-    active, archived = design_files(repo)
-    issues: list[str] = []
-
-    for design_id, state in sorted(states.items()):
-        active_files = active.get(design_id, [])
-        archived_files = archived.get(design_id, [])
-        if len(active_files) > 1:
-            issues.append(f"D{design_id} has multiple active design files")
-        if len(archived_files) > 1:
-            issues.append(f"D{design_id} has multiple archived design files")
-        if active_files and archived_files:
-            issues.append(f"D{design_id} exists in both active and archive directories")
-        if state.operation in {"=", "*"} and not active_files:
-            issues.append(
-                f"{state.operation}D{design_id} has no active design file "
-                f"(latest state {state.short_commit})"
-            )
-        if state.operation == "-" and not archived_files:
-            issues.append(
-                f"-D{design_id} has no archived design file "
-                f"(latest state {state.short_commit})"
-            )
-        if state.operation == "-" and active_files:
-            issues.append(f"-D{design_id} still has an active design file")
-
-    if states:
-        known_ids = set(states)
-        for design_id in sorted((set(active) | set(archived)) - known_ids):
-            issues.append(f"D{design_id} has a design file but no committed Design state")
-
-    return issues
+                    values = property_values(module.get("attributes", []))
+                    implementation = values.get("implementation", "unmarked")
+                    designs.append(
+                        Design(
+                            logical_path=module["logical_path"],
+                            source_path=source,
+                            relative_path=relative_text,
+                            implementation=implementation,
+                            location=location,
+                        )
+                    )
+        return designs
+    finally:
+        snapshot_path.unlink(missing_ok=True)
 
 
 def uncommitted_design_changes(repo: Path) -> list[str]:
@@ -163,68 +159,65 @@ def uncommitted_design_changes(repo: Path) -> list[str]:
     return [line.rstrip() for line in output.splitlines() if line.strip()]
 
 
-def print_state(repo: Path, state: DesignState) -> None:
-    location = design_path(repo, state.design_id)
-    suffix = f" - {location}" if location else ""
-    print(
-        f"{state.operation}D{state.design_id}  "
-        f"{state.short_commit} {state.subject}{suffix}"
-    )
-
-
-def parse_args() -> argparse.Namespace:
+def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Report active designs that are not fully aligned with a Git repository."
+        description="Report design alignment from the current tree and Notist module attributes."
     )
     parser.add_argument("--repo", type=Path, default=Path.cwd())
-    parser.add_argument(
-        "--all", action="store_true", help="show the latest state of every known design"
-    )
+    parser.add_argument("--all", action="store_true", help="show every known design state")
     parser.add_argument(
         "--check",
         action="store_true",
-        help="exit nonzero when designs are not fully aligned or uncommitted design changes exist",
+        help="exit nonzero when implementation gaps or uncommitted design changes exist",
     )
-    return parser.parse_args()
+    parser.add_argument(
+        "--notist",
+        help="path to the notist executable to use (default: repo target/debug/notist, then PATH)",
+    )
+    args = parser.parse_args()
 
-
-def main() -> int:
-    args = parse_args()
     try:
         repo = repository_root(args.repo)
-        states, warnings = latest_states(repo)
-        inconsistencies = state_inconsistencies(repo, states)
+        vault = vault_root(repo)
+        executable = resolve_notist(repo, args.notist)
+        designs = load_designs(vault, repo, executable)
         changes = uncommitted_design_changes(repo)
     except RuntimeError as error:
         print(f"design-status: {error}", file=sys.stderr)
         return 2
 
-    open_mismatches = sorted(
-        (state for state in states.values() if state.operation == "*"),
-        key=lambda state: state.design_id,
-    )
+    active = [design for design in designs if design.location == "active"]
+    archived = [design for design in designs if design.location == "archive"]
+
+    counts: dict[str, int] = {}
+    for design in active:
+        counts[design.implementation] = counts.get(design.implementation, 0) + 1
+
+    open_gaps = [design for design in active if design.implementation != "aligned"]
 
     if args.all:
-        print("Latest design states:")
-        if states:
-            for state in sorted(states.values(), key=lambda item: item.design_id):
-                print_state(repo, state)
-        else:
-            print("(no committed Design trailers)")
+        print("Active designs:")
+        for design in sorted(active, key=lambda item: item.relative_path):
+            print(f"  {design.relative_path}  {design.implementation}")
+        if archived:
+            print("Archived designs:")
+            for design in sorted(archived, key=lambda item: item.relative_path):
+                print(f"  {design.relative_path}")
         print()
 
-    print(f"Active designs not fully aligned: {len(open_mismatches)}")
-    if open_mismatches:
-        for state in open_mismatches:
-            print_state(repo, state)
-    else:
-        print("(none)")
+    print(f"Active designs: {len(active)}")
+    print(
+        "  " + ", ".join(
+            f"{state}: {counts.get(state, 0)}"
+            for state in ("aligned", "partial", "missing", "unmarked")
+        )
+    )
 
     print()
-    print(f"Design state inconsistencies: {len(inconsistencies)}")
-    if inconsistencies:
-        for issue in inconsistencies:
-            print(f"- {issue}")
+    print(f"Open implementation gaps: {len(open_gaps)}")
+    if open_gaps:
+        for design in sorted(open_gaps, key=lambda item: item.relative_path):
+            print(f"- {design.relative_path}: {design.implementation}")
     else:
         print("(none)")
 
@@ -236,13 +229,7 @@ def main() -> int:
     else:
         print("(none)")
 
-    if warnings:
-        print()
-        print("Warnings:")
-        for warning in warnings:
-            print(f"- {warning}")
-
-    if args.check and (open_mismatches or inconsistencies or changes or warnings):
+    if args.check and (open_gaps or changes):
         return 1
     return 0
 
