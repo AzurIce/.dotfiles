@@ -2,8 +2,8 @@ ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
 agent-default-model:
   provider: opencode-go
-  model: deepseek-v4-flash
-  reasoningEffort: high
+  model: deepseek-v4-pro
+  reasoningEffort: max
 permission:
   defaultPreset: danger-full-access
 agent-presets:

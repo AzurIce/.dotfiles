@@ -1,4 +1,6 @@
 *
+!.agent-presets
+!.agent-presets/**
 !.gitignore
 !settings.yaml
 !profiles
