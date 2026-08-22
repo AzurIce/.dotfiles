@@ -1,13 +1,13 @@
 ui-onboarding:
   welcomeNoticeVersion: 2026-08-13.1
 agent-default-model:
-  provider: deepseek-official
-  model: deepseek-v4-flash
-  reasoningEffort: high
+  provider: poke
+  model: deepseek-v4-pro
+  reasoningEffort: max
 permission:
   defaultPreset: danger-full-access
 agent-presets:
-  default: code
+  default: minimal-nixos
 llm-pi-ai:
   providers:
     openai:
@@ -53,5 +53,45 @@ llm-pi-ai:
           name: DeepSeek V4 Pro
           contextWindow: 1000000
           maxTokens: 384000
+    poke:
+      apiKeyEnv: POKE_API_KEY
+      api: openai-responses
+      baseURL: https://www.poke2api.com
+      models:
+        - id: deepseek-v4-flash
+          name: poke/deepseek-v4-flash
+          contextWindow: 1000000
+          maxTokens: 512000
+          reasoningEfforts:
+            off: null
+            low: low
+            high: high
+            max: max
+        - id: deepseek-v4-pro
+          name: poke/deepseek-v4-pro
+          contextWindow: 1000000
+          maxTokens: 512000
+          reasoningEfforts:
+            off: null
+            low: low
+            high: high
+            max: max
 locale:
   preference: zh
+llm-deepseek:
+  models:
+    - id: deepseek-v4-flash
+      name: DeepSeek-V4-Flash
+      contextWindow: 1000000
+      inputModalities:
+        - text
+    - id: deepseek-v4-pro
+      name: DeepSeek-V4-Pro
+      contextWindow: 1000000
+      inputModalities:
+        - text
+    - id: deepseek-v4-flash-vision-exp
+      name: DeepSeek-V4-Flash-Vision
+      inputModalities:
+        - text
+        - image

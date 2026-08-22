@@ -15,9 +15,8 @@ mode = "dark"
 source = "builtin"
 builtin = "Noctalia"
 
-# NVIDIA 上 ddcutil 扫 I2C 总线可能卡死启动（默认已 false，显式写出以防万一）
 [brightness]
-enable_ddcutil = false
+enable_ddcutil = true
 
 [bar.main]
 position = "top"

@@ -50,7 +50,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("clash-verge")
     -- hl.exec_cmd("syncthingtray --wait")
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_IM_MODULE XMODIFIERS SDL_IM_MODULE")
 end)
 
 
@@ -263,8 +263,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("noctalia msg volume-up"),     {
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("noctalia msg volume-down"),     { locked = true, repeating = true })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("noctalia msg volume-mute"),    { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("noctalia msg mic-mute"),  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("light -A 5"),                              { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("light -U 5"),                             { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl set +5%"),                  { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"),                  { locked = true, repeating = true })
 hl.bind("Print",                hl.dsp.exec_cmd("grimblast copy area"))
 
 
@@ -321,6 +321,27 @@ hl.window_rule({
     name  = "steam-app",
     match = { class = "steam_app_" },
     confine_pointer = true
+})
+
+-- Steam 非商店启动器（终末地 / 诡秘之主）：浮动显示，避免 tiling 强制 resize
+-- 与启动器自绘 UI 的尺寸请求形成正反馈（一拖就膨胀）。
+-- suppress_event 直接忽略 wine 客户端反改窗口大小的 X11 请求，打断膨胀循环；
+-- max_size 兜底。注意：由启动器拉起、继承同一 steam_app_ class 的游戏本体
+-- 也会浮动打开，进游戏后手动全屏即可。
+hl.window_rule({
+    name  = "steam-launcher-float",
+    match = { class = "steam_app_(2401871547|2890382219)" },
+    float = true,
+    suppress_event = "x11configurerequest",
+    max_size = { 1920, 1200 },
+})
+
+-- wine 启动器的隐藏辅助窗口（标题为空的空白小窗）：藏进 special workspace。
+-- title 用 negative 匹配（空标题无法被 ^$ 匹配到——实现上直接跳过）。
+hl.window_rule({
+    name      = "steam-launcher-helper-hide",
+    match     = { class = "steam_app_(2401871547|2890382219)", title = "negative:.+" },
+    workspace = "special:wine-helper silent",
 })
 
 ----------------------
