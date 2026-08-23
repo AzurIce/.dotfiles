@@ -61,7 +61,7 @@ llm-pi-ai:
         - id: deepseek-v4-flash
           name: poke/deepseek-v4-flash
           contextWindow: 1000000
-          maxTokens: 512000
+          maxTokens: 2048000
           reasoningEfforts:
             off: null
             low: low
@@ -70,7 +70,7 @@ llm-pi-ai:
         - id: deepseek-v4-pro
           name: poke/deepseek-v4-pro
           contextWindow: 1000000
-          maxTokens: 512000
+          maxTokens: 2048000
           reasoningEfforts:
             off: null
             low: low

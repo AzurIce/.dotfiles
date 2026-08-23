@@ -12,6 +12,41 @@
       "baseUrl": "https://code.newcli.com/codex/v1",
       "apiKey": "!echo $ANTHROPIC_API_KEY"
     },
+    "lmstudio": {
+      "baseUrl": "http://192.168.2.11:1234/v1",
+      "api": "openai-completions",
+      "apiKey": "lmstudio",
+      "models": [
+        {
+          "id": "qwen3.8-27b-uncensored-mlx",
+          "name": "Qwen3.8 27B Uncensored (MLX)",
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text"],
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "qwen/qwen3.8-27b",
+          "name": "Qwen3.8 27B",
+          "contextWindow": 262144,
+          "maxTokens": 32768,
+          "input": ["text"],
+          "reasoning": true,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
