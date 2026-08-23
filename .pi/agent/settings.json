@@ -1,7 +1,8 @@
 {
-  "lastChangelogVersion": "0.83.0",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "lmstudio",
+  "defaultModel": "qwen3.8-27b-uncensored-mlx",
+  "enabledModels": ["lmstudio/*", "deepseek/*"],
   "theme": "dark",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
