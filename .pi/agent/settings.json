@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultProvider": "minimax",
+  "defaultModel": "MiniMaxAI/MiniMax-M3",
   "enabledModels": [
     "lmstudio/*",
     "deepseek/*"
