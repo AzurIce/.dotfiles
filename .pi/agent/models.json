@@ -13,17 +13,17 @@
       "apiKey": "!echo $ANTHROPIC_API_KEY"
     },
     "lmstudio": {
-      "baseUrl": "http://192.168.2.11:1234/v1",
+      "baseUrl": "http://192.168.2.52:1234/v1",
       "api": "openai-completions",
       "apiKey": "lmstudio",
       "models": [
         {
           "id": "qwen3.8-27b-uncensored-mlx",
           "name": "Qwen3.8 27B Uncensored (MLX)",
-          "contextWindow": 262144,
-          "maxTokens": 32768,
-          "input": ["text"],
-          "reasoning": true,
+          "contextWindow": 42496,
+          "maxTokens": 8192,
+          "input": ["text", "image"],
+          "reasoning": false,
           "cost": {
             "input": 0,
             "output": 0,
@@ -32,8 +32,8 @@
           }
         },
         {
-          "id": "qwen/qwen3.8-27b",
-          "name": "Qwen3.8 27B",
+          "id": "qwen3.5-9b-mlx",
+          "name": "Qwen3.5 9B (MLX)",
           "contextWindow": 262144,
           "maxTokens": 32768,
           "input": ["text"],
