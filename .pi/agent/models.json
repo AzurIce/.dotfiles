@@ -2,15 +2,109 @@
   "providers": {
     "anthropic": {
       "baseUrl": "https://code.newcli.com/claude/turbo",
-      "apiKey": "!echo $ANTHROPIC_API_KEY"
+      "apiKey": "$ANTHROPIC_API_KEY"
     },
     "google": {
       "baseUrl": "https://code.newcli.com/gemini",
-      "apiKey": "!echo $ANTHROPIC_API_KEY"
+      "apiKey": "$ANTHROPIC_API_KEY"
     },
     "openai": {
       "baseUrl": "https://code.newcli.com/codex/v1",
-      "apiKey": "!echo $ANTHROPIC_API_KEY"
+      "apiKey": "$ANTHROPIC_API_KEY"
+    },
+    "minimax": {
+      "baseUrl": "https://api.gmi-serving.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$GMI_CLOUD_API_KEY",
+      "models": [
+        {
+          "id": "MiniMaxAI/MiniMax-M2.7",
+          "name": "MiniMax M2.7 (GMI Cloud)",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 196608,
+          "maxTokens": 32768,
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.06,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek",
+            "thinkingLevelMap": {
+              "off": null,
+              "minimal": "low",
+              "low": "low",
+              "medium": "medium",
+              "high": "high",
+              "xhigh": "high",
+              "max": "max"
+            }
+          }
+        },
+        {
+          "id": "MiniMaxAI/MiniMax-M3",
+          "name": "MiniMax M3 (GMI Cloud)",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 1048576,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0.6,
+            "output": 2.4,
+            "cacheRead": 0.12,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek",
+            "thinkingLevelMap": {
+              "off": null,
+              "minimal": "low",
+              "low": "low",
+              "medium": "medium",
+              "high": "high",
+              "xhigh": "high",
+              "max": "max"
+            }
+          }
+        },
+        {
+          "id": "MiniMaxAI/MiniMax-M2.5",
+          "name": "MiniMax M2.5 (GMI Cloud)",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "contextWindow": 196608,
+          "maxTokens": 32768,
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "requiresReasoningContentOnAssistantMessages": true,
+            "thinkingFormat": "deepseek",
+            "thinkingLevelMap": {
+              "off": null,
+              "minimal": "low",
+              "low": "low",
+              "medium": "medium",
+              "high": "high",
+              "xhigh": "high",
+              "max": "max"
+            }
+          }
+        }
+      ]
     },
     "lmstudio": {
       "baseUrl": "http://192.168.2.52:1234/v1",
@@ -22,7 +116,10 @@
           "name": "Qwen3.8 27B Uncensored (MLX)",
           "contextWindow": 42496,
           "maxTokens": 8192,
-          "input": ["text", "image"],
+          "input": [
+            "text",
+            "image"
+          ],
           "reasoning": false,
           "cost": {
             "input": 0,
@@ -36,7 +133,9 @@
           "name": "Qwen3.5 9B (MLX)",
           "contextWindow": 262144,
           "maxTokens": 32768,
-          "input": ["text"],
+          "input": [
+            "text"
+          ],
           "reasoning": true,
           "cost": {
             "input": 0,
@@ -50,14 +149,16 @@
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
-      "apiKey": "!echo $DEEPSEEK_API_KEY",
+      "apiKey": "$DEEPSEEK_API_KEY",
       "models": [
         {
           "id": "deepseek-v4-pro",
           "name": "DeepSeek V4 Pro",
           "contextWindow": 1000000,
           "maxTokens": 384000,
-          "input": ["text"],
+          "input": [
+            "text"
+          ],
           "reasoning": true,
           "cost": {
             "input": 1.74,
@@ -82,7 +183,9 @@
           "name": "DeepSeek V4 Flash",
           "contextWindow": 1000000,
           "maxTokens": 384000,
-          "input": ["text"],
+          "input": [
+            "text"
+          ],
           "reasoning": true,
           "cost": {
             "input": 0.14,
@@ -101,6 +204,28 @@
               "xhigh": "max"
             }
           }
+        }
+      ]
+    },
+    "exo": {
+      "baseUrl": "http://192.168.2.52:52415/v1",
+      "api": "openai-completions",
+      "apiKey": "exo",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "thinkingFormat": "qwen"
+      },
+      "models": [
+        {
+          "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
+          "name": "Qwen3.8 27B Uncensored (exo local)",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 262144
         }
       ]
     }
