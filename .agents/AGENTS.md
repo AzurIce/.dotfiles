@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## 合理使用 Nix shell
+
+当需要运行某种工具而系统没有时，如果改系统有 nix，可以查询 nixpkgs 直接 通过
+`nix run nixpkgs:xxx` 或者 `nix shell nixpkgs#xxx -c xxx` 来执行。
+
 ## 资源约束
 
 本机 32 核但内存有限（~29GB），跑 cargo 测试/基准（尤其含 wgpu、bevy 等重依赖
@@ -17,6 +22,6 @@
 推荐写法：
 
 ```bash
-cargo test -j4 -- --test-threads=4
-cargo bench -j4
+cargo test -j8 -- --test-threads=4
+cargo bench -j8
 ```
