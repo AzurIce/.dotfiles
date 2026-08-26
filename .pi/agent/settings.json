@@ -1,11 +1,12 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "openai",
-  "defaultModel": "gpt-5.6-sol",
+  "defaultProvider": "zai-coding-cn",
+  "defaultModel": "glm-5.3-flash",
   "enabledModels": [
     "mlx/**",
     "lmstudio/*",
     "deepseek/*",
+    "zai-coding-cn/glm-5.3-flash",
     "openai/gpt-5.6-*"
   ],
   "theme": "dark",

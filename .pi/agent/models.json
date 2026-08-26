@@ -2,7 +2,7 @@
   "providers": {
     "openai": {
       "baseUrl": "https://www.poke2api.com",
-      "apiKey": "$POKE_API_KEY",
+      "apiKey": "$POKE_API_KEY"
     },
     "minimax": {
       "baseUrl": "https://api.gmi-serving.com/v1",
@@ -161,6 +161,50 @@
               "high": "high",
               "xhigh": "max"
             }
+          }
+        }
+      ]
+    },
+    "zai-coding-cn": {
+      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "glm-5.3-flash",
+          "name": "GLM-5.3 Flash",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": null,
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": "max"
+          },
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "samplingParams": {
+            "temperature": 1,
+            "top_p": 0.95
+          },
+          "cost": {
+            "input": 0.14,
+            "output": 0.44,
+            "cacheRead": 0.03,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "supportsStore": false,
+            "supportsDeveloperRole": false,
+            "supportsReasoningEffort": true,
+            "maxTokensField": "max_tokens",
+            "thinkingFormat": "zai",
+            "zaiToolStream": true
           }
         }
       ]
