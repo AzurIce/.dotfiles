@@ -1,4 +1,4 @@
-model_provider = "fox"
+model_provider = "poke"
 # 可配置gpt-5.4或gpt-5.4
 model = "gpt-5.6-sol"
 # 可配置high medium low
@@ -8,11 +8,9 @@ disable_response_storage = true
 notify = ["/Users/azurice/flakes/.dotfiles/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 service_tier = "default"
 
-# foxcode配置
-[model_providers.fox]
-name = "fox"
-base_url = "https://dm-fox.rjj.cc/codex/v1"
-wire_api = "responses"
+[model_providers.poke]
+name = "poke"
+base_url = "https://www.poke2api.com"
 requires_openai_auth = true
 
 [projects."/Users/azurice"]
@@ -85,6 +83,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/azurice/Files/dimension-factory"]
+trust_level = "trusted"
+
+[projects."/home/azurice/Files/obsidian-notist"]
 trust_level = "trusted"
 
 [tui.model_availability_nux]
