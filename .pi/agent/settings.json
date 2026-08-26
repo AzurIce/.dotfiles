@@ -1,11 +1,12 @@
 {
   "lastChangelogVersion": "0.84.2",
-  "defaultProvider": "minimax",
-  "defaultModel": "MiniMaxAI/MiniMax-M3",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.6-sol",
   "enabledModels": [
     "mlx/**",
     "lmstudio/*",
-    "deepseek/*"
+    "deepseek/*",
+    "openai/gpt-5.6-*"
   ],
   "theme": "dark",
   "defaultThinkingLevel": "high",
