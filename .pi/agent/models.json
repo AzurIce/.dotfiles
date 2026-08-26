@@ -146,6 +146,30 @@
         }
       ]
     },
+    "mlx": {
+      "baseUrl": "http://192.168.2.52:9999/v1",
+      "api": "openai-completions",
+      "apiKey": "mlx",
+      "models": [
+        {
+          "id": "/Users/azurice/Files/_models/orcarouter/Qwen3.8-27B-Uncensored-MLX",
+          "name": "Qwen3.8 27B Uncensored (mlx-vlm local)",
+          "contextWindow": 65536,
+          "maxTokens": 8192,
+          "input": [
+            "text",
+            "image"
+          ],
+          "reasoning": false,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
@@ -204,28 +228,6 @@
               "xhigh": "max"
             }
           }
-        }
-      ]
-    },
-    "exo": {
-      "baseUrl": "http://192.168.2.52:52415/v1",
-      "api": "openai-completions",
-      "apiKey": "exo",
-      "compat": {
-        "supportsDeveloperRole": false,
-        "supportsReasoningEffort": false,
-        "thinkingFormat": "qwen"
-      },
-      "models": [
-        {
-          "id": "orcarouter/Qwen3.8-27B-Uncensored-MLX",
-          "name": "Qwen3.8 27B Uncensored (exo local)",
-          "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 262144
         }
       ]
     }

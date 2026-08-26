@@ -3,6 +3,7 @@
   "defaultProvider": "minimax",
   "defaultModel": "MiniMaxAI/MiniMax-M3",
   "enabledModels": [
+    "mlx/**",
     "lmstudio/*",
     "deepseek/*"
   ],
