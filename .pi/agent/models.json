@@ -1,51 +1,14 @@
 {
   "providers": {
-    "anthropic": {
-      "baseUrl": "https://code.newcli.com/claude/turbo",
-      "apiKey": "$ANTHROPIC_API_KEY"
-    },
-    "google": {
-      "baseUrl": "https://code.newcli.com/gemini",
-      "apiKey": "$ANTHROPIC_API_KEY"
-    },
     "openai": {
-      "baseUrl": "https://code.newcli.com/codex/v1",
-      "apiKey": "$ANTHROPIC_API_KEY"
+      "baseUrl": "https://www.poke2api.com",
+      "apiKey": "$POKE_API_KEY",
     },
     "minimax": {
       "baseUrl": "https://api.gmi-serving.com/v1",
       "api": "openai-completions",
       "apiKey": "$GMI_CLOUD_API_KEY",
       "models": [
-        {
-          "id": "MiniMaxAI/MiniMax-M2.7",
-          "name": "MiniMax M2.7 (GMI Cloud)",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 196608,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.06,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "thinkingLevelMap": {
-              "off": null,
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high",
-              "max": "max"
-            }
-          }
-        },
         {
           "id": "MiniMaxAI/MiniMax-M3",
           "name": "MiniMax M3 (GMI Cloud)",
@@ -59,35 +22,6 @@
             "input": 0.6,
             "output": 2.4,
             "cacheRead": 0.12,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "thinkingLevelMap": {
-              "off": null,
-              "minimal": "low",
-              "low": "low",
-              "medium": "medium",
-              "high": "high",
-              "xhigh": "high",
-              "max": "max"
-            }
-          }
-        },
-        {
-          "id": "MiniMaxAI/MiniMax-M2.5",
-          "name": "MiniMax M2.5 (GMI Cloud)",
-          "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "contextWindow": 196608,
-          "maxTokens": 32768,
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.03,
             "cacheWrite": 0
           },
           "compat": {
