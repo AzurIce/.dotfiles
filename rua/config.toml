@@ -1,16 +1,32 @@
 # rua configuration file
 
-[deepseek]
-# API key supports three formats:
-# 1. Literal (not recommended): api_key = "sk-xxxx"
-# 2. Env var name: api_key = "DEEPSEEK_API_KEY"
-# 3. Shell command (pi-style ! prefix):
-#    api_key = "!echo $DEEPSEEK_API_KEY"
-#    api_key = "!security find-generic-password -s deepseek-api-key -w"
-api_key = "DEEPSEEK_API_KEY"
+# 当前模型：完整 ref "provider/model"，必须指向下面某个 [[providers]]。
+model = "deepseek/deepseek-v4-flash"
 
+# oMLX 本地 server（要用时取消注释，然后改上面的 model）：
+# [[providers]]
+# name = "local"
+# kind = "openai"
+# api_key = "sk-omlx-emfnwccLjTeSXNnVG8WWxJUa"
+# base_url = "http://127.0.0.1:8000/v1"
+# models = ["Qwen3.8-27B-Uncensored-MLX"]
+
+# DeepSeek API：
+[[providers]]
+name = "deepseek"
+kind = "deepseek"
+api_key = "$DEEPSEEK_API_KEY"
 base_url = "https://api.deepseek.com"
-model = "deepseek-v4-pro"
 
-[ui]
-streaming = true
+# GLM Coding Plan（智谱，OpenAI 兼容）。注意 coding plan 是专用端点
+# /api/coding/paas/v4，普通 API 的 /api/paas/v4 会 404。静态 models 表
+# 保证选择器里始终有这两项；key 在 bigmodel.cn 控制台单独创建。
+[[providers]]
+name = "glm"
+kind = "openai"
+api_key = "$ZHIPUAI_API_KEY"
+base_url = "https://open.bigmodel.cn/api/coding/paas/v4"
+models = ["glm-5.3", "glm-5.3-flash"]
+
+[server]
+port = 3080
