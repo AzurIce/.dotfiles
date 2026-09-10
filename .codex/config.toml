@@ -1,6 +1,6 @@
 model_provider = "poke"
 # 可配置gpt-5.4或gpt-5.4
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 # 可配置high medium low
 model_reasoning_effort = "medium"
 disable_response_storage = true
@@ -89,6 +89,18 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Volumes/Files/_ai/charaforge"]
+trust_level = "trusted"
+
+[projects."/Users/azurice/flakes/.dotfiles/.pi/agent"]
+trust_level = "trusted"
+
+[projects."/Volumes/Files/Notist"]
+trust_level = "trusted"
+
+[projects."/Users/azurice/flakes/.dotfiles/.pi"]
+trust_level = "trusted"
+
+[projects."/Users/azurice/flakes"]
 trust_level = "trusted"
 
 [tui.model_availability_nux]

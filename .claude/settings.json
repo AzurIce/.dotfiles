@@ -1,42 +1,27 @@
 {
-  "effortLevel": "high",
-  "enabledPlugins": {
-    "clangd-lsp@claude-plugins-official": true,
-    "document-skills@anthropic-agent-skills": true,
-    "frontend-design@claude-plugins-official": true,
-    "product-tracking-skills@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {
-    "anthropic-agent-skills": {
-      "source": {
-        "repo": "anthropics/skills",
-        "source": "github"
-      }
-    }
-  },
+  "model": "haiku",
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Bash",
         "hooks": [
           {
-            "command": "rtk hook claude",
-            "type": "command"
+            "type": "command",
+            "command": "rtk hook claude"
           }
-        ],
-        "matcher": "Bash"
+        ]
       }
     ],
     "SessionStart": [
       {
+        "matcher": "*",
         "hooks": [
           {
+            "type": "command",
             "command": "bash -c \"h=$HOME/.claude/hooks/herdr-agent-state.sh; [ -f \"$h\" ] && \"$h\" session || true\"",
-            "timeout": 10,
-            "type": "command"
+            "timeout": 10
           }
-        ],
-        "matcher": "*"
+        ]
       },
       {
         "matcher": "*",
@@ -50,11 +35,27 @@
       }
     ]
   },
-  "model": "opus[1m]",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWebFetchPreflight": true,
   "statusLine": {
-    "command": "cc-statusline",
-    "type": "command"
-  }
+    "type": "command",
+    "command": "cc-statusline"
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true,
+    "document-skills@anthropic-agent-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "product-tracking-skills@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
+      }
+    }
+  },
+  "skipWebFetchPreflight": true,
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true
 }
