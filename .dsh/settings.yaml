@@ -7,7 +7,7 @@ agent-default-model:
 permission:
   defaultPreset: danger-full-access
 agent-presets:
-  default: minimal-nixos
+  default: standard
 llm-pi-ai:
   providers:
     openai:
