@@ -45,12 +45,16 @@ hl.env("SDL_IM_MODULE", "fcitx")
 hl.on("hyprland.start", function()
     hl.exec_cmd("wl-paste --watch clipvault store")
     hl.exec_cmd("noctalia")
+    -- 预启动 scratch 终端，class 需与 kitty-scratch window rule 匹配
+    hl.exec_cmd("kitty --class kitty-scratch")
     -- hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("awww-daemon")
+    -- hl.exec_cmd("awww-daemon")
     hl.exec_cmd("fcitx5")
     hl.exec_cmd("clash-verge")
     -- hl.exec_cmd("syncthingtray --wait")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_IM_MODULE XMODIFIERS SDL_IM_MODULE")
+    -- XWayland 按显示器 ID 排序主屏，会把 DP-3(1080p) 当主屏；显式指定带鱼屏为 X11 主屏，游戏才能枚举到 3440x1440
+    hl.exec_cmd("sh -c 'sleep 2 && DISPLAY=:0 xrandr --output DP-4 --primary'")
 end)
 
 
@@ -138,11 +142,12 @@ hl.config({
 
 hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
-hl.animation({ leaf = "windows",    enabled = true, speed = 7,  bezier = "myBezier" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,  bezier = "default", style = "popin 80%" })
-hl.animation({ leaf = "border",     enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "fade",       enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 6,  bezier = "default" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 4,  bezier = "default", style = "slidevert" })
+hl.animation({ leaf = "windows",          enabled = true, speed = 7,  bezier = "myBezier" })
+hl.animation({ leaf = "windowsOut",       enabled = true, speed = 7,  bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "border",           enabled = true, speed = 10, bezier = "default" })
+hl.animation({ leaf = "fade",             enabled = true, speed = 7,  bezier = "default" })
+hl.animation({ leaf = "workspaces",       enabled = true, speed = 6,  bezier = "default" })
 
 
 -----------------
@@ -207,6 +212,7 @@ hl.bind(mainMod .. " + M",      hl.dsp.exit())
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Space",          hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + Space",  hl.dsp.workspace.toggle_special("scratch"))
 hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy"))
 -- hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | satty --filename - --fullscreen"))
 hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | wl-copy"))
@@ -344,6 +350,15 @@ hl.window_rule({
     workspace = "special:wine-helper silent",
 })
 
+-- Scratch 终端：藏在 special:scratch，win+Space 切换显示/收回
+hl.window_rule({
+    name      = "kitty-scratch",
+    match     = { class = "kitty-scratch" },
+    workspace = "special:scratch silent",
+    float     = true,
+    size      = { 2400, 1000 },
+})
+
 ----------------------
 ---- NOCTALIA ----
 ----------------------
@@ -367,3 +382,6 @@ hl.layer_rule({
     blur         = true,
     blur_popups  = true,
 })
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

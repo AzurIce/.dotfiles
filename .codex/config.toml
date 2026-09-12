@@ -103,6 +103,12 @@ trust_level = "trusted"
 [projects."/Users/azurice/flakes"]
 trust_level = "trusted"
 
+[projects."/home/azurice/Files/notist-editor"]
+trust_level = "trusted"
+
+[projects."/home/azurice/Documents/Codex/2026-09-12/new-chat"]
+trust_level = "trusted"
+
 [tui.model_availability_nux]
 "gpt-5.5" = 4
 "gpt-5.6-sol" = 4
@@ -113,13 +119,12 @@ source_type = "local"
 source = "/Users/azurice/flakes/.dotfiles/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-07-19T11:44:41Z"
 source_type = "local"
-source = "/Users/azurice/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+source = "/home/azurice/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
 [desktop]
 conversationDetailMode = "STEPS_COMMANDS"
-ambient-suggestions-enabled = false
+ambient-suggestions-enabled = true
 show-context-window-usage = true
 localeOverride = "zh-CN"
 preventSleepWhileRunning = true
@@ -158,34 +163,30 @@ enabled = true
 
 [mcp_servers.node_repl]
 args = []
-command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+command = "/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/resources/cua_node/bin/node_repl"
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
 NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
-NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
-NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
-NODE_REPL_TRUSTED_CODE_PATHS = "/Users/azurice/.codex"
-CODEX_HOME = "/Users/azurice/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "461c4ba94b821ec805da79c8e8138fe510b1b3358609fc93da47387a2cf3fbf3,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
+NODE_REPL_NODE_MODULE_DIRS = "/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/home/azurice/.codex:/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/resources/cua_node/lib/node_modules"
+CODEX_HOME = "/home/azurice/.codex"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_TINYSKY_ENABLED = "1"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
-NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.715.31925"
-CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+BROWSER_USE_CODEX_APP_VERSION = "26.908.40834"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/azurice/.codex/plugins/cache/openai-bundled/browser/26.908.40834/scripts/browser-service.mjs"}'
+CODEX_CLI_PATH = "/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/resources/codex"
 
-[mcp_servers.computer-use]
-command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
-args = ["mcp"]
-cwd = "."
+[mcp_servers.cua_repl]
+command = "/nix/store/355jf8c1a02ha75r12f42daz49a0as2q-codex-app-26.908.40834/lib/chatgpt/ChatGPT"
 enabled = false
 
 [shell_environment_policy.set]
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "461c4ba94b821ec805da79c8e8138fe510b1b3358609fc93da47387a2cf3fbf3,6d25aa7656feac858f3a3bdaea5bcbab0dbfd426c9de8e6931ce90c399ee8e4f"
-NODE_REPL_TRUSTED_CODE_PATHS = "/Users/azurice/.codex"
 
 [hooks.state]
 
