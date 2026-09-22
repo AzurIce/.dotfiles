@@ -4,6 +4,106 @@
       "baseUrl": "https://www.poke2api.com",
       "apiKey": "$POKE_API_KEY"
     },
+    "stepfun": {
+      "baseUrl": "https://api.stepfun.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$STEP_FUN_API_KEY",
+      "compat": {
+        "supportsStore": false,
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "supportsStrictMode": false,
+        "maxTokensField": "max_tokens"
+      },
+      "models": [
+        {
+          "id": "step-5-preview",
+          "name": "Step 5 Preview",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 7,
+            "output": 20,
+            "cacheRead": 0.35,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "step-3.7-flash",
+          "name": "Step 3.7 Flash",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          },
+          "input": ["text", "image"],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 1.35,
+            "output": 8.1,
+            "cacheRead": 0.27,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "step-3.5-flash-2603",
+          "name": "Step 3.5 Flash 2603 (Agent)",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "xhigh": null,
+            "max": null
+          },
+          "input": ["text"],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0.7,
+            "output": 2.1,
+            "cacheRead": 0.14,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "step-3.5-flash",
+          "name": "Step 3.5 Flash",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": null
+          },
+          "input": ["text"],
+          "contextWindow": 262144,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 0.7,
+            "output": 2.1,
+            "cacheRead": 0.14,
+            "cacheWrite": 0
+          },
+          "compat": {
+            "supportsReasoningEffort": false
+          }
+        }
+      ]
+    },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
       "api": "openai-completions",
