@@ -3,7 +3,11 @@
 # Agent/runtime settings stay in ~/.kimi-code/config.toml.
 
 theme = "auto" # "auto" | "dark" | "light" | custom theme name
+tui_mode = "regular" # "regular" | "fullscreen" ("fullscreen" is experimental)
+render_latex = true # false keeps LaTeX math in assistant messages as raw source
 disable_paste_burst = false # true disables non-bracketed paste-burst fallback
+cache_expiry_hint = false # false disables the "cache expired" dialog on resume / idle submit
+disable_feedback_survey = false # true hides the occasional session rating prompt
 
 [editor]
 command = "" # Empty uses $VISUAL / $EDITOR
@@ -14,3 +18,14 @@ notification_condition = "unfocused" # "unfocused" | "always"
 
 [upgrade]
 auto_install = true # true | false
+
+# [markdown]
+# Draw mermaid code blocks as diagrams in the terminal; "off" keeps highlighted source.
+# mermaid = "final" # "final" | "off"
+
+# [status_line]
+# Pick and order the built-in footer slots: mode, goal, model, tasks, cwd, git, tips
+# items = ["mode","goal","model","tasks","cwd","git","tips"]
+# Or render your own: a command whose first stdout line replaces footer line 1.
+# It receives a JSON snapshot (model, cwd, git, usage, mode) on stdin.
+# command = "~/.kimi-code/statusline.sh"

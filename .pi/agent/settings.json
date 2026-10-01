@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.86.1",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
   "enabledModels": [
@@ -11,11 +11,13 @@
     "openai/gpt-5.6-*",
     "openai/gpt-6-*"
   ],
-  "theme": "dark",
+  "theme": "dark/dark",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "terminal": {
     "showTerminalProgress": true
   },
-  "showCacheMissNotices": false
+  "showCacheMissNotices": true,
+  "defaultProjectTrust": "always",
+  "tuiMode": "fullscreen"
 }

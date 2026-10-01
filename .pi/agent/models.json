@@ -5,7 +5,7 @@
       "apiKey": "$POKE_API_KEY"
     },
     "stepfun": {
-      "baseUrl": "https://api.stepfun.com/v1",
+      "baseUrl": "https://api.stepfun.com/step_plan/v1",
       "api": "openai-completions",
       "apiKey": "$STEP_FUN_API_KEY",
       "compat": {
