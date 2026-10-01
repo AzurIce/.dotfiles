@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sessions": {
+    "01a0eb3e-a2da-70c2-b956-b3c1645d1d22": {
+      "sessionId": "01a0eb3e-a2da-70c2-b956-b3c1645d1d22",
+      "cwd": "/home/azurice/Files/notist-lab",
+      "sessionFile": "/home/azurice/.pi/agent/sessions/--home-azurice-Files-notist-lab--/2026-09-29T03-39-05-819Z_01a0eb3e-a2da-70c2-b956-b3c1645d1d22.jsonl",
+      "updatedAt": "2026-09-30T03:02:16.631Z"
+    },
+    "01a0f178-d3bf-70bf-8368-172038e95907": {
+      "sessionId": "01a0f178-d3bf-70bf-8368-172038e95907",
+      "cwd": "/home/azurice/Files/notist-lab",
+      "sessionFile": "/home/azurice/.pi/agent/sessions/--home-azurice-Files-notist-lab--/2026-09-30T08-40-22-720Z_01a0f178-d3bf-70bf-8368-172038e95907.jsonl",
+      "updatedAt": "2026-09-30T14:34:40.633Z"
+    }
+  }
+}

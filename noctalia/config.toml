@@ -26,3 +26,6 @@ margin_edge = 10
 start = [ "launcher", "workspaces" ]
 center = [ "clock" ]
 end = [ "media", "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
+
+[widget.workspaces]
+style = "regular"

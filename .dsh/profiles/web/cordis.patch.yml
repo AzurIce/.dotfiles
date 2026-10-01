@@ -1,4 +1,199 @@
 # Your patch layer for this dsh profile, applied after every bundle layer:
 # a top-level YAML array of loader patch entries (id-targeted config
 # overrides, disables, and insert lists; `!!js` expressions allowed).
-[]
+- id: ui-settings-general
+  name: "@deepseek-ai/dsh-client-ui-settings-general"
+  config:
+    welcomeNoticeVersion: 2026-09-28.1
+- id: agent-default-model
+  name: "@deepseek-ai/dsh-agent-default-model"
+  config:
+    provider: poke
+    model: gpt-6.1-sol
+    reasoningEffort: high
+- id: permission
+  name: "@deepseek-ai/dsh-permission-presets"
+  config:
+    presets:
+      read-only:
+        sandbox: read-only
+        approval: ask
+      workspace-write:
+        sandbox: workspace-write
+        approval: ask
+      danger-full-access:
+        sandbox: danger-full-access
+        approval: never
+    defaultPreset: danger-full-access
+- id: llm-pi-ai
+  name: "@deepseek-ai/dsh-llm-pi-ai"
+  config:
+    providers:
+      openai:
+        models:
+          - id: gpt-5.6-luna
+            name: GPT-5.6 Luna
+            contextWindow: 272000
+            maxTokens: 128000
+          - id: gpt-5.6-sol
+            name: GPT-5.6 Sol
+            contextWindow: 272000
+            maxTokens: 128000
+          - id: gpt-5.6-terra
+            name: GPT-5.6 Terra
+            contextWindow: 272000
+            maxTokens: 128000
+        baseURL: https://dm-fox.rjj.cc/codex/v1
+      kimi-coding:
+        models:
+          - id: k3
+            name: Kimi K3
+            contextWindow: 1048576
+            maxTokens: 131072
+          - id: k3-256k
+            name: Kimi K3-256K
+            contextWindow: 262144
+            maxTokens: 131072
+          - id: kimi-for-coding
+            name: Kimi K2.7 Code
+            contextWindow: 262144
+            maxTokens: 32768
+          - id: kimi-for-coding-highspeed
+            name: Kimi For Coding HighSpeed
+            contextWindow: 262144
+            maxTokens: 32768
+      poke:
+        apiKeyEnv: POKE_API_KEY
+        api: openai-responses
+        baseURL: https://www.poke2api.com
+        # 模型参数取自 pi-ai 0.99.2 目录（poke 非目录路由，仅作能力参考）。
+        # reasoningEfforts 的键 = 选择器里的等级，值 = 发给网关的拼写；
+        # 目录中为 null / 缺失的等级（minimal、多数模型的 off）一律不声明。
+        models:
+          - id: deepseek-v4-flash
+            name: poke/deepseek-v4-flash
+            contextWindow: 1000000
+            maxTokens: 2048000
+            input:
+              - text
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: deepseek-v4-pro
+            name: poke/deepseek-v4-pro
+            contextWindow: 1000000
+            maxTokens: 2048000
+            input:
+              - text
+            reasoningEfforts:
+              high: high
+              max: max
+          - id: deepseek-v4.1-flash
+            name: deepseek-v4.1-flash
+            contextWindow: 1000000
+            maxTokens: 384000
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
+          - id: gemini-3.8-flash
+            name: gemini-3.8-flash
+            contextWindow: 1048576
+            maxTokens: 65536
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+          - id: claude-opus-5-5
+            name: claude-opus-5-5
+            contextWindow: 1000000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt-6.1-sol
+            name: gpt-6.1-sol
+            contextWindow: 272000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+          - id: gpt-6-astra
+            name: gpt-6-astra
+            contextWindow: 272000
+            maxTokens: 128000
+            input:
+              - text
+              - image
+            reasoningEfforts:
+              low: low
+              medium: medium
+              high: high
+              xhigh: xhigh
+              max: max
+      zai-coding-cn:
+        models:
+          - id: glm-5.3
+            name: GLM-5.3
+            contextWindow: 1000000
+            maxTokens: 131072
+            input:
+              - text
+          - id: glm-5.3-flash
+            name: GLM-5.3-Flash
+            contextWindow: 1000000
+            maxTokens: 131072
+            input:
+              - text
+              - image
+      step-plan:
+        apiKeyEnv: STEP_PLAN_API_KEY
+        api: openai-responses
+        baseURL: https://api.stepfun.com/step_plan/v1
+        models:
+          - id: step-5-preview
+            name: step-5-preview
+            contextWindow: 1024000
+- id: locale
+  name: "@deepseek-ai/dsh-client-locale"
+  config:
+    preference: zh
+- id: ui-chat
+  name: "@deepseek-ai/dsh-client-ui-chat"
+  config:
+    transcriptView: expanded
+    performanceUsage: detailed
+- id: subagent-model-selection-settings
+  name: "@deepseek-ai/dsh-tool-subagent/model-selection-settings"
+  config:
+    enabled: true
+    allowedModels:
+      - provider: poke
+        model: gpt-6.1-sol
+      - provider: zai-coding-cn
+        model: glm-5.3
+      - provider: zai-coding-cn
+        model: glm-5.3-flash
+- id: subagent
+  name: "@deepseek-ai/dsh-subagent"
+  config:
+    maxDepth: 2
