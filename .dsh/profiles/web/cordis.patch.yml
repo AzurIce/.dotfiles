@@ -8,9 +8,9 @@
 - id: agent-default-model
   name: "@deepseek-ai/dsh-agent-default-model"
   config:
-    provider: poke
-    model: gpt-6.1-sol
-    reasoningEffort: high
+    provider: deepseek-official
+    model: deepseek-flash
+    reasoningEffort: max
 - id: permission
   name: "@deepseek-ai/dsh-permission-presets"
   config:
@@ -158,6 +158,12 @@
             maxTokens: 131072
             input:
               - text
+            # 档位取自 experiments/models/glm-5.3.json 的 thinkingLevelMap；
+            # GLM-5.3 只接受 low / high / max（官方默认 max），不声明中间档。
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
           - id: glm-5.3-flash
             name: GLM-5.3-Flash
             contextWindow: 1000000
@@ -165,6 +171,12 @@
             input:
               - text
               - image
+            # 同 glm-5.3：flash 是同族同网关，档位按同表声明。
+            # 注意：flash 的档位表未经独立核验，首次使用 max 前先发 32-token 探针确认。
+            reasoningEfforts:
+              low: low
+              high: high
+              max: max
       step-plan:
         apiKeyEnv: STEP_PLAN_API_KEY
         api: openai-responses
