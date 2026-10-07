@@ -215,6 +215,80 @@ hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Space",          hl.dsp.exec_cmd("rofi -show drun"))
 hl.bind(mainMod .. " + Space",  hl.dsp.workspace.toggle_special("scratch"))
+
+-- 每个普通 workspace 都有一个对应的浮动层：
+--   SUPER + S         显示/隐藏当前 workspace 的浮动层
+--   SUPER + SHIFT + S 将当前窗口移入浮动层，或移回对应的普通 workspace
+local floatingWorkspacePrefix = "float-"
+
+local function floatingWorkspaceName(workspace)
+    if not workspace or workspace.special or not workspace.id then
+        return nil
+    end
+
+    return floatingWorkspacePrefix .. workspace.id
+end
+
+local function normalWorkspaceId(workspace)
+    if not workspace or not workspace.special then
+        return nil
+    end
+
+    local id = workspace.addressable_name:match("^special:float%-(%d+)$")
+    return id and tonumber(id) or nil
+end
+
+hl.bind(mainMod .. " + S", function()
+    local name = floatingWorkspaceName(hl.get_active_workspace())
+    if name then
+        hl.dispatch(hl.dsp.workspace.toggle_special(name))
+    end
+end)
+
+hl.bind(mainMod .. " + SHIFT + S", function()
+    local window = hl.get_active_window()
+    local workspace = window and window.workspace
+    if not workspace then
+        return
+    end
+
+    local targetId = normalWorkspaceId(workspace)
+    if targetId then
+        -- 先恢复平铺，再移回并跟随到特殊工作区名称中记录的普通 workspace。
+        hl.dispatch(hl.dsp.window.float({ action = "off", window = window }))
+        hl.dispatch(hl.dsp.window.move({ workspace = targetId, follow = true, window = window }))
+        return
+    end
+
+    -- 不接管 scratch、wine-helper 等其他 special workspace 中的窗口。
+    if workspace.special then
+        return
+    end
+
+    local name = floatingWorkspaceName(workspace)
+    if name then
+        hl.dispatch(hl.dsp.window.float({ action = "on", window = window }))
+        hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. name, follow = true, window = window }))
+    end
+end)
+
+-- 切换普通 workspace 时收起之前显示的浮动层，保持二者一一对应。
+hl.on("workspace.active", function(workspace)
+    if not workspace or workspace.special or not workspace.id or workspace.monitor ~= hl.get_active_monitor() then
+        return
+    end
+
+    local special = hl.get_active_special_workspace(workspace.monitor)
+    local expected = "special:" .. floatingWorkspacePrefix .. workspace.id
+    if special
+        and special.addressable_name:match("^special:float%-%d+$")
+        and special.addressable_name ~= expected
+    then
+        local name = special.addressable_name:match("^special:(.+)$")
+        hl.dispatch(hl.dsp.workspace.toggle_special(name))
+    end
+end)
+
 hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy"))
 -- hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | satty --filename - --fullscreen"))
 hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | wl-copy"))

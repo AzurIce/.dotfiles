@@ -12,6 +12,18 @@
       "cwd": "/home/azurice/Files/notist-lab",
       "sessionFile": "/home/azurice/.pi/agent/sessions/--home-azurice-Files-notist-lab--/2026-09-30T08-40-22-720Z_01a0f178-d3bf-70bf-8368-172038e95907.jsonl",
       "updatedAt": "2026-09-30T14:34:40.633Z"
+    },
+    "01a10ebf-88b3-71e9-833b-a8190c59b4c9": {
+      "sessionId": "01a10ebf-88b3-71e9-833b-a8190c59b4c9",
+      "cwd": "/home/azurice/Files/celestite",
+      "sessionFile": "/home/azurice/.pi/agent/sessions/--home-azurice-Files-celestite--/2026-10-06T01-06-35-828Z_01a10ebf-88b3-71e9-833b-a8190c59b4c9.jsonl",
+      "updatedAt": "2026-10-06T01:06:35.943Z"
+    },
+    "01a115ad-b220-7295-a527-fbd1fae75013": {
+      "sessionId": "01a115ad-b220-7295-a527-fbd1fae75013",
+      "cwd": "/home/azurice/Files/ranim",
+      "sessionFile": "/home/azurice/.pi/agent/sessions/--home-azurice-Files-ranim--/2026-10-07T09-24-27-296Z_01a115ad-b220-7295-a527-fbd1fae75013.jsonl",
+      "updatedAt": "2026-10-07T09:24:27.402Z"
     }
   }
 }
