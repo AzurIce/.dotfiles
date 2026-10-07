@@ -1,15 +1,13 @@
 {
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.3",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-flash",
   "enabledModels": [
     "mlx/**",
     "lmstudio/*",
     "deepseek/*",
-    "zai-coding-cn/glm-5.3-flash",
-    "stepfun/*",
-    "openai/gpt-5.6-*",
-    "openai/gpt-6-*"
+    "zai-coding-cn/*",
+    "openai/gpt-6.1-*"
   ],
   "theme": "dark/dark",
   "defaultThinkingLevel": "high",
