@@ -1,1 +1,4 @@
 __pycache__
+/.claude/
+/.codex/
+/.pi/agent/settings.json
