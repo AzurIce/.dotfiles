@@ -4,90 +4,40 @@
       "baseUrl": "https://www.poke2api.com",
       "apiKey": "$POKE_API_KEY"
     },
-    "deepseek": {
-      "baseUrl": "https://api.deepseek.com",
+    "stepfun": {
+      "baseUrl": "https://api.stepfun.com/step_plan/v1",
       "api": "openai-completions",
-      "apiKey": "$DEEPSEEK_API_KEY",
+      "apiKey": "$STEP_FUN_API_KEY",
+      "compat": {
+        "supportsStore": false,
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "supportsStrictMode": false,
+        "maxTokensField": "max_tokens"
+      },
       "models": [
         {
-          "id": "deepseek-v4-pro",
-          "name": "DeepSeek V4 Pro",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": [
-            "text"
-          ],
+          "id": "step-5-preview",
+          "name": "Step 5 Preview",
           "reasoning": true,
-          "cost": {
-            "input": 1.74,
-            "output": 3.48,
-            "cacheRead": 0.145,
-            "cacheWrite": 0
+          "thinkingLevelMap": {
+            "minimal": null,
+            "low": "low",
+            "medium": "medium",
+            "high": "high",
+            "xhigh": null,
+            "max": null
           },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "reasoningEffortMap": {
-              "minimal": "high",
-              "low": "high",
-              "medium": "high",
-              "high": "high",
-              "xhigh": "max"
-            }
+          "input": ["text", "image"],
+          "contextWindow": 1000000,
+          "maxTokens": 65536,
+          "cost": {
+            "input": 7,
+            "output": 20,
+            "cacheRead": 0.35,
+            "cacheWrite": 0
           }
         },
-        {
-          "id": "deepseek-v4-flash",
-          "name": "DeepSeek V4 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": [
-            "text"
-          ],
-          "reasoning": true,
-          "cost": {
-            "input": 0.14,
-            "output": 0.28,
-            "cacheRead": 0.028,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "reasoningEffortMap": {
-              "minimal": "high",
-              "low": "high",
-              "medium": "high",
-              "high": "high",
-              "xhigh": "max"
-            }
-          }
-        },
-        {
-          "id": "deepseek-v4.1-flash-expires-on-0910",
-          "name": "DeepSeek V4.1 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": ["text"],
-          "reasoning": true,
-          "cost": {
-            "input": 0.14,
-            "output": 0.28,
-            "cacheRead": 0.028,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "reasoningEffortMap": {
-              "minimal": "high",
-              "low": "high",
-              "medium": "high",
-              "high": "high",
-              "xhigh": "max"
-            }
-          }
-        }
       ]
     },
     "lmstudio": {
@@ -154,49 +104,5 @@
         }
       ]
     },
-    "zai-coding-cn": {
-      "baseUrl": "https://open.bigmodel.cn/api/coding/paas/v4",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "glm-5.3-flash",
-          "name": "GLM-5.3 Flash",
-          "reasoning": true,
-          "thinkingLevelMap": {
-            "off": null,
-            "minimal": null,
-            "low": "low",
-            "medium": null,
-            "high": "high",
-            "xhigh": null,
-            "max": "max"
-          },
-          "input": [
-            "text",
-            "image"
-          ],
-          "contextWindow": 1000000,
-          "maxTokens": 131072,
-          "samplingParams": {
-            "temperature": 1,
-            "top_p": 0.95
-          },
-          "cost": {
-            "input": 0.14,
-            "output": 0.44,
-            "cacheRead": 0.03,
-            "cacheWrite": 0
-          },
-          "compat": {
-            "supportsStore": false,
-            "supportsDeveloperRole": false,
-            "supportsReasoningEffort": true,
-            "maxTokensField": "max_tokens",
-            "thinkingFormat": "zai",
-            "zaiToolStream": true
-          }
-        }
-      ]
-    }
   }
 }
