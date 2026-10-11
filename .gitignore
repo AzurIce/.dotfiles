@@ -19,3 +19,6 @@ fcitx5/rime
 .DS_Store
 assets/
 automatic_backups/
+/.claude/
+/.codex/
+/.pi/agent/settings.json
