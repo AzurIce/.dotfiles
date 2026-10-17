@@ -2,6 +2,12 @@
 -- Original hyprland.conf is kept as a backup.
 
 ------------------
+---- VARIABLES ----
+------------------
+
+local mainMod = "SUPER"
+
+------------------
 ---- MONITORS ----
 ------------------
 
@@ -55,8 +61,127 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_IM_MODULE XMODIFIERS SDL_IM_MODULE")
     -- XWayland 按显示器 ID 排序主屏，会把 DP-3(1080p) 当主屏；显式指定带鱼屏为 X11 主屏，游戏才能枚举到 3440x1440
     hl.exec_cmd("sh -c 'sleep 2 && DISPLAY=:0 xrandr --output DP-4 --primary'")
+
+    applyWorkspaceLabels()
 end)
 
+-- 工作区显示标签向左平移：ws1 显示 "~"，ws2..10 显示 1..9。
+-- id 保持 1..10 不变（rules/窗口规则/脚本都按 id 工作）；bar 显示 name 时生效。
+-- 1..10 均有 persistent rule，workspace 不会被销毁，rename 一次即可保持。
+local function applyWorkspaceLabels()
+    for i = 1, 10 do
+        local label =
+            (i == 1) and "~" or
+            (i == 6) and "G" or
+            (i == 7) and "Z" or
+            (i == 8) and "X" or
+            (i == 9) and "C" or
+            (i == 10) and "0" or tostring(i - 1)
+        hl.dispatch(hl.dsp.workspace.rename({ workspace = i, name = label }))
+    end
+end
+
+-- reload 后 workspace name 会重置为 id，重新应用标签
+hl.on("config.reloaded", applyWorkspaceLabels)
+
+
+-- 每个普通 workspace 都有一个对应的浮动层 special:float-<id>：
+--   SUPER + S         显示/隐藏当前 workspace 的浮动层
+--   SUPER + SHIFT + S 将当前窗口移入浮动层，或移回对应的普通 workspace
+-- follow=true 移入后跟随过去（浮动层）；false 直接藏进去（scratch）
+local function stashIntoSpecial(window, name, follow)
+    hl.dispatch(hl.dsp.window.float({ action = "on", window = window }))
+    hl.dispatch(hl.dsp.window.move({ workspace = name, follow = follow, window = window }))
+end
+
+hl.bind(mainMod .. " + S", function()
+    local ws = hl.get_active_workspace()
+    if ws and ws.id and not ws.special then
+        hl.dispatch(hl.dsp.workspace.toggle_special("float-" .. ws.id))
+    end
+end)
+
+hl.bind(mainMod .. " + SHIFT + S", function()
+    local window = hl.get_active_window()
+    local ws = window and window.workspace
+    if not ws then
+        return
+    end
+
+    -- 在浮动层中：恢复平铺，移回层名中记录的普通 workspace
+    local homeId = ws.special and ws.addressable_name:match("^special:float%-(%d+)$")
+    if homeId then
+        hl.dispatch(hl.dsp.window.float({ action = "off", window = window }))
+        hl.dispatch(hl.dsp.window.move({ workspace = tonumber(homeId), follow = true, window = window }))
+    elseif not ws.special then
+        -- 不接管 scratch、wine-helper 等其他 special workspace 中的窗口
+        stashIntoSpecial(window, "special:float-" .. ws.id, true)
+    end
+end)
+
+-- 切换普通 workspace 时收起之前显示的浮动层，保持二者一一对应
+hl.on("workspace.active", function(workspace)
+    if not workspace or workspace.special or not workspace.id or workspace.monitor ~= hl.get_active_monitor() then
+        return
+    end
+
+    local special = hl.get_active_special_workspace(workspace.monitor)
+    local shown = special and special.addressable_name:match("^special:(float%-%d+)$")
+    if shown and shown ~= "float-" .. workspace.id then
+        hl.dispatch(hl.dsp.workspace.toggle_special(shown))
+    end
+end)
+
+hl.bind(mainMod .. " + Space", hl.dsp.workspace.toggle_special("scratch"))
+
+-- 把当前窗口丢进 scratch
+hl.bind(mainMod .. " + SHIFT + Space", function()
+    local window = hl.get_active_window()
+    if window then
+        stashIntoSpecial(window, "special:scratch", false)
+    end
+end)
+
+local function bindWorkspace(i, key)
+    hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+end
+
+-- 键位向左平移：SUPER+` → workspace 1，SUPER+1 → workspace 2，…，SUPER+9 → workspace 10
+-- 与 hyprland.start 中的 renameworkspace 对应：bar 上显示为 ~ 1 2 … 9
+-- keys:
+-- ~ 1 2 3 4
+-- g
+-- z x c
+-- 0
+local workspaceKeys = { "grave", "1", "2", "3", "4",  "g", "z", "x", "c", "0" }
+for i, key in ipairs(workspaceKeys) do
+    bindWorkspace(i, key)
+end
+
+-------------------------
+---- WORKSPACE RULES ----
+-------------------------
+
+local philips = "desc:Philips Consumer Electronics Company PHL 345M1CR UK02107000363"
+local dell    = "desc:Dell Inc. DELL P2314H HMJ1V739CH9B"
+
+for i = 1, 9 do
+    hl.workspace_rule({
+        workspace = tostring(i),
+        monitor   = philips,
+        default   = (i == 1),
+        persistent = true, -- Noctalia 工作区指示器：空工作区也保持可见
+    })
+end
+
+hl.workspace_rule({
+    workspace = "10",
+    monitor   = dell,
+    default   = true,
+    persistent = true,
+    layout = "scrolling"
+})
 
 -----------------
 ---- INPUT ----
@@ -160,9 +285,6 @@ hl.config({
     }
 })
 
-
-
-
 ------------------
 ---- GESTURES ----
 ------------------
@@ -176,7 +298,6 @@ hl.config({
         workspace_swipe_create_new       = false,
     }
 })
-
 
 --------------
 ---- MISC ----
@@ -194,14 +315,6 @@ hl.config({
     }
 })
 
-
-------------------
----- VARIABLES ----
-------------------
-
-local mainMod = "SUPER"
-
-
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -214,80 +327,6 @@ hl.bind(mainMod .. " + M",      hl.dsp.exit())
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd("nautilus"))
 hl.bind(mainMod .. " + V",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + Space",          hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mainMod .. " + Space",  hl.dsp.workspace.toggle_special("scratch"))
-
--- 每个普通 workspace 都有一个对应的浮动层：
---   SUPER + S         显示/隐藏当前 workspace 的浮动层
---   SUPER + SHIFT + S 将当前窗口移入浮动层，或移回对应的普通 workspace
-local floatingWorkspacePrefix = "float-"
-
-local function floatingWorkspaceName(workspace)
-    if not workspace or workspace.special or not workspace.id then
-        return nil
-    end
-
-    return floatingWorkspacePrefix .. workspace.id
-end
-
-local function normalWorkspaceId(workspace)
-    if not workspace or not workspace.special then
-        return nil
-    end
-
-    local id = workspace.addressable_name:match("^special:float%-(%d+)$")
-    return id and tonumber(id) or nil
-end
-
-hl.bind(mainMod .. " + S", function()
-    local name = floatingWorkspaceName(hl.get_active_workspace())
-    if name then
-        hl.dispatch(hl.dsp.workspace.toggle_special(name))
-    end
-end)
-
-hl.bind(mainMod .. " + SHIFT + S", function()
-    local window = hl.get_active_window()
-    local workspace = window and window.workspace
-    if not workspace then
-        return
-    end
-
-    local targetId = normalWorkspaceId(workspace)
-    if targetId then
-        -- 先恢复平铺，再移回并跟随到特殊工作区名称中记录的普通 workspace。
-        hl.dispatch(hl.dsp.window.float({ action = "off", window = window }))
-        hl.dispatch(hl.dsp.window.move({ workspace = targetId, follow = true, window = window }))
-        return
-    end
-
-    -- 不接管 scratch、wine-helper 等其他 special workspace 中的窗口。
-    if workspace.special then
-        return
-    end
-
-    local name = floatingWorkspaceName(workspace)
-    if name then
-        hl.dispatch(hl.dsp.window.float({ action = "on", window = window }))
-        hl.dispatch(hl.dsp.window.move({ workspace = "special:" .. name, follow = true, window = window }))
-    end
-end)
-
--- 切换普通 workspace 时收起之前显示的浮动层，保持二者一一对应。
-hl.on("workspace.active", function(workspace)
-    if not workspace or workspace.special or not workspace.id or workspace.monitor ~= hl.get_active_monitor() then
-        return
-    end
-
-    local special = hl.get_active_special_workspace(workspace.monitor)
-    local expected = "special:" .. floatingWorkspacePrefix .. workspace.id
-    if special
-        and special.addressable_name:match("^special:float%-%d+$")
-        and special.addressable_name ~= expected
-    then
-        local name = special.addressable_name:match("^special:(.+)$")
-        hl.dispatch(hl.dsp.workspace.toggle_special(name))
-    end
-end)
 
 hl.bind(mainMod .. "+ SHIFT + V", hl.dsp.exec_cmd("clipvault list | rofi -dmenu -display-columns 2 | clipvault get | wl-copy"))
 -- hl.bind("CTRL + SHIFT + S",     hl.dsp.exec_cmd("wayshot - -g | satty --filename - --fullscreen"))
@@ -296,7 +335,7 @@ hl.bind("CTRL + SHIFT + A",     hl.dsp.exec_cmd("wl-paste | satty --filename -")
 hl.bind(mainMod .. " + F",      hl.dsp.window.fullscreen())
 
 -- Groups
-hl.bind(mainMod .. " + G",           hl.dsp.group.toggle())
+hl.bind(mainMod .. " + T",           hl.dsp.group.toggle())
 hl.bind(mainMod .. " + P",           hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + Tab",         hl.dsp.group.next())
 hl.bind(mainMod .. " + SHIFT + Tab", hl.dsp.group.prev())
@@ -308,16 +347,10 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "u" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }))
 
 -- Workspaces
-for i = 1, 10 do
-    local key = i % 10
-    hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
-end
-
-hl.bind(mainMod .. " + bracketleft",  hl.dsp.focus({ workspace = "-1" }))
-hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.window.move({ workspace = "-1" }))
-hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.move({ workspace = "+1" }))
+-- hl.bind(mainMod .. " + bracketleft",  hl.dsp.focus({ workspace = "-1" }))
+-- hl.bind(mainMod .. " + bracketright", hl.dsp.focus({ workspace = "+1" }))
+-- hl.bind(mainMod .. " + SHIFT + bracketleft",  hl.dsp.window.move({ workspace = "-1" }))
+-- hl.bind(mainMod .. " + SHIFT + bracketright", hl.dsp.window.move({ workspace = "+1" }))
 
 -- hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 -- hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
@@ -333,8 +366,8 @@ end
 
 hl.bind(mainMod .. " + mouse_down", onlyOnScrolling(hl.dsp.layout("move +col")))
 hl.bind(mainMod .. " + mouse_up",   onlyOnScrolling(hl.dsp.layout("move -col")))
-hl.bind(mainMod .. " + SHIFT + mouse_down", onlyOnScrolling(hl.dsp.layout("colresize -0.25")))
-hl.bind(mainMod .. " + SHIFT + mouse_up",   onlyOnScrolling(hl.dsp.layout("colresize +0.25")))
+-- hl.bind(mainMod .. " + SHIFT + mouse_down", onlyOnScrolling(hl.dsp.layout("colresize -0.25")))
+-- hl.bind(mainMod .. " + SHIFT + mouse_up",   onlyOnScrolling(hl.dsp.layout("colresize +0.25")))
 
 -- Mouse binds
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -348,38 +381,6 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("noctalia msg mic-mute"),  { loc
 hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl set +5%"),                  { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"),                  { locked = true, repeating = true })
 hl.bind("Print",                hl.dsp.exec_cmd("grimblast copy area"))
-
-
--------------------------
----- WORKSPACE RULES ----
--------------------------
-
-local philips = "desc:Philips Consumer Electronics Company PHL 345M1CR UK02107000363"
-local dell    = "desc:Dell Inc. DELL P2314H HMJ1V739CH9B"
-
-for i = 1, 8 do
-    hl.workspace_rule({
-        workspace = tostring(i),
-        monitor   = philips,
-        default   = (i == 1),
-        persistent = true, -- Noctalia 工作区指示器：空工作区也保持可见
-    })
-end
-
-hl.workspace_rule({
-    workspace = "9",
-    monitor   = dell,
-    default   = true,
-    persistent = true,
-    layout = "scrolling"
-})
-
-hl.workspace_rule({
-    workspace = "10",
-    monitor   = philips,
-    default   = false,
-    persistent = true,
-})
 
 
 ----------------------

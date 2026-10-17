@@ -27,5 +27,8 @@ start = [ "launcher", "workspaces" ]
 center = [ "clock" ]
 end = [ "media", "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "control-center", "session" ]
 
+# 显示 workspace name 而非 id：配合 hyprland.lua 启动时的 renameworkspace，
+# bar 上工作区标签左移显示为 ~ 1 2 … 9（ws1 → ~，ws2..10 → 1..9）
 [widget.workspaces]
 style = "regular"
+label_source = "name"
