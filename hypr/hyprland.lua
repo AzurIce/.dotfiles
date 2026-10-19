@@ -436,6 +436,14 @@ hl.window_rule({
     size      = { 2400, 1000 },
 })
 
+-- gamescope (终末地 MaaEnd 自动化)：固定 1920x1080 浮窗，防止平铺改大小破坏画面识别
+hl.window_rule({
+    name  = "gamescope",
+    match = { class = "gamescope" },
+    float = true,
+    size  = { 1920, 1080 },
+})
+
 ----------------------
 ---- NOCTALIA ----
 ----------------------
