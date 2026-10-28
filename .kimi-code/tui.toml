@@ -7,7 +7,6 @@ tui_mode = "regular" # "regular" | "fullscreen" ("fullscreen" is experimental)
 render_latex = true # false keeps LaTeX math in assistant messages as raw source
 disable_paste_burst = false # true disables non-bracketed paste-burst fallback
 cache_expiry_hint = false # false disables the "cache expired" dialog on resume / idle submit
-disable_feedback_survey = false # true hides the occasional session rating prompt
 
 [editor]
 command = "" # Empty uses $VISUAL / $EDITOR
