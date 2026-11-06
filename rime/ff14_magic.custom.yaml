@@ -1,0 +1,12 @@
+# FF14 魔光键影: full pinyin and syllable initials, alongside normal input.
+patch:
+  "engine/translators/@next": table_translator@ff14_magic
+  ff14_magic:
+    dictionary: ""
+    user_dict: ff14_magic
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: false
+    initial_quality: 10
+    comment_format:
+      - xform/^.*$/〔魔光〕/

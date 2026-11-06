@@ -1,0 +1,7 @@
+# Rime table
+# encoding: utf-8
+# @phrase	code	weight
+
+# 範例：自訂短語
+# 只要輸入 mail，就會出現「example@example.com」
+# example@example.com	mail	1
