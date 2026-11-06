@@ -1,0 +1,18 @@
+# OpenChamber 的配置/数据根目录（~/.config/openchamber 的 out-of-store 链接目标）。
+#
+# 只有 preferences.json 是可移植的用户 profile（settings-registry 里 scope=profile
+# 的键：主题、locale、模型收藏、渲染模式、键位……），跟着 git 在多机之间同步。
+#
+# 其余一律不跟踪：
+#   settings.json        instance/device 作用域的逐机事实（homeDirectory、端口、
+#                        窗口状态、projects、desktopUiPassword、
+#                        desktopLocalClientToken……），且含密钥
+#   chats/ projects/ goals/ session-*   会话数据
+#   message-search.sqlite、skills-*cache   缓存/索引
+#   speech-models/       语音模型（~600MB）
+#   jwt-secret、relay-identity.json、remote-clients.json、ui-passkeys.json   密钥
+#
+# 通配忽略 + 白名单：上游以后新增的文件默认不进 git，避免误提交会话/密钥。
+*
+!.gitignore
+!preferences.json

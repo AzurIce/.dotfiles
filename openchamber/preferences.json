@@ -1,0 +1,228 @@
+{
+  "version": 1,
+  "fields": {
+    "lightThemeId": {
+      "updatedAt": 1793166748919,
+      "value": "openchamber-light"
+    },
+    "darkThemeId": {
+      "updatedAt": 1793166748919,
+      "value": "openchamber-dark"
+    },
+    "notifyOnSubtasks": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnCompletion": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnError": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnQuestion": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notificationTemplates": {
+      "updatedAt": 1793166748919,
+      "value": {
+        "completion": {
+          "title": "",
+          "message": ""
+        },
+        "error": {
+          "title": "",
+          "message": ""
+        },
+        "question": {
+          "title": "",
+          "message": ""
+        },
+        "subtask": {
+          "title": "",
+          "message": ""
+        }
+      }
+    },
+    "locale": {
+      "updatedAt": 1793167602551,
+      "value": "zh-CN"
+    },
+    "themeVariant": {
+      "updatedAt": 1793167613728,
+      "value": "light"
+    },
+    "showReasoningTraces": {
+      "updatedAt": 1793167801350,
+      "value": true
+    },
+    "favoriteModels": {
+      "updatedAt": 1793847414886,
+      "value": [
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol-fast"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Daily-MTP"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6-astra"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
+        },
+        {
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
+        }
+      ]
+    },
+    "recentModels": {
+      "updatedAt": 1793931557003,
+      "value": [
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6-astra"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
+        },
+        {
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol-fast"
+        }
+      ]
+    },
+    "hiddenModels": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "collapsedModelProviders": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "customProviderIcons": {
+      "updatedAt": 1793167768972,
+      "value": {}
+    },
+    "recentAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "favoriteAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "lastSelectedModel": {
+      "updatedAt": 1793890800427,
+      "value": "openai/gpt-6.1-sol"
+    },
+    "recentEfforts": {
+      "updatedAt": 1793847414886,
+      "value": {
+        "deepseek/deepseek-flash": [
+          "default"
+        ],
+        "openai/gpt-6.1-sol": [
+          "low",
+          "max",
+          "default"
+        ],
+        "openai/gpt-6-astra": [
+          "max",
+          "default",
+          "high"
+        ],
+        "openai/gpt-6.1-sol-fast": [
+          "max",
+          "default"
+        ]
+      }
+    },
+    "expandReasoningWhileStreaming": {
+      "updatedAt": 1793167802920,
+      "value": true
+    },
+    "followUpBehavior": {
+      "updatedAt": 1793167869583,
+      "value": "steer"
+    },
+    "largeTextPasteBehavior": {
+      "updatedAt": 1793167884518,
+      "value": "attach"
+    },
+    "savePastedImagesAsFiles": {
+      "updatedAt": 1793167892685,
+      "value": true
+    },
+    "showSplitAssistantMessageActions": {
+      "updatedAt": 1793169065202,
+      "value": false
+    },
+    "chatRenderMode": {
+      "updatedAt": 1793168093949,
+      "value": "live"
+    },
+    "activityRenderMode": {
+      "updatedAt": 1793169068006,
+      "value": "collapsed"
+    },
+    "fileEditorKeymap": {
+      "updatedAt": 1793168555766,
+      "value": "vim"
+    },
+    "sessionTabsEnabled": {
+      "updatedAt": 1793176453504,
+      "value": false
+    },
+    "showTurnChangedFiles": {
+      "updatedAt": 1793169061750,
+      "value": false
+    },
+    "gitChangesViewMode": {
+      "updatedAt": 1793169190716,
+      "value": "tree"
+    },
+    "gitmojiEnabled": {
+      "updatedAt": 1793169193934,
+      "value": false
+    },
+    "providerOrder": {
+      "updatedAt": 1793173057290,
+      "value": [
+        "deepseek",
+        "openai",
+        "opencode",
+        "opencode-go",
+        "kimi-code-plan-cn"
+      ]
+    },
+    "showDeletionDialog": {
+      "updatedAt": 1793180004348,
+      "value": false
+    },
+    "sidebarProjectSortOrder": {
+      "updatedAt": 1793588342688,
+      "value": "recent"
+    }
+  }
+}
