@@ -8,6 +8,44 @@
     { "action": "provider.use", "resource": "minimax-cn-coding-plan", "effect": "deny" }
   ],
   "providers": {
+    "omlx": {
+      "name": "oMLX (192.168.2.10)",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://192.168.2.10:8000/v1",
+        "apiKey": "{file:~/.local/share/opencode/secrets/omlx-192.168.2.10.key}"
+      },
+      "models": {
+        "Qwen3.8-27B-Uncensored-Code-Splash": {
+          "name": "Qwen3.8 27B Uncensored · Code Splash",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"],
+            "reasoning": { "supported": true }
+          },
+          "compatibility": {
+            "reasoningField": "reasoning_content",
+            "maxTokensField": "max_tokens"
+          },
+          "limit": { "context": 73728, "output": 8192 }
+        },
+        "Qwen3.8-27B-Uncensored-Daily-MTP": {
+          "name": "Qwen3.8 27B Uncensored · Daily MTP",
+          "capabilities": {
+            "tools": true,
+            "input": ["text"],
+            "output": ["text"],
+            "reasoning": { "supported": true }
+          },
+          "compatibility": {
+            "reasoningField": "reasoning_content",
+            "maxTokensField": "max_tokens"
+          },
+          "limit": { "context": 40960, "output": 8192 }
+        }
+      }
+    },
     "openai": {
       "models": {
         "chatgpt-image-latest": { "disabled": true },
