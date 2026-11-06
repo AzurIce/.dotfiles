@@ -448,6 +448,36 @@ hl.window_rule({
   workspace = "special:wine-helper silent",
 })
 
+-- umu-launcher（CLI 起的 Windows 游戏，如 `umu-run Launcher.exe`）：
+-- umu 会把 SteamAppId 设成 GAMEID 去掉 "umu-" 后的名字（umu-endfield → endfield），
+-- wine 据此给出 class = steam_app_<名字>；Steam 自己的 appid 是纯数字，
+-- 所以 [a-z].* 只命中 umu 这类命令行启动（注意 hyprland 的 match 是整串匹配，
+-- 不是搜索，所以不能只写 [^0-9]）。内容与上面 steam-launcher-float 一致：
+-- 不浮动就会被 tiling 拉大，而 CEF 自绘 UI 的点击坐标还停在初始尺寸，
+-- 于是变成"只有最开始那块区域能点"。
+hl.window_rule({
+  name           = "umu-launcher-float",
+  match          = { class = "steam_app_[a-z].*", title = "negative:二重螺旋.*" },
+  float          = true,
+  suppress_event = "x11configurerequest",
+  max_size       = { 1920, 1200 },
+})
+
+hl.window_rule({
+  name      = "umu-launcher-helper-hide",
+  match     = { class = "steam_app_[a-z].*", title = "negative:.+" },
+  workspace = "special:wine-helper silent",
+})
+
+-- 二重螺旋的启动器和游戏共用 class；游戏必须正常接收尺寸请求，
+-- 不沿用启动器的 suppress_event / max_size，避免画面和鼠标范围停在旧尺寸。
+hl.window_rule({
+  name      = "duet-night-abyss-window",
+  match     = { class = "steam_app_[a-z].*", title = "二重螺旋.*" },
+  float     = true,
+  workspace = "4 silent", -- 显示名称为 3（Win+3）
+})
+
 -- Scratch 终端：藏在 special:scratch，win+Space 切换显示/收回
 hl.window_rule({
   name      = "kitty-scratch",
