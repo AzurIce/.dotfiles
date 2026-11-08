@@ -88,11 +88,15 @@
       ]
     },
     "recentModels": {
-      "updatedAt": 1793945257941,
+      "updatedAt": 1794110256036,
       "value": [
         {
           "providerID": "deepseek",
           "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "opencode",
+          "modelID": "big-pickle"
         },
         {
           "providerID": "openai",
@@ -101,10 +105,6 @@
         {
           "providerID": "openai",
           "modelID": "gpt-6-astra"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
         },
         {
           "providerID": "openai",
@@ -133,7 +133,7 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1793945535302,
+      "updatedAt": 1794110256036,
       "value": "deepseek/deepseek-flash"
     },
     "recentEfforts": {
@@ -223,77 +223,6 @@
     "sidebarProjectSortOrder": {
       "updatedAt": 1793588342688,
       "value": "recent"
-    },
-    "notifyOnPullRequests": {
-      "updatedAt": 1793940662985,
-      "value": true
-    },
-    "lastUsedEfforts": {
-      "updatedAt": 1793941743162,
-      "value": {
-        "openai/gpt-6.1-sol": null,
-        "deepseek/deepseek-flash": null
-      }
-    },
-    "sidebarSections": {
-      "updatedAt": 1793944450060,
-      "value": [
-        {
-          "kind": "builtin",
-          "id": "chats"
-        },
-        {
-          "kind": "builtin",
-          "id": "pinned"
-        },
-        {
-          "kind": "custom",
-          "id": "smw4k7bwcb1vu",
-          "name": "等我处理",
-          "grouping": "time",
-          "filter": {
-            "states": [
-              "needs-answer",
-              "unread"
-            ],
-            "work": [],
-            "pins": [],
-            "kinds": [],
-            "links": [],
-            "projectIds": [],
-            "activity": "any",
-            "text": []
-          },
-          "claims": false,
-          "hideWhenEmpty": true
-        },
-        {
-          "kind": "builtin",
-          "id": "work"
-        },
-        {
-          "kind": "builtin",
-          "id": "projects"
-        }
-      ]
-    },
-    "sidebarKeepWorkInPlace": {
-      "updatedAt": 0,
-      "surfaces": {
-        "desktop": {
-          "value": true,
-          "updatedAt": 1793944430587
-        }
-      }
-    },
-    "sidebarShowWorkSection": {
-      "updatedAt": 0,
-      "surfaces": {
-        "desktop": {
-          "value": false,
-          "updatedAt": 1793944431695
-        }
-      }
     }
   }
 }
