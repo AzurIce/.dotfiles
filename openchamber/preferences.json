@@ -88,8 +88,16 @@
       ]
     },
     "recentModels": {
-      "updatedAt": 1793931557003,
+      "updatedAt": 1794110256036,
       "value": [
+        {
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "opencode",
+          "modelID": "big-pickle"
+        },
         {
           "providerID": "openai",
           "modelID": "gpt-6.1-sol"
@@ -97,14 +105,6 @@
         {
           "providerID": "openai",
           "modelID": "gpt-6-astra"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
-        },
-        {
-          "providerID": "deepseek",
-          "modelID": "deepseek-flash"
         },
         {
           "providerID": "openai",
@@ -133,8 +133,8 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1793890800427,
-      "value": "openai/gpt-6.1-sol"
+      "updatedAt": 1794110256036,
+      "value": "deepseek/deepseek-flash"
     },
     "recentEfforts": {
       "updatedAt": 1793847414886,
