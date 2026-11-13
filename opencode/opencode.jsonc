@@ -1,5 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "worktree": {
+    "directory": "~/Files/worktrees"
+  },
   "policies": [
     { "action": "provider.use", "resource": "kimi-code-plan-global", "effect": "deny" },
     { "action": "provider.use", "resource": "minimax", "effect": "deny" },
@@ -124,6 +127,141 @@
         "text-embedding-3-large": { "disabled": true },
         "text-embedding-3-small": { "disabled": true },
         "text-embedding-ada-002": { "disabled": true }
+      }
+    },
+    "poke": {
+      "name": "PokeAPI",
+      "package": "aisdk:@ai-sdk/openai-compatible",
+      "settings": {
+        "baseURL": "https://www.poke2api.com"
+      },
+      "models": {
+        "gpt-image-2": {
+          "modelID": "gpt-image-2",
+          "name": "GPT Image 2",
+          "type": "image",
+          "package": "aisdk:@opencode/ai/providers/openai/images",
+          "settings": {
+            "baseURL": "https://www.poke2api.com/v1"
+          },
+          "capabilities": {
+            "tools": false,
+            "input": ["text", "image"],
+            "output": ["image"]
+          }
+        },
+        "gpt-image-2.5-sunburst": {
+          "modelID": "gpt-image-2.5-sunburst",
+          "name": "GPT Image 2.5 Sunburst",
+          "type": "image",
+          "package": "aisdk:@opencode/ai/providers/openai/images",
+          "settings": {
+            "baseURL": "https://www.poke2api.com/v1"
+          },
+          "capabilities": {
+            "tools": false,
+            "input": ["text", "image"],
+            "output": ["image"]
+          }
+        },
+        "gpt-image-2.5-flare": {
+          "modelID": "gpt-image-2.5-flare",
+          "name": "GPT Image 2.5 Flare",
+          "type": "image",
+          "package": "aisdk:@opencode/ai/providers/openai/images",
+          "settings": {
+            "baseURL": "https://www.poke2api.com/v1"
+          },
+          "capabilities": {
+            "tools": false,
+            "input": ["text", "image"],
+            "output": ["image"]
+          }
+        },
+        "gpt-image-2.6": {
+          "modelID": "gpt-image-2.6",
+          "name": "GPT Image 2.6",
+          "type": "image",
+          "package": "aisdk:@opencode/ai/providers/openai/images",
+          "settings": {
+            "baseURL": "https://www.poke2api.com/v1"
+          },
+          "capabilities": {
+            "tools": false,
+            "input": ["text", "image"],
+            "output": ["image"]
+          }
+        },
+        "claude-opus-5-5": {
+          "modelID": "claude-opus-5-5",
+          "name": "claude-opus-5-5",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "gpt-6-astra": {
+          "modelID": "gpt-6-astra",
+          "name": "gpt-6-astra",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          }
+        },
+        "gpt-6.1-sol": {
+          "modelID": "gpt-6.1-sol",
+          "name": "gpt-6.1-sol",
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          }
+        },
+        "claude-fable-5-2": {
+          "modelID": "claude-fable-5-2",
+          "name": "claude-fable-5-2",
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "gpt-6.2-astra": {
+          "modelID": "gpt-6.2-astra",
+          "name": "gpt-6.2-astra",
+          "capabilities": {
+            "tools": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text",
+              "image"
+            ]
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          }
+        },
+        "gpt-6.2-sol": {
+          "modelID": "gpt-6.2-sol",
+          "name": "gpt-6.2-sol",
+          "capabilities": {
+            "tools": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text",
+              "image"
+            ]
+          },
+          "limit": {
+            "context": 1050000,
+            "output": 128000
+          }
+        }
       }
     }
   }
