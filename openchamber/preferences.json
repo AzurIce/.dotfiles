@@ -88,32 +88,32 @@
       ]
     },
     "recentModels": {
-      "updatedAt": 1794110256036,
+      "updatedAt": 1794502431582,
       "value": [
-        {
-          "providerID": "deepseek",
-          "modelID": "deepseek-flash"
-        },
-        {
-          "providerID": "opencode",
-          "modelID": "big-pickle"
-        },
         {
           "providerID": "openai",
           "modelID": "gpt-6.1-sol"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6-astra"
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol-fast"
+          "providerID": "poke",
+          "modelID": "gpt-6.2-astra"
+        },
+        {
+          "providerID": "poke",
+          "modelID": "claude-fable-5-2"
+        },
+        {
+          "providerID": "poke",
+          "modelID": "gpt-6.2-sol"
         }
       ]
     },
     "hiddenModels": {
-      "updatedAt": 1793167768972,
+      "updatedAt": 1794328185899,
       "value": []
     },
     "collapsedModelProviders": {
@@ -133,16 +133,17 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1794110256036,
-      "value": "deepseek/deepseek-flash"
+      "updatedAt": 1794494685548,
+      "value": "openai/gpt-6.1-sol"
     },
     "recentEfforts": {
-      "updatedAt": 1793847414886,
+      "updatedAt": 1794415306662,
       "value": {
         "deepseek/deepseek-flash": [
           "default"
         ],
         "openai/gpt-6.1-sol": [
+          "xhigh",
           "low",
           "max",
           "default"
@@ -154,6 +155,16 @@
         ],
         "openai/gpt-6.1-sol-fast": [
           "max",
+          "default"
+        ],
+        "poke/claude-fable-5-2": [
+          "high",
+          "default"
+        ],
+        "poke/gpt-6.2-astra": [
+          "default"
+        ],
+        "poke/gpt-6.2-sol": [
           "default"
         ]
       }
@@ -223,6 +234,45 @@
     "sidebarProjectSortOrder": {
       "updatedAt": 1793588342688,
       "value": "recent"
+    },
+    "globalBehaviorPrompt": {
+      "updatedAt": 1794189352006,
+      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
+    },
+    "responseStyleEnabled": {
+      "updatedAt": 1794189352006,
+      "value": false
+    },
+    "responseStylePreset": {
+      "updatedAt": 1794189352006,
+      "value": "concise"
+    },
+    "responseStyleCustomInstructions": {
+      "updatedAt": 1794189352006,
+      "value": ""
+    },
+    "tableCellWrap": {
+      "updatedAt": 1794245994289,
+      "value": false
+    },
+    "notifyOnPullRequests": {
+      "updatedAt": 1794289700686,
+      "value": true
+    },
+    "lastUsedEfforts": {
+      "updatedAt": 1794548532315,
+      "value": {
+        "deepseek/deepseek-flash": null,
+        "openai/gpt-6.1-sol-fast": null,
+        "poke/claude-fable-5-2": "high",
+        "poke/gpt-6.2-astra": null,
+        "poke/gpt-6.2-sol": null,
+        "openai/gpt-6.1-sol": "xhigh"
+      }
+    },
+    "codeBlockLineWrap": {
+      "updatedAt": 1794501120762,
+      "value": false
     }
   }
 }
