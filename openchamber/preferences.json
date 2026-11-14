@@ -59,7 +59,7 @@
       "value": true
     },
     "favoriteModels": {
-      "updatedAt": 1793847414886,
+      "updatedAt": 1794550405499,
       "value": [
         {
           "providerID": "openai",
@@ -78,17 +78,17 @@
           "modelID": "gpt-6-astra"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
-        },
-        {
           "providerID": "deepseek",
           "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
         }
       ]
     },
     "recentModels": {
-      "updatedAt": 1794502431582,
+      "updatedAt": 1794678241734,
       "value": [
         {
           "providerID": "openai",
@@ -99,16 +99,16 @@
           "modelID": "deepseek-flash"
         },
         {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol-fast"
+        },
+        {
           "providerID": "poke",
           "modelID": "gpt-6.2-astra"
         },
         {
           "providerID": "poke",
           "modelID": "claude-fable-5-2"
-        },
-        {
-          "providerID": "poke",
-          "modelID": "gpt-6.2-sol"
         }
       ]
     },
@@ -133,16 +133,17 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1794494685548,
-      "value": "openai/gpt-6.1-sol"
+      "updatedAt": 1794672253963,
+      "value": "deepseek/deepseek-flash"
     },
     "recentEfforts": {
-      "updatedAt": 1794415306662,
+      "updatedAt": 1794644762777,
       "value": {
         "deepseek/deepseek-flash": [
           "default"
         ],
         "openai/gpt-6.1-sol": [
+          "medium",
           "xhigh",
           "low",
           "max",
@@ -252,27 +253,76 @@
       "value": ""
     },
     "tableCellWrap": {
-      "updatedAt": 1794245994289,
-      "value": false
+      "updatedAt": 1794652744282,
+      "value": true
     },
     "notifyOnPullRequests": {
       "updatedAt": 1794289700686,
       "value": true
     },
     "lastUsedEfforts": {
-      "updatedAt": 1794548532315,
+      "updatedAt": 1794672494561,
       "value": {
         "deepseek/deepseek-flash": null,
         "openai/gpt-6.1-sol-fast": null,
         "poke/claude-fable-5-2": "high",
         "poke/gpt-6.2-astra": null,
         "poke/gpt-6.2-sol": null,
-        "openai/gpt-6.1-sol": "xhigh"
+        "openai/gpt-6.1-sol": "medium"
       }
     },
     "codeBlockLineWrap": {
       "updatedAt": 1794501120762,
       "value": false
+    },
+    "sidebarSections": {
+      "updatedAt": 1794657337881,
+      "value": [
+        {
+          "kind": "builtin",
+          "id": "chats"
+        },
+        {
+          "kind": "builtin",
+          "id": "pinned"
+        },
+        {
+          "kind": "custom",
+          "id": "smwevrz747k26",
+          "name": "xiv",
+          "grouping": "project",
+          "filter": {
+            "states": [],
+            "work": [],
+            "pins": [],
+            "kinds": [],
+            "links": [],
+            "projectIds": [
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRi",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRhdGE",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LW1hcmtldA",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvRGFsYW11ZFBsdWdpbnM",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LmdpdGh1Yi5pbw",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYveGl2LWNvbXBhbmlvbg",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9zYWt1cmEtYm90",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvZW9yemVh"
+            ],
+            "folders": [],
+            "activity": "any",
+            "text": []
+          },
+          "claims": true,
+          "hideWhenEmpty": false
+        },
+        {
+          "kind": "builtin",
+          "id": "work"
+        },
+        {
+          "kind": "builtin",
+          "id": "projects"
+        }
+      ]
     }
   }
 }
