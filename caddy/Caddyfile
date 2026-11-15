@@ -1,22 +1,21 @@
-localhost
+{
+	auto_https disable_redirects
+	skip_install_trust
+}
 
-respond "Hello, world!"
+https://azurice.duckdns.org:3250 {
+	tls {
+		issuer acme https://acme-v02.api.letsencrypt.org/directory {
+			dns duckdns {env.DUCKDNS_API_TOKEN} {
+				resolver 1.1.1.1:53
+			}
+			resolvers 1.1.1.1:53 8.8.8.8:53
+		}
+	}
 
-# Caddyfile
-# 配置文档: https://caddyserver.com/docs/caddyfile
+	reverse_proxy 127.0.0.1:7437
+}
 
-# 示例: 本地开发反代
-# project.localhost {
-#     reverse_proxy localhost:3000
-# }
-
-# 示例: 静态文件服务
-# :8080 {
-#     root * /path/to/site
-#     file_server
-# }
-
-# 示例: 带自动 HTTPS 的域名
-# example.com {
-#     reverse_proxy localhost:8080
-# }
+localhost {
+	respond "Hello, world!"
+}

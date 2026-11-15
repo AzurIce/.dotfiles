@@ -2,3 +2,10 @@
 
 !.gitignore
 !opencode.jsonc
+!commands/
+commands/*
+!commands/clean-prose.md
+!prose-cleaning/
+prose-cleaning/*
+!prose-cleaning/SKILL.md
+!prose-cleaning/LICENSE

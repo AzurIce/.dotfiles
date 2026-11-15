@@ -1,29 +1,116 @@
 {
-  "version": 1,
   "fields": {
-    "lightThemeId": {
-      "updatedAt": 1793166748919,
-      "value": "openchamber-light"
+    "activityRenderMode": {
+      "updatedAt": 1793169068006,
+      "value": "collapsed"
+    },
+    "chatRenderMode": {
+      "updatedAt": 1793168093949,
+      "value": "live"
+    },
+    "codeBlockLineWrap": {
+      "updatedAt": 1794501120762,
+      "value": false
+    },
+    "collapsedModelProviders": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "customProviderIcons": {
+      "updatedAt": 1793167768972,
+      "value": {}
     },
     "darkThemeId": {
       "updatedAt": 1793166748919,
       "value": "openchamber-dark"
     },
-    "notifyOnSubtasks": {
-      "updatedAt": 1793166748919,
+    "expandReasoningWhileStreaming": {
+      "updatedAt": 1793167802920,
       "value": true
     },
-    "notifyOnCompletion": {
-      "updatedAt": 1793166748919,
-      "value": true
+    "favoriteAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
     },
-    "notifyOnError": {
-      "updatedAt": 1793166748919,
-      "value": true
+    "favoriteModels": {
+      "updatedAt": 1794550405499,
+      "value": [
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol-fast"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Daily-MTP"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6-astra"
+        },
+        {
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
+        }
+      ]
     },
-    "notifyOnQuestion": {
+    "fileEditorKeymap": {
+      "updatedAt": 1793168555766,
+      "value": "vim"
+    },
+    "followUpBehavior": {
+      "updatedAt": 1793167869583,
+      "value": "steer"
+    },
+    "gitChangesViewMode": {
+      "updatedAt": 1793169190716,
+      "value": "tree"
+    },
+    "gitmojiEnabled": {
+      "updatedAt": 1793169193934,
+      "value": false
+    },
+    "globalBehaviorPrompt": {
+      "updatedAt": 1794189352006,
+      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
+    },
+    "hiddenModels": {
+      "updatedAt": 1794328185899,
+      "value": []
+    },
+    "largeTextPasteBehavior": {
+      "updatedAt": 1793167884518,
+      "value": "attach"
+    },
+    "lastSelectedModel": {
+      "updatedAt": 1794672253963,
+      "value": "deepseek/deepseek-flash"
+    },
+    "lastUsedEfforts": {
+      "updatedAt": 1794672494561,
+      "value": {
+        "deepseek/deepseek-flash": null,
+        "openai/gpt-6.1-sol-fast": null,
+        "poke/claude-fable-5-2": "high",
+        "poke/gpt-6.2-astra": null,
+        "poke/gpt-6.2-sol": null,
+        "openai/gpt-6.1-sol": "medium"
+      }
+    },
+    "lightThemeId": {
       "updatedAt": 1793166748919,
-      "value": true
+      "value": "openchamber-light"
+    },
+    "locale": {
+      "updatedAt": 1793167602551,
+      "value": "zh-CN"
     },
     "notificationTemplates": {
       "updatedAt": 1793166748919,
@@ -46,46 +133,73 @@
         }
       }
     },
-    "locale": {
-      "updatedAt": 1793167602551,
-      "value": "zh-CN"
-    },
-    "themeVariant": {
-      "updatedAt": 1793167613728,
-      "value": "light"
-    },
-    "showReasoningTraces": {
-      "updatedAt": 1793167801350,
+    "notifyOnCompletion": {
+      "updatedAt": 1793166748919,
       "value": true
     },
-    "favoriteModels": {
-      "updatedAt": 1793847414886,
+    "notifyOnError": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnPullRequests": {
+      "updatedAt": 1794289700686,
+      "value": true
+    },
+    "notifyOnQuestion": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnSubtasks": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "providerOrder": {
+      "updatedAt": 1793173057290,
       "value": [
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol-fast"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Daily-MTP"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
-        },
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6-astra"
-        },
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
-        },
-        {
-          "providerID": "deepseek",
-          "modelID": "deepseek-flash"
-        }
+        "deepseek",
+        "openai",
+        "opencode",
+        "opencode-go",
+        "kimi-code-plan-cn"
       ]
+    },
+    "recentAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "recentEfforts": {
+      "updatedAt": 1794644762777,
+      "value": {
+        "deepseek/deepseek-flash": [
+          "default"
+        ],
+        "openai/gpt-6.1-sol": [
+          "medium",
+          "xhigh",
+          "low",
+          "max",
+          "default"
+        ],
+        "openai/gpt-6-astra": [
+          "max",
+          "default",
+          "high"
+        ],
+        "openai/gpt-6.1-sol-fast": [
+          "max",
+          "default"
+        ],
+        "poke/claude-fable-5-2": [
+          "high",
+          "default"
+        ],
+        "poke/gpt-6.2-astra": [
+          "default"
+        ],
+        "poke/gpt-6.2-sol": [
+          "default"
+        ]
+      }
     },
     "recentModels": {
       "updatedAt": 1794723582672,
@@ -112,131 +226,48 @@
         }
       ]
     },
-    "hiddenModels": {
-      "updatedAt": 1793167768972,
-      "value": []
+    "responseStyleCustomInstructions": {
+      "updatedAt": 1794189352006,
+      "value": ""
     },
-    "collapsedModelProviders": {
-      "updatedAt": 1793167768972,
-      "value": []
+    "responseStyleEnabled": {
+      "updatedAt": 1794189352006,
+      "value": false
     },
-    "customProviderIcons": {
-      "updatedAt": 1793167768972,
-      "value": {}
-    },
-    "recentAgents": {
-      "updatedAt": 1793167768972,
-      "value": []
-    },
-    "favoriteAgents": {
-      "updatedAt": 1793167768972,
-      "value": []
-    },
-    "lastSelectedModel": {
-      "updatedAt": 1794110256036,
-      "value": "deepseek/deepseek-flash"
-    },
-    "recentEfforts": {
-      "updatedAt": 1793847414886,
-      "value": {
-        "deepseek/deepseek-flash": [
-          "default"
-        ],
-        "openai/gpt-6.1-sol": [
-          "low",
-          "max",
-          "default"
-        ],
-        "openai/gpt-6-astra": [
-          "max",
-          "default",
-          "high"
-        ],
-        "openai/gpt-6.1-sol-fast": [
-          "max",
-          "default"
-        ]
-      }
-    },
-    "expandReasoningWhileStreaming": {
-      "updatedAt": 1793167802920,
-      "value": true
-    },
-    "followUpBehavior": {
-      "updatedAt": 1793167869583,
-      "value": "steer"
-    },
-    "largeTextPasteBehavior": {
-      "updatedAt": 1793167884518,
-      "value": "attach"
+    "responseStylePreset": {
+      "updatedAt": 1794189352006,
+      "value": "concise"
     },
     "savePastedImagesAsFiles": {
       "updatedAt": 1793167892685,
+      "value": true
+    },
+    "sessionTabsEnabled": {
+      "updatedAt": 1793176453504,
+      "value": false
+    },
+    "showDeletionDialog": {
+      "updatedAt": 1793180004348,
+      "value": false
+    },
+    "showReasoningTraces": {
+      "updatedAt": 1793167801350,
       "value": true
     },
     "showSplitAssistantMessageActions": {
       "updatedAt": 1793169065202,
       "value": false
     },
-    "chatRenderMode": {
-      "updatedAt": 1793168093949,
-      "value": "live"
-    },
-    "activityRenderMode": {
-      "updatedAt": 1793169068006,
-      "value": "collapsed"
-    },
-    "fileEditorKeymap": {
-      "updatedAt": 1793168555766,
-      "value": "vim"
-    },
-    "sessionTabsEnabled": {
-      "updatedAt": 1793176453504,
-      "value": false
-    },
     "showTurnChangedFiles": {
       "updatedAt": 1793169061750,
-      "value": false
-    },
-    "gitChangesViewMode": {
-      "updatedAt": 1793169190716,
-      "value": "tree"
-    },
-    "gitmojiEnabled": {
-      "updatedAt": 1793169193934,
-      "value": false
-    },
-    "providerOrder": {
-      "updatedAt": 1793173057290,
-      "value": [
-        "deepseek",
-        "openai",
-        "opencode",
-        "opencode-go",
-        "kimi-code-plan-cn"
-      ]
-    },
-    "showDeletionDialog": {
-      "updatedAt": 1793180004348,
       "value": false
     },
     "sidebarProjectSortOrder": {
       "updatedAt": 1793588342688,
       "value": "recent"
     },
-    "notifyOnPullRequests": {
-      "updatedAt": 1794111501492,
-      "value": true
-    },
-    "lastUsedEfforts": {
-      "updatedAt": 1794111501492,
-      "value": {
-        "openai/gpt-6.1-sol": null,
-        "deepseek/deepseek-flash": null
-      }
-    },
     "sidebarSections": {
-      "updatedAt": 1794111501492,
+      "updatedAt": 1794657337881,
       "value": [
         {
           "kind": "builtin",
@@ -268,6 +299,34 @@
           "hideWhenEmpty": true
         },
         {
+          "kind": "custom",
+          "id": "smwevrz747k26",
+          "name": "xiv",
+          "grouping": "project",
+          "filter": {
+            "states": [],
+            "work": [],
+            "pins": [],
+            "kinds": [],
+            "links": [],
+            "projectIds": [
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRi",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRhdGE",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LW1hcmtldA",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvRGFsYW11ZFBsdWdpbnM",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LmdpdGh1Yi5pbw",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYveGl2LWNvbXBhbmlvbg",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9zYWt1cmEtYm90",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvZW9yemVh"
+            ],
+            "folders": [],
+            "activity": "any",
+            "text": []
+          },
+          "claims": true,
+          "hideWhenEmpty": false
+        },
+        {
           "kind": "builtin",
           "id": "work"
         },
@@ -276,6 +335,15 @@
           "id": "projects"
         }
       ]
+    },
+    "tableCellWrap": {
+      "updatedAt": 1794652744282,
+      "value": true
+    },
+    "themeVariant": {
+      "updatedAt": 1793167613728,
+      "value": "light"
     }
-  }
+  },
+  "version": 1
 }
