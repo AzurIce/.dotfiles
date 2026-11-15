@@ -88,8 +88,12 @@
       ]
     },
     "recentModels": {
-      "updatedAt": 1794110256036,
+      "updatedAt": 1794723582672,
       "value": [
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
+        },
         {
           "providerID": "deepseek",
           "modelID": "deepseek-flash"
@@ -97,10 +101,6 @@
         {
           "providerID": "opencode",
           "modelID": "big-pickle"
-        },
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
         },
         {
           "providerID": "openai",
@@ -223,6 +223,59 @@
     "sidebarProjectSortOrder": {
       "updatedAt": 1793588342688,
       "value": "recent"
+    },
+    "notifyOnPullRequests": {
+      "updatedAt": 1794111501492,
+      "value": true
+    },
+    "lastUsedEfforts": {
+      "updatedAt": 1794111501492,
+      "value": {
+        "openai/gpt-6.1-sol": null,
+        "deepseek/deepseek-flash": null
+      }
+    },
+    "sidebarSections": {
+      "updatedAt": 1794111501492,
+      "value": [
+        {
+          "kind": "builtin",
+          "id": "chats"
+        },
+        {
+          "kind": "builtin",
+          "id": "pinned"
+        },
+        {
+          "kind": "custom",
+          "id": "smw4k7bwcb1vu",
+          "name": "等我处理",
+          "grouping": "time",
+          "filter": {
+            "states": [
+              "needs-answer",
+              "unread"
+            ],
+            "work": [],
+            "pins": [],
+            "kinds": [],
+            "links": [],
+            "projectIds": [],
+            "activity": "any",
+            "text": []
+          },
+          "claims": false,
+          "hideWhenEmpty": true
+        },
+        {
+          "kind": "builtin",
+          "id": "work"
+        },
+        {
+          "kind": "builtin",
+          "id": "projects"
+        }
+      ]
     }
   }
 }
