@@ -1,116 +1,29 @@
 {
+  "version": 1,
   "fields": {
-    "activityRenderMode": {
-      "updatedAt": 1793169068006,
-      "value": "collapsed"
-    },
-    "chatRenderMode": {
-      "updatedAt": 1793168093949,
-      "value": "live"
-    },
-    "codeBlockLineWrap": {
-      "updatedAt": 1794501120762,
-      "value": false
-    },
-    "collapsedModelProviders": {
-      "updatedAt": 1793167768972,
-      "value": []
-    },
-    "customProviderIcons": {
-      "updatedAt": 1793167768972,
-      "value": {}
+    "lightThemeId": {
+      "updatedAt": 1793166748919,
+      "value": "openchamber-light"
     },
     "darkThemeId": {
       "updatedAt": 1793166748919,
       "value": "openchamber-dark"
     },
-    "expandReasoningWhileStreaming": {
-      "updatedAt": 1793167802920,
+    "notifyOnSubtasks": {
+      "updatedAt": 1793166748919,
       "value": true
     },
-    "favoriteAgents": {
-      "updatedAt": 1793167768972,
-      "value": []
-    },
-    "favoriteModels": {
-      "updatedAt": 1794550405499,
-      "value": [
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol-fast"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Daily-MTP"
-        },
-        {
-          "providerID": "omlx",
-          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
-        },
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6-astra"
-        },
-        {
-          "providerID": "deepseek",
-          "modelID": "deepseek-flash"
-        },
-        {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
-        }
-      ]
-    },
-    "fileEditorKeymap": {
-      "updatedAt": 1793168555766,
-      "value": "vim"
-    },
-    "followUpBehavior": {
-      "updatedAt": 1793167869583,
-      "value": "steer"
-    },
-    "gitChangesViewMode": {
-      "updatedAt": 1793169190716,
-      "value": "tree"
-    },
-    "gitmojiEnabled": {
-      "updatedAt": 1793169193934,
-      "value": false
-    },
-    "globalBehaviorPrompt": {
-      "updatedAt": 1794189352006,
-      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
-    },
-    "hiddenModels": {
-      "updatedAt": 1794328185899,
-      "value": []
-    },
-    "largeTextPasteBehavior": {
-      "updatedAt": 1793167884518,
-      "value": "attach"
-    },
-    "lastSelectedModel": {
-      "updatedAt": 1794672253963,
-      "value": "deepseek/deepseek-flash"
-    },
-    "lastUsedEfforts": {
-      "updatedAt": 1794672494561,
-      "value": {
-        "deepseek/deepseek-flash": null,
-        "openai/gpt-6.1-sol-fast": null,
-        "poke/claude-fable-5-2": "high",
-        "poke/gpt-6.2-astra": null,
-        "poke/gpt-6.2-sol": null,
-        "openai/gpt-6.1-sol": "medium"
-      }
-    },
-    "lightThemeId": {
+    "notifyOnCompletion": {
       "updatedAt": 1793166748919,
-      "value": "openchamber-light"
+      "value": true
     },
-    "locale": {
-      "updatedAt": 1793167602551,
-      "value": "zh-CN"
+    "notifyOnError": {
+      "updatedAt": 1793166748919,
+      "value": true
+    },
+    "notifyOnQuestion": {
+      "updatedAt": 1793166748919,
+      "value": true
     },
     "notificationTemplates": {
       "updatedAt": 1793166748919,
@@ -133,77 +46,37 @@
         }
       }
     },
-    "notifyOnCompletion": {
-      "updatedAt": 1793166748919,
+    "locale": {
+      "updatedAt": 1793167602551,
+      "value": "zh-CN"
+    },
+    "themeVariant": {
+      "updatedAt": 1793167613728,
+      "value": "light"
+    },
+    "showReasoningTraces": {
+      "updatedAt": 1793167801350,
       "value": true
     },
-    "notifyOnError": {
-      "updatedAt": 1793166748919,
-      "value": true
-    },
-    "notifyOnPullRequests": {
-      "updatedAt": 1794289700686,
-      "value": true
-    },
-    "notifyOnQuestion": {
-      "updatedAt": 1793166748919,
-      "value": true
-    },
-    "notifyOnSubtasks": {
-      "updatedAt": 1793166748919,
-      "value": true
-    },
-    "providerOrder": {
-      "updatedAt": 1793173057290,
+    "favoriteModels": {
+      "updatedAt": 1794723851740,
       "value": [
-        "deepseek",
-        "openai",
-        "opencode",
-        "opencode-go",
-        "kimi-code-plan-cn"
-      ]
-    },
-    "recentAgents": {
-      "updatedAt": 1793167768972,
-      "value": []
-    },
-    "recentEfforts": {
-      "updatedAt": 1794644762777,
-      "value": {
-        "deepseek/deepseek-flash": [
-          "default"
-        ],
-        "openai/gpt-6.1-sol": [
-          "medium",
-          "xhigh",
-          "low",
-          "max",
-          "default"
-        ],
-        "openai/gpt-6-astra": [
-          "max",
-          "default",
-          "high"
-        ],
-        "openai/gpt-6.1-sol-fast": [
-          "max",
-          "default"
-        ],
-        "poke/claude-fable-5-2": [
-          "high",
-          "default"
-        ],
-        "poke/gpt-6.2-astra": [
-          "default"
-        ],
-        "poke/gpt-6.2-sol": [
-          "default"
-        ]
-      }
-    },
-    "recentModels": {
-      "updatedAt": 1794723582672,
-      "value": [
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol-fast"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Daily-MTP"
+        },
+        {
+          "providerID": "omlx",
+          "modelID": "Qwen3.8-27B-Uncensored-Code-Splash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6-astra"
+        },
         {
           "providerID": "openai",
           "modelID": "gpt-6.1-sol"
@@ -211,6 +84,19 @@
         {
           "providerID": "deepseek",
           "modelID": "deepseek-flash"
+        }
+      ]
+    },
+    "recentModels": {
+      "updatedAt": 1794723851740,
+      "value": [
+        {
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.1-sol"
         },
         {
           "providerID": "opencode",
@@ -226,45 +112,128 @@
         }
       ]
     },
-    "responseStyleCustomInstructions": {
-      "updatedAt": 1794189352006,
-      "value": ""
+    "hiddenModels": {
+      "updatedAt": 1794328185899,
+      "value": []
     },
-    "responseStyleEnabled": {
-      "updatedAt": 1794189352006,
-      "value": false
+    "collapsedModelProviders": {
+      "updatedAt": 1793167768972,
+      "value": []
     },
-    "responseStylePreset": {
-      "updatedAt": 1794189352006,
-      "value": "concise"
+    "customProviderIcons": {
+      "updatedAt": 1793167768972,
+      "value": {}
+    },
+    "recentAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "favoriteAgents": {
+      "updatedAt": 1793167768972,
+      "value": []
+    },
+    "lastSelectedModel": {
+      "updatedAt": 1794672253963,
+      "value": "deepseek/deepseek-flash"
+    },
+    "recentEfforts": {
+      "updatedAt": 1794723851740,
+      "value": {
+        "deepseek/deepseek-flash": [
+          "default"
+        ],
+        "openai/gpt-6.1-sol": [
+          "low",
+          "max",
+          "default"
+        ],
+        "openai/gpt-6-astra": [
+          "max",
+          "default",
+          "high"
+        ],
+        "openai/gpt-6.1-sol-fast": [
+          "max",
+          "default"
+        ]
+      }
+    },
+    "expandReasoningWhileStreaming": {
+      "updatedAt": 1793167802920,
+      "value": true
+    },
+    "followUpBehavior": {
+      "updatedAt": 1793167869583,
+      "value": "steer"
+    },
+    "largeTextPasteBehavior": {
+      "updatedAt": 1793167884518,
+      "value": "attach"
     },
     "savePastedImagesAsFiles": {
       "updatedAt": 1793167892685,
-      "value": true
-    },
-    "sessionTabsEnabled": {
-      "updatedAt": 1793176453504,
-      "value": false
-    },
-    "showDeletionDialog": {
-      "updatedAt": 1793180004348,
-      "value": false
-    },
-    "showReasoningTraces": {
-      "updatedAt": 1793167801350,
       "value": true
     },
     "showSplitAssistantMessageActions": {
       "updatedAt": 1793169065202,
       "value": false
     },
+    "chatRenderMode": {
+      "updatedAt": 1793168093949,
+      "value": "live"
+    },
+    "activityRenderMode": {
+      "updatedAt": 1793169068006,
+      "value": "collapsed"
+    },
+    "fileEditorKeymap": {
+      "updatedAt": 1793168555766,
+      "value": "vim"
+    },
+    "sessionTabsEnabled": {
+      "updatedAt": 1793176453504,
+      "value": false
+    },
     "showTurnChangedFiles": {
       "updatedAt": 1793169061750,
+      "value": false
+    },
+    "gitChangesViewMode": {
+      "updatedAt": 1793169190716,
+      "value": "tree"
+    },
+    "gitmojiEnabled": {
+      "updatedAt": 1793169193934,
+      "value": false
+    },
+    "providerOrder": {
+      "updatedAt": 1793173057290,
+      "value": [
+        "deepseek",
+        "openai",
+        "opencode",
+        "opencode-go",
+        "kimi-code-plan-cn"
+      ]
+    },
+    "showDeletionDialog": {
+      "updatedAt": 1793180004348,
       "value": false
     },
     "sidebarProjectSortOrder": {
       "updatedAt": 1793588342688,
       "value": "recent"
+    },
+    "notifyOnPullRequests": {
+      "updatedAt": 1794289700686,
+      "value": true
+    },
+    "lastUsedEfforts": {
+      "updatedAt": 1794723851740,
+      "value": {
+        "openai/gpt-6.1-sol": null,
+        "deepseek/deepseek-flash": null
+      }
     },
     "sidebarSections": {
       "updatedAt": 1794657337881,
@@ -336,14 +305,29 @@
         }
       ]
     },
+    "codeBlockLineWrap": {
+      "updatedAt": 1794501120762,
+      "value": false
+    },
+    "globalBehaviorPrompt": {
+      "updatedAt": 1794189352006,
+      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
+    },
+    "responseStyleCustomInstructions": {
+      "updatedAt": 1794189352006,
+      "value": ""
+    },
+    "responseStyleEnabled": {
+      "updatedAt": 1794189352006,
+      "value": false
+    },
+    "responseStylePreset": {
+      "updatedAt": 1794189352006,
+      "value": "concise"
+    },
     "tableCellWrap": {
       "updatedAt": 1794652744282,
       "value": true
-    },
-    "themeVariant": {
-      "updatedAt": 1793167613728,
-      "value": "light"
     }
-  },
-  "version": 1
+  }
 }
