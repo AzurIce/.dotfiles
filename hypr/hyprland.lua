@@ -427,6 +427,16 @@ hl.window_rule({
   confine_pointer = true
 })
 
+-- 终末旅途（Unity）：被 tiling 压成竖条后画面停在旧尺寸、点击也失效。
+-- 固定 16:9 浮窗，进游戏后需要全屏按 SUPER+F。
+hl.window_rule({
+  name   = "witch-apocalyptic-journey",
+  match  = { class = "steam_app_3709430" },
+  float  = true,
+  center = true,
+  size   = { 1600, 900 },
+})
+
 -- Steam 非商店启动器（终末地 / 诡秘之主）：浮动显示，避免 tiling 强制 resize
 -- 与启动器自绘 UI 的尺寸请求形成正反馈（一拖就膨胀）。
 -- suppress_event 直接忽略 wine 客户端反改窗口大小的 X11 请求，打断膨胀循环；

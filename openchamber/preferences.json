@@ -59,11 +59,27 @@
       "value": true
     },
     "favoriteModels": {
-      "updatedAt": 1794723851740,
+      "updatedAt": 1795601357122,
       "value": [
         {
+          "providerID": "poke",
+          "modelID": "gemini-4-neon"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-4-neon"
+        },
+        {
           "providerID": "openai",
-          "modelID": "gpt-6.1-sol-fast"
+          "modelID": "gpt-6.2-sol-fast"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.2-astra"
+        },
+        {
+          "providerID": "openai",
+          "modelID": "gpt-6.2-sol"
         },
         {
           "providerID": "omlx",
@@ -78,17 +94,13 @@
           "modelID": "gpt-6-astra"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
-        },
-        {
           "providerID": "deepseek",
           "modelID": "deepseek-flash"
         }
       ]
     },
     "recentModels": {
-      "updatedAt": 1794723851740,
+      "updatedAt": 1795602176092,
       "value": [
         {
           "providerID": "deepseek",
@@ -96,25 +108,122 @@
         },
         {
           "providerID": "openai",
-          "modelID": "gpt-6.1-sol"
+          "modelID": "gpt-6.2-astra"
         },
         {
-          "providerID": "opencode",
-          "modelID": "big-pickle"
+          "providerID": "google",
+          "modelID": "gemini-4-neon"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6-astra"
+          "providerID": "poke",
+          "modelID": "gemini-4-neon"
         },
         {
-          "providerID": "openai",
-          "modelID": "gpt-6.1-sol-fast"
+          "providerID": "kimi-code-plan-cn",
+          "modelID": "k3.1-pro"
         }
       ]
     },
     "hiddenModels": {
-      "updatedAt": 1794328185899,
-      "value": []
+      "updatedAt": 1795263880238,
+      "value": [
+        {
+          "providerID": "google",
+          "modelID": "gemini-4-hydrogen"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-4-carbon"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-4-argon"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.8-flash"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.7-flash"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-flash-latest"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-robotics-er-2-preview"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.5-flash-lite"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-flash-lite-latest"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.6-flash"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.5-flash"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.1-flash-lite"
+        },
+        {
+          "providerID": "google",
+          "modelID": "deep-research-max-preview-04-2026"
+        },
+        {
+          "providerID": "google",
+          "modelID": "deep-research-preview-04-2026"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemma-4-31b-it"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemma-4-26b-a4b-it"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.1-pro-preview-customtools"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3.1-pro-preview"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-pro-latest"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-3-flash-preview"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-2.5-computer-use-preview-10-2025"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-2.5-flash-lite"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-2.5-pro"
+        },
+        {
+          "providerID": "google",
+          "modelID": "gemini-2.5-flash"
+        }
+      ]
     },
     "collapsedModelProviders": {
       "updatedAt": 1793167768972,
@@ -133,16 +242,18 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1794672253963,
+      "updatedAt": 1795601362582,
       "value": "deepseek/deepseek-flash"
     },
     "recentEfforts": {
-      "updatedAt": 1794723851740,
+      "updatedAt": 1795586853640,
       "value": {
         "deepseek/deepseek-flash": [
           "default"
         ],
         "openai/gpt-6.1-sol": [
+          "medium",
+          "xhigh",
           "low",
           "max",
           "default"
@@ -154,6 +265,29 @@
         ],
         "openai/gpt-6.1-sol-fast": [
           "max",
+          "default"
+        ],
+        "poke/claude-fable-5-2": [
+          "high",
+          "default"
+        ],
+        "poke/gpt-6.2-astra": [
+          "high",
+          "default"
+        ],
+        "poke/gpt-6.2-sol": [
+          "default"
+        ],
+        "openai/gpt-6.2-sol": [
+          "default"
+        ],
+        "google/gemini-4-neon": [
+          "default"
+        ],
+        "openai/gpt-6.2-astra": [
+          "default"
+        ],
+        "poke/gemini-4-neon": [
           "default"
         ]
       }
@@ -224,20 +358,56 @@
       "updatedAt": 1793588342688,
       "value": "recent"
     },
+    "globalBehaviorPrompt": {
+      "updatedAt": 1794189352006,
+      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
+    },
+    "responseStyleEnabled": {
+      "updatedAt": 1794189352006,
+      "value": false
+    },
+    "responseStylePreset": {
+      "updatedAt": 1794189352006,
+      "value": "concise"
+    },
+    "responseStyleCustomInstructions": {
+      "updatedAt": 1794189352006,
+      "value": ""
+    },
+    "tableCellWrap": {
+      "updatedAt": 1794652744282,
+      "value": true
+    },
     "notifyOnPullRequests": {
       "updatedAt": 1794289700686,
       "value": true
     },
     "lastUsedEfforts": {
-      "updatedAt": 1794723851740,
+      "updatedAt": 1795586853640,
       "value": {
-        "openai/gpt-6.1-sol": null,
-        "deepseek/deepseek-flash": null
+        "deepseek/deepseek-flash": null,
+        "openai/gpt-6.1-sol-fast": null,
+        "poke/claude-fable-5-2": "high",
+        "poke/gpt-6.2-sol": null,
+        "openai/gpt-6.2-sol": null,
+        "poke/gpt-6.2-astra": null,
+        "google/gemini-4-neon": null,
+        "openai/gpt-6.1-sol": "medium",
+        "openai/gpt-6.2-astra": null,
+        "poke/gemini-4-neon": null
       }
     },
+    "codeBlockLineWrap": {
+      "updatedAt": 1795405641590,
+      "value": true
+    },
     "sidebarSections": {
-      "updatedAt": 1794657337881,
+      "updatedAt": 1795582806550,
       "value": [
+        {
+          "kind": "builtin",
+          "id": "pages"
+        },
         {
           "kind": "builtin",
           "id": "chats"
@@ -245,27 +415,6 @@
         {
           "kind": "builtin",
           "id": "pinned"
-        },
-        {
-          "kind": "custom",
-          "id": "smw4k7bwcb1vu",
-          "name": "等我处理",
-          "grouping": "time",
-          "filter": {
-            "states": [
-              "needs-answer",
-              "unread"
-            ],
-            "work": [],
-            "pins": [],
-            "kinds": [],
-            "links": [],
-            "projectIds": [],
-            "activity": "any",
-            "text": []
-          },
-          "claims": false,
-          "hideWhenEmpty": true
         },
         {
           "kind": "custom",
@@ -279,11 +428,12 @@
             "kinds": [],
             "links": [],
             "projectIds": [
-              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRi",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRhdGE",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LXJlbmRlcmVy",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LWRi",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LW1hcmtldA",
-              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvRGFsYW11ZFBsdWdpbnM",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvaWNleGl2LmdpdGh1Yi5pbw",
+              "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvRGFsYW11ZFBsdWdpbnM",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYveGl2LWNvbXBhbmlvbg",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9zYWt1cmEtYm90",
               "path_L2hvbWUvYXp1cmljZS9GaWxlcy9fZmZ4aXYvZW9yemVh"
@@ -304,30 +454,6 @@
           "id": "projects"
         }
       ]
-    },
-    "codeBlockLineWrap": {
-      "updatedAt": 1794501120762,
-      "value": false
-    },
-    "globalBehaviorPrompt": {
-      "updatedAt": 1794189352006,
-      "value": "如果 ~/.agents/AGENTS.md 存在，确保阅读它\n"
-    },
-    "responseStyleCustomInstructions": {
-      "updatedAt": 1794189352006,
-      "value": ""
-    },
-    "responseStyleEnabled": {
-      "updatedAt": 1794189352006,
-      "value": false
-    },
-    "responseStylePreset": {
-      "updatedAt": 1794189352006,
-      "value": "concise"
-    },
-    "tableCellWrap": {
-      "updatedAt": 1794652744282,
-      "value": true
     }
   }
 }
