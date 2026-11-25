@@ -261,6 +261,67 @@
             "context": 1050000,
             "output": 128000
           }
+        },
+        "gemini-4-carbon": {
+          "modelID": "gemini-4-carbon",
+          "name": "gemini-4-carbon",
+          "capabilities": {
+            "tools": true,
+            "input": [
+              "text",
+              "image",
+              "video",
+              "audio",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ],
+            "temperature": true,
+            "reasoning": {
+              "supported": true,
+              "effort": [
+                "low",
+                "medium",
+                "high"
+              ]
+            }
+          },
+          "limit": {
+            "context": 1048576,
+            "output": 32768
+          }
+        },
+        "gemini-4-neon": {
+          "modelID": "gemini-4-neon",
+          "name": "gemini-4-neon",
+          "capabilities": {
+            "tools": true,
+            "input": [
+              "text",
+              "image",
+              "video",
+              "audio",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ],
+            "temperature": true,
+            "reasoning": {
+              "supported": true,
+              "effort": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ]
+            }
+          },
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          }
         }
       }
     }
