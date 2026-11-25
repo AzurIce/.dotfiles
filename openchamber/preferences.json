@@ -100,22 +100,22 @@
       ]
     },
     "recentModels": {
-      "updatedAt": 1795602176092,
+      "updatedAt": 1795604180761,
       "value": [
         {
-          "providerID": "deepseek",
-          "modelID": "deepseek-flash"
+          "providerID": "poke",
+          "modelID": "gemini-4-neon"
         },
         {
           "providerID": "openai",
           "modelID": "gpt-6.2-astra"
         },
         {
-          "providerID": "google",
-          "modelID": "gemini-4-neon"
+          "providerID": "deepseek",
+          "modelID": "deepseek-flash"
         },
         {
-          "providerID": "poke",
+          "providerID": "google",
           "modelID": "gemini-4-neon"
         },
         {
@@ -242,8 +242,8 @@
       "value": []
     },
     "lastSelectedModel": {
-      "updatedAt": 1795601362582,
-      "value": "deepseek/deepseek-flash"
+      "updatedAt": 1795603793015,
+      "value": "poke/gemini-4-neon"
     },
     "recentEfforts": {
       "updatedAt": 1795586853640,
